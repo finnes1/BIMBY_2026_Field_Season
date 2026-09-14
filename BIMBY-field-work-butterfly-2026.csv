@@ -2,7 +2,7 @@ month,day,week,observer,transect,lat,lon,elevation_m,time_beg,time_end,temp_beg,
 5,24,1,Freya,CHP,48.47404,-123.3768,105,12:44,13:00,17,18,1,sunny,1,4,Papilionidae,Papilio,eurymedon,1,,,,Column 1,Column 2,Column 3
 5,24,1,Freya,CHP,48.47404,-123.3768,105,12:44,13:00,17,18,1,sunny,1,4,Papilionidae,Papilio,rutulus,1,,,,,,
 5,24,1,Freya,CHP,48.47404,-123.3768,105,12:44,13:00,17,18,1,sunny,1,4,Lycaenidae,Celestrina,echo,1,,,,,,
-5,24,1,Freya,BHT,48.4099,-123.3644,40,15:37,13:49,17,17,1,sunny,1,1,NA,NA,NA,0,,,,,,
+5,24,1,Freya,BHT,48.4099,-123.3644,40,15:37,15:49,17,17,1,sunny,1,1,NA,NA,NA,0,,,,,,
 5,24,1,Freya,RBG,48.4935,-123.3822,20,14:26,14:37,17,17,1,cloudy,3,3,NA,NA,NA,0,,,,,,
 5,27,1,Freya,ABR,49.4194,-129.5247,909,12:30,12:46,18,20,1,sunny,0,1,Nymphalidae,Erebia,epipsodea,5,,,,,,
 5,27,1,Freya,ABR,49.4194,-129.5247,909,12:30,12:46,18,20,1,sunny,0,1,Pieridae,NA,NA,2,,,,,,
