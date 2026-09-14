@@ -7,7 +7,7 @@ library(tidyverse)
 #library()
 
 #### READING IN DATA ####
-setwd("~/Desktop/School/Graduate/BIMBY_2026_Field_Season")
+setwd("~/Desktop/School/Graduate/BIMBY_2026_Field_Season/Raw Data")
 
 butterflies_raw <- read_csv("BIMBY-field-work-butterfly-2026.csv")
 flowers_raw <- read_csv("BIMBY-field-work-flowers-2026.csv")
@@ -23,7 +23,7 @@ butterflies_filtered <- butterflies_raw %>% # Making a filtered dataset
          temp_avg >= 15,
          !(weather == "cloudy" & temp_avg < 18)) %>% # Filters for standardised butterfly conditions
   select(month, day, week, observer, transect, lat, lon, elevation_m, time_beg, duration_s,
-         temp_avg, wind_avg, `Air Quality`, weather, family, genus, species, number) 
+         temp_avg, wind_avg, air_quality, weather, family, genus, species, number) 
 
 ggplot(butterflies_filtered, aes(x = transect, y = duration_s, colour = week)) +
   geom_point() +
