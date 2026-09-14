@@ -13,9 +13,8 @@ butterflies_raw <- read_csv("BIMBY-field-work-butterfly-2026.csv")
 flowers_raw <- read_csv("BIMBY-field-work-flowers-2026.csv")
 nectar_raw <- read_csv("BIMBY-field-work-nectaring-2026.csv")
 
-#### FILTER OUT SURVEYS THAT WERE TOO COLD/WINDY ####
-
-butterflies_filtered <- butterflies_raw %>%
+#### FILTER AND DOUBLE CHECK BUTTERFLY SURVEYS ####
+butterflies_filtered <- butterflies_raw %>% # Making a filtered dataset
   select(-starts_with("...")) %>% # Removes junk columns that come with download from Google Sheets
   mutate(temp_avg = (temp_beg + temp_end)/2,
          wind_avg = (wind_beg + wind_end)/2,
@@ -27,6 +26,20 @@ butterflies_filtered <- butterflies_raw %>%
          temp_avg, wind_avg, `Air Quality`, weather, family, genus, species, number) 
 
 ggplot(butterflies_filtered, aes(x = transect, y = duration_s, colour = week)) +
-  geom_point()
+  geom_point() +
+  theme_bw() # checking time data is correctly inputted
+
+butterflies_sum <- butterflies_filtered %>% # Making a dataset with summed total counts for each transect walked
+  
+
+
+
+
+
+
   
   
+
+
+
+#
