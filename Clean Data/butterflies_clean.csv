@@ -1,0 +1,458 @@
+"month","day","week","observer","transect","lat","lon","elevation_m","time_beg","duration_s","temp_avg","wind_avg","air_quality","weather","family","genus","species","number"
+5,24,1,"Freya","CHP",48.47404,-123.3768,105,12:44:00,960,17.5,2.5,1,"sunny","Papilionidae","Papilio","eurymedon",1
+5,24,1,"Freya","CHP",48.47404,-123.3768,105,12:44:00,960,17.5,2.5,1,"sunny","Papilionidae","Papilio","rutulus",1
+5,24,1,"Freya","CHP",48.47404,-123.3768,105,12:44:00,960,17.5,2.5,1,"sunny","Lycaenidae","Celestrina","echo",1
+5,24,1,"Freya","BHT",48.4099,-123.3644,40,15:37:00,720,17,1,1,"sunny",NA,NA,NA,0
+5,27,1,"Freya","ABR",49.4194,-129.5247,909,12:30:00,960,19,0.5,1,"sunny","Nymphalidae","Erebia","epipsodea",5
+5,27,1,"Freya","ABR",49.4194,-129.5247,909,12:30:00,960,19,0.5,1,"sunny","Pieridae",NA,NA,2
+5,27,1,"Freya","ABR",49.4194,-129.5247,909,12:30:00,960,19,0.5,1,"sunny","Lycaenidae","Icaricia","icaroides",7
+5,27,1,"Freya","ABR",49.4194,-129.5247,909,12:30:00,960,19,0.5,1,"sunny","Nymphalidae","Euphydryas","anicia",1
+5,27,1,"Freya","OHRb",49.4224,-120.2571,568,14:46:00,1320,22,0.5,1,"sunny","Nymphalidae","Euphydryas","anicia",33
+5,27,1,"Freya","OHRb",49.4224,-120.2571,568,14:46:00,1320,22,0.5,1,"sunny","Nymphalidae","Limenitis","lorquini",2
+5,27,1,"Freya","OHRb",49.4224,-120.2571,568,14:46:00,1320,22,0.5,1,"sunny","Pieridae","Anthocharis","julia",8
+5,27,1,"Freya","OHRb",49.4224,-120.2571,568,14:46:00,1320,22,0.5,1,"sunny","Nymphalidae","Erebia","epipsodea",3
+5,27,1,"Freya","OHRb",49.4224,-120.2571,568,14:46:00,1320,22,0.5,1,"sunny","Pieridae",NA,NA,2
+5,27,1,"Freya","OHRb",49.4224,-120.2571,568,14:46:00,1320,22,0.5,1,"sunny","Lycaenidae",NA,NA,4
+5,27,1,"Freya","OHRb",49.4224,-120.2571,568,14:46:00,1320,22,0.5,1,"sunny","Lycaenidae","Callophrys","polios",1
+5,27,1,"Freya","OHRb",49.4224,-120.2571,568,14:46:00,1320,22,0.5,1,"sunny","Nymphalidae","Coenonnympha","california",2
+5,28,1,"Freya","KWL",49.3013,-119.6279,571,13:11:00,720,30.5,0.5,1,"sunny","Lycaenidae",NA,NA,8
+5,28,1,"Freya","KWL",49.3013,-119.6279,571,13:11:00,720,30.5,0.5,1,"sunny","Hesperiidae","Polites","sabuleti",1
+5,28,1,"Freya","KWL",49.3013,-119.6279,571,13:11:00,720,30.5,0.5,1,"sunny","Lycaenidae","Icaricia","icaroides",2
+5,28,1,"Freya","KWL",49.3013,-119.6279,571,13:11:00,720,30.5,0.5,1,"sunny","Nymphalidae","Coenonnympha","california",1
+5,28,1,"Freya","RTT",49.0887,-119.5351,287,10:25:00,840,25,3,1,"sunny","Nymphalidae","Aglais","milberti",6
+5,28,1,"Freya","RTT",49.0887,-119.5351,287,10:25:00,840,25,3,1,"sunny","Nymphalidae","Phyciodes","cocyta",6
+5,28,1,"Freya","RTT",49.0887,-119.5351,287,10:25:00,840,25,3,1,"sunny","Lycaenidae",NA,NA,1
+5,28,1,"Freya","RTT",49.0887,-119.5351,287,10:25:00,840,25,3,1,"sunny","Pieridae","Pieris","rapae",1
+5,28,1,"Freya","RTT",49.0887,-119.5351,287,10:25:00,840,25,3,1,"sunny","Pieridae","Colias",NA,1
+5,28,1,"Freya","OKF",49.3384,-119.5804,340,14:49:00,780,30,1.5,1,"sunny",NA,NA,NA,0
+5,31,1,"Freya","BGP",49.0245,-123.0564,5,11:32:00,660,15,3,1,"sunny","Pieridae","Pieris","rapae",1
+5,30,1,"Freya","KPP",50.6698,-120.4153,719,11:25:00,1020,15,2.5,1,"partly cloudy","Papilionidae","Papilio","multicaudata",3
+5,30,1,"Freya","KPP",50.6698,-120.4153,719,11:25:00,1020,15,2.5,1,"partly cloudy","Papilionidae","Papilio",NA,1
+5,30,1,"Freya","KPP",50.6698,-120.4153,719,11:25:00,1020,15,2.5,1,"partly cloudy","Lycaenidae","Glaucopsyche","lygdamus",3
+5,30,1,"Freya","KPP",50.6698,-120.4153,719,11:25:00,1020,15,2.5,1,"partly cloudy","Pieridae","Pontia",NA,2
+5,30,1,"Freya","PSL",50.6633,-120.3285,447,10:15:00,1020,15,2.5,1,"partly cloudy","Nymphalidae","Coenonnympha","california",1
+5,30,1,"Freya","PSL",50.6633,-120.3285,447,10:15:00,1020,15,2.5,1,"partly cloudy","Hesperiidae","Amblyscirtes","vialis",1
+5,30,1,"Freya","PSL",50.6633,-120.3285,447,10:15:00,1020,15,2.5,1,"partly cloudy","Lycaenidae","Glaucopsyche","lygdamus",7
+5,30,1,"Freya","PSL",50.6633,-120.3285,447,10:15:00,1020,15,2.5,1,"partly cloudy","Lycaenidae",NA,NA,1
+6,8,2,"Freya","RTT",49.0887,-119.5351,287,11:54:00,1020,18,2,1,"partly cloudy","Nymphalidae","Phyciodes",NA,1
+6,8,2,"Freya","RTT",49.0887,-119.5351,287,11:54:00,1020,18,2,1,"partly cloudy","Pieridae",NA,NA,5
+6,8,2,"Freya","RTT",49.0887,-119.5351,287,11:54:00,1020,18,2,1,"partly cloudy","Nymphalidae","Algais","milberti",3
+6,8,2,"Freya","OKF",49.3384,-119.5804,340,14:32:00,1200,16,0,1,"partly cloudy","Pieridae",NA,NA,1
+6,8,2,"Freya","OKF",49.3384,-119.5804,340,14:32:00,1200,16,0,1,"partly cloudy","Papilionidae","Papilio",NA,5
+6,8,2,"Freya","OKF",49.3384,-119.5804,340,14:32:00,1200,16,0,1,"partly cloudy","Pieridae","Pieris","rapae",3
+6,8,2,"Freya","KSP",49.3918,-119.5891,322,15:47:00,780,18,0,1,"partly cloudy","Pieridae","Pieris","rapae",1
+6,11,2,"Freya","OHR",49.4214,-120.2563,568,10:22:00,900,18,1.5,1,"sunny","Nymphalidae","Euphydryas","anicia",13
+6,11,2,"Freya","OHR",49.4214,-120.2563,568,10:22:00,900,18,1.5,1,"sunny","Nymphalidae","Limenitis","lorquini",4
+6,11,2,"Freya","OHR",49.4214,-120.2563,568,10:22:00,900,18,1.5,1,"sunny","Papilionidae","Papilio","multicaudata",1
+6,11,2,"Freya","OHR",49.4214,-120.2563,568,10:22:00,900,18,1.5,1,"sunny","Nymphalidae","Coenonnympha","california",1
+6,11,2,"Freya","PBM",49.4421,-120.5734,889,13:56:00,900,18,2,1,"partly cloudy","Nymphalidae","Euphydryas","anicia",25
+6,11,2,"Freya","PBM",49.4421,-120.5734,889,13:56:00,900,18,2,1,"partly cloudy","Hesperiidae","Erynnis",NA,2
+6,11,2,"Freya","PBM",49.4421,-120.5734,889,13:56:00,900,18,2,1,"partly cloudy","Papilionidae","Papilio",NA,1
+6,11,2,"Freya","PBM",49.4421,-120.5734,889,13:56:00,900,18,2,1,"partly cloudy","Nymphalidae","Erebia","epipsodea",2
+6,11,2,"Freya","PBM",49.4421,-120.5734,889,13:56:00,900,18,2,1,"partly cloudy","Lycaenidae","Plebejus","idas",1
+6,11,2,"Freya","PBM",49.4421,-120.5734,889,13:56:00,900,18,2,1,"partly cloudy","Lycaenidae",NA,NA,1
+6,11,2,"Freya","PBM",49.4421,-120.5734,889,13:56:00,900,18,2,1,"partly cloudy","Nymphalidae","Polygonia",NA,1
+6,11,2,"Freya","MGT",49.0625,-120.7986,1185,15:28:00,960,16,2.5,1,"sunny","Hesperiidae","Carterocephalus","skada",1
+6,11,2,"Freya","MGT",49.0625,-120.7986,1185,15:28:00,960,16,2.5,1,"sunny","Papilionidae","Papilio","rutulus",1
+6,12,2,"Freya","CCM",49.1518,-122.0074,12,10:24:00,720,16.5,1,1,"sunny","Papilionidae","Papilio",NA,1
+6,12,2,"Freya","GBH",49.0965,-122.0457,13,11:36:00,720,20,2,1,"sunny",NA,NA,NA,0
+6,12,2,"Freya","PSP",49.2501,-123.1965,85,15:41:00,960,20,1,1,"sunny","Nymphalidae",NA,NA,1
+6,12,2,"Freya","PSP",49.2501,-123.1965,85,15:41:00,960,20,1,1,"sunny","Lycaenidae","Callophyrs",NA,1
+6,12,2,"Freya","PSP",49.2501,-123.1965,85,15:41:00,960,20,1,1,"sunny","Papilionidae","Papilio",NA,2
+6,14,2,"Freya","RBG",48.4935,-123.3822,20,14:44:00,840,27,0,1,"sunny","Nymphalidae","Limetnitis","lorquini",2
+6,14,2,"Freya","BHT",48.4099,-123.3644,40,13:11:00,840,23,0.5,1,"sunny","Pieridae","Pieris","rapae",1
+6,14,2,"Freya","BHT",48.4099,-123.3644,40,13:11:00,840,23,0.5,1,"sunny","Hesperiidae","Thymelicus","lineola",2
+6,14,2,"Freya","HRP",48.4355,-123.4065,74,11:19:00,660,24,1,1,"sunny","Papilionidae","Papilio","rutulus",2
+6,14,2,"Freya","HRP",48.4355,-123.4065,74,11:19:00,660,24,1,1,"sunny","Nymphalidae","Limenitis","lorquini",2
+6,14,2,"Freya","HRP",48.4355,-123.4065,74,11:19:00,660,24,1,1,"sunny","Papilionidae","Papilio","eurymedon",1
+6,14,2,"Freya","CHP",48.47404,-123.3768,105,10:00:00,840,21,1,1,"sunny","Nymphalidae","Limenitis","lorquini",4
+6,14,2,"Freya","CHP",48.47404,-123.3768,105,10:00:00,840,21,1,1,"sunny","Papilionidae","Papilio","rutulus",1
+6,14,2,"Freya","CHP",48.47404,-123.3768,105,10:00:00,840,21,1,1,"sunny","Lycaenidae",NA,NA,1
+6,21,3,"Freya","PSP",49.2501,-123.1965,85,10:16:00,720,18,1,1,"sunny","Papilionidae","Papilio","rutulus",4
+6,21,3,"Freya","PSP",49.2501,-123.1965,85,10:16:00,720,18,1,1,"sunny","Papilionidae","Papilio","eurymedon",1
+6,21,3,"Freya","BGP",49.0245,-123.0564,5,11:57:00,780,20,0.5,1,"sunny","Pieridae","Pieris","rapae",2
+6,21,3,"Freya","BGP",49.0245,-123.0564,5,11:57:00,780,20,0.5,1,"sunny","Hesperiidae","Thymelicus","lineola",1
+6,21,3,"Freya","CCM",49.1518,-122.0074,12,14:08:00,1140,25,2.5,1,"sunny","Pieridae","Pieris","rapae",1
+6,21,3,"Freya","CCM",49.1518,-122.0074,12,14:08:00,1140,25,2.5,1,"sunny","Nymphalidae","Limenitis","lorquini",1
+6,21,3,"Freya","CCM",49.1518,-122.0074,12,14:08:00,1140,25,2.5,1,"sunny","Papilionidae","Papilio","rutulus",1
+6,21,3,"Freya","GBH",49.0965,-122.0457,13,15:13:00,840,26,2.5,1,"sunny","Papilionidae","Papilio","eurymedon",1
+6,22,3,"Freya","BHT",48.4099,-123.3644,40,10:15:00,960,19,1,1,"sunny","Hesperiidae","Thymelicus","lineola",20
+6,22,3,"Freya","HRP",48.4355,-123.4065,74,11:34:00,900,19,0.5,1,"sunny","Nymphalidae","Limenitis","lorquini",5
+6,22,3,"Freya","HRP",48.4355,-123.4065,74,11:34:00,900,19,0.5,1,"sunny","Papilionidae","Papilio","rutulus",7
+6,22,3,"Freya","HRP",48.4355,-123.4065,74,11:34:00,900,19,0.5,1,"sunny","Nymphalidae",NA,NA,2
+6,22,3,"Freya","RBG",48.4935,-123.3822,20,13:03:00,840,26,0.5,1,"sunny","Nymphalidae","Limenitis","lorquini",3
+6,22,3,"Freya","RBG",48.4935,-123.3822,20,13:03:00,840,26,0.5,1,"sunny","Papilionidae","Papilio","rutulus",1
+6,22,3,"Freya","CHP",48.47404,-123.3768,105,13:57:00,960,26.5,0.5,1,"sunny","Papilionidae","Papilio","eurymedon",1
+6,22,3,"Freya","CHP",48.47404,-123.3768,105,13:57:00,960,26.5,0.5,1,"sunny","Nymphalidae","Limenitis","lorquini",3
+6,22,3,"Freya","CHP",48.47404,-123.3768,105,13:57:00,960,26.5,0.5,1,"sunny","Papilionidae","Papilio","rutulus",1
+6,23,3,"Freya","MGT",49.0625,-120.7986,1185,11:03:00,900,17.5,1,1,"sunny","Nymphalidae","Phyciodes","pulchella",4
+6,23,3,"Freya","MGT",49.0625,-120.7986,1185,11:03:00,900,17.5,1,1,"sunny","Hesperiidae","Limochores","sonora",1
+6,23,3,"Freya","MGT",49.0625,-120.7986,1185,11:03:00,900,17.5,1,1,"sunny","Nymphalidae","Nymphalis","california",1
+6,23,3,"Freya","MGT",49.0625,-120.7986,1185,11:03:00,900,17.5,1,1,"sunny","Nymphalidae",NA,NA,1
+6,23,3,"Freya","JMS",49.1971,-119.7834,407,14:18:00,900,30,1,1,"sunny","Pieridae","Colias",NA,1
+6,23,3,"Freya","JMS",49.1971,-119.7834,407,14:18:00,900,30,1,1,"sunny","Pieridae","Pieris","rapae",9
+6,23,3,"Freya","JMS",49.1971,-119.7834,407,14:18:00,900,30,1,1,"sunny","Papilionidae","Papilio",NA,2
+6,23,3,"Freya","OKF",49.3384,-119.5804,340,15:34:00,900,27,2.5,1,"partly cloudy","Papilionidae","Papilio",NA,4
+6,23,3,"Freya","OKF",49.3384,-119.5804,340,15:34:00,900,27,2.5,1,"partly cloudy","Papilionidae","Papilio","multicaudata",1
+6,24,3,"Freya","UBC",49.942,-119.3988,480,10:00:00,840,22,1,1,"sunny","Pieridae","Pieris","rapae",1
+6,24,3,"Freya","UBC",49.942,-119.3988,480,10:00:00,840,22,1,1,"sunny","Pieridae",NA,NA,3
+6,24,3,"Freya","UBC",49.942,-119.3988,480,10:00:00,840,22,1,1,"sunny","Papilionidae","Papilio",NA,1
+6,24,3,"Freya","UBC",49.942,-119.3988,480,10:00:00,840,22,1,1,"sunny","Nymphalidae",NA,NA,1
+6,24,3,"Freya","RRP",49.8802,-119.5763,575,12:23:00,840,27,1.5,1,"sunny","Nymphalidae","Erebia","epipsodea",1
+6,24,3,"Freya","KMP",49.8645,-119.4583,351,10:56:00,1020,25,0.5,1,"sunny","Pieridae","Pieris","rapae",14
+6,24,3,"Freya","KMP",49.8645,-119.4583,351,10:56:00,1020,25,0.5,1,"sunny","Papilionidae","Papilio",NA,4
+6,24,3,"Freya","KMP",49.8645,-119.4583,351,10:56:00,1020,25,0.5,1,"sunny","Nymphalidae",NA,NA,2
+6,24,3,"Freya","KMP",49.8645,-119.4583,351,10:56:00,1020,25,0.5,1,"sunny","Pieridae","Colias",NA,1
+6,24,3,"Freya","PML",49.5049,-119.6405,491,14:06:00,960,27,1,1,"partly cloudy","Papilionidae","Papilio",NA,7
+6,24,3,"Freya","PML",49.5049,-119.6405,491,14:06:00,960,27,1,1,"partly cloudy","Hesperiidae","Amblyscirtes","vialis",1
+6,24,3,"Freya","PML",49.5049,-119.6405,491,14:06:00,960,27,1,1,"partly cloudy","Pieridae","Pieris","rapae",1
+6,24,3,"Freya","PML",49.5049,-119.6405,491,14:06:00,960,27,1,1,"partly cloudy","Nymphalidae","Cercyonis","pegala",1
+6,24,3,"Freya","PML",49.5049,-119.6405,491,14:06:00,960,27,1,1,"partly cloudy","Lycaenidae","Everes","amyntula",1
+6,25,3,"Freya","OHR",49.4214,-120.2563,568,10:08:00,960,19,1,1,"sunny","Nymphalidae","Limenitis","lorquini",2
+6,25,3,"Freya","OHR",49.4214,-120.2563,568,10:08:00,960,19,1,1,"sunny","Nymphalidae","Euphydryas","anicia",17
+6,25,3,"Freya","OHR",49.4214,-120.2563,568,10:08:00,960,19,1,1,"sunny","Pieridae","Pontia",NA,2
+6,25,3,"Freya","OHR",49.4214,-120.2563,568,10:08:00,960,19,1,1,"sunny","Nymphalidae","Nymphalis","californica",3
+6,25,3,"Freya","OHR",49.4214,-120.2563,568,10:08:00,960,19,1,1,"sunny","Papilionidae","Papilio","multicaudata",2
+6,25,3,"Freya","OHR",49.4214,-120.2563,568,10:08:00,960,19,1,1,"sunny","Nymphalidae","Vanessa","cardui",2
+6,25,3,"Freya","OHR",49.4214,-120.2563,568,10:08:00,960,19,1,1,"sunny","Nymphalidae","Erebia","epipsodea",1
+6,25,3,"Freya","KWL",49.3013,-119.6279,571,11:31:00,1080,27,2.5,1,"sunny","Lycaenidae","Tharsalea","heteronea",1
+6,25,3,"Freya","KWL",49.3013,-119.6279,571,11:31:00,1080,27,2.5,1,"sunny","Pieridae","Pieris","rapae",32
+6,25,3,"Freya","KWL",49.3013,-119.6279,571,11:31:00,1080,27,2.5,1,"sunny","Papilionidae","Papilio",NA,1
+6,25,3,"Freya","KWL",49.3013,-119.6279,571,11:31:00,1080,27,2.5,1,"sunny","Hesperiidae",NA,NA,1
+6,25,3,"Freya","KWL",49.3013,-119.6279,571,11:31:00,1080,27,2.5,1,"sunny","Nymphalidae","Vanessa","cardui",1
+6,25,3,"Freya","KWL",49.3013,-119.6279,571,11:31:00,1080,27,2.5,1,"sunny","Lycaenidae","Icaricia","icaroides",2
+6,25,3,"Freya","KWL",49.3013,-119.6279,571,11:31:00,1080,27,2.5,1,"sunny","Pieridae","Pontia",NA,3
+6,25,3,"Freya","KWL",49.3013,-119.6279,571,11:31:00,1080,27,2.5,1,"sunny","Lycaenidae","Strymon","melinus",1
+6,25,3,"Freya","KWL",49.3013,-119.6279,571,11:31:00,1080,27,2.5,1,"sunny","Pieridae","Colias",NA,1
+6,25,3,"Freya","KWL",49.3013,-119.6279,571,11:31:00,1080,27,2.5,1,"sunny","Papilionidae","Papilio","eurymedon",1
+6,25,3,"Freya","KWL",49.3013,-119.6279,571,11:31:00,1080,27,2.5,1,"sunny","Nymphalidae","Phyciodes","cocyta",1
+6,25,3,"Freya","KWL",49.3013,-119.6279,571,11:31:00,1080,27,2.5,1,"sunny","Nymphalidae","Argynnis",NA,1
+6,25,3,"Freya","RTT",49.0887,-119.5351,287,12:55:00,960,29,3,1,"sunny","Lycaenidae",NA,NA,1
+6,25,3,"Freya","RTT",49.0887,-119.5351,287,12:55:00,960,29,3,1,"sunny","Pieridae","Pieris","rapae",1
+6,25,3,"Freya","RTT",49.0887,-119.5351,287,12:55:00,960,29,3,1,"sunny","Pieridae","Colias",NA,2
+6,25,3,"Freya","RTT",49.0887,-119.5351,287,12:55:00,960,29,3,1,"sunny","Pieridae","Pontia",NA,2
+6,25,3,"Freya","RTT",49.0887,-119.5351,287,12:55:00,960,29,3,1,"sunny","Pieridae",NA,NA,5
+6,25,3,"Freya","KSP",49.3918,-119.5891,322,14:24:00,960,30,2,1,"sunny","Lycaenidae","Strymon","melinus",2
+6,25,3,"Freya","KSP",49.3918,-119.5891,322,14:24:00,960,30,2,1,"sunny","Pieridae",NA,NA,1
+6,25,3,"Freya","KSP",49.3918,-119.5891,322,14:24:00,960,30,2,1,"sunny","Nymphalidae",NA,NA,1
+6,25,3,"Freya","KSP",49.3918,-119.5891,322,14:24:00,960,30,2,1,"sunny","Pieridae","Pieris","rapae",1
+6,25,3,"Freya","KSP",49.3918,-119.5891,322,14:24:00,960,30,2,1,"sunny","Papilionidae","Papilio",NA,2
+6,26,3,"Freya","PSL",50.6633,-120.3285,447,11:56:00,780,19,2,1,"cloudy",NA,NA,NA,0
+6,26,3,"Freya","KPP",50.6698,-120.4153,719,12:48:00,780,19.5,0.5,1,"cloudy","Lycaenidae","Strymon","melinus",1
+6,26,3,"Freya","KPP",50.6698,-120.4153,719,12:48:00,780,19.5,0.5,1,"cloudy","Nymphalidae","Argynnis",NA,NA
+7,6,4,"Freya","GBH",49.0965,-122.0457,13,11:13:00,960,23,0.5,3,"sunny","Pieridae","Pieris","rapae",4
+7,6,4,"Freya","CCM",49.1518,-122.0074,12,10:11:00,720,21,1,3,"sunny","Pieridae","Pieris","rapae",1
+7,6,4,"Freya","CCM",49.1518,-122.0074,12,10:11:00,720,21,1,3,"sunny","Nymphalidae","Vanessa","cardui",1
+7,6,4,"Freya","MGT",49.0625,-120.7986,1185,13:33:00,840,24,1.5,1,"sunny","Nymphalidae","Phyciodes","pulchella",2
+7,6,4,"Freya","MGT",49.0625,-120.7986,1185,13:33:00,840,24,1.5,1,"sunny","Nymphalidae","Nymphalis","californica",7
+7,6,4,"Freya","MGT",49.0625,-120.7986,1185,13:33:00,840,24,1.5,1,"sunny","Nymphalidae","Boloria","epithore",1
+7,6,4,"Freya","MGT",49.0625,-120.7986,1185,13:33:00,840,24,1.5,1,"sunny","Lycaenidae","Icaricia","icaroides",1
+7,6,4,"Freya","ABR",49.4194,-129.5247,909,15:13:00,900,28,1.5,1,"sunny","Nymphalidae","Limenitis","lorquini",1
+7,6,4,"Freya","ABR",49.4194,-129.5247,909,15:13:00,900,28,1.5,1,"sunny","Nymphalidae","Argynnis","callippe",2
+7,6,4,"Freya","ABR",49.4194,-129.5247,909,15:13:00,900,28,1.5,1,"sunny","Nymphalidae","Euphydryas","anicia",2
+7,6,4,"Freya","ABR",49.4194,-129.5247,909,15:13:00,900,28,1.5,1,"sunny","Hesperiidae","Hesperia","colorado",2
+7,6,4,"Freya","ABR",49.4194,-129.5247,909,15:13:00,900,28,1.5,1,"sunny","Lycaenidae","Icaricia","icaroides",1
+7,6,4,"Freya","ABR",49.4194,-129.5247,909,15:13:00,900,28,1.5,1,"sunny","Hesperiidae","Hesperia",NA,1
+7,6,4,"Freya","ABR",49.4194,-129.5247,909,15:13:00,900,28,1.5,1,"sunny","Nymphalidae","Coenonnympha","california",1
+7,6,4,"Freya","ABR",49.4194,-129.5247,909,15:13:00,900,28,1.5,1,"sunny","Nymphalidae","Argynnis",NA,2
+7,6,4,"Freya","ABR",49.4194,-129.5247,909,15:13:00,900,28,1.5,1,"sunny","Hesperiidae","Thymelicus","lineola",1
+7,6,4,"Freya","ABR",49.4194,-129.5247,909,15:13:00,900,28,1.5,1,"sunny","Lycaenidae","Plebejus","melissa",1
+7,7,4,"Freya","PSL",50.6633,-120.3285,447,11:00:00,840,28,1,3,"partly cloudy","Nymphalidae","Argynnis","callippe",1
+7,7,4,"Freya","KPP",50.6698,-120.4153,719,10:06:00,960,24,1.5,3,"sunny","Nymphalidae","Vanessa","cardui",1
+7,7,4,"Freya","KPP",50.6698,-120.4153,719,10:06:00,960,24,1.5,3,"sunny","Nymphalidae","Cercyonis","sthenele",1
+7,7,4,"Freya","KPP",50.6698,-120.4153,719,10:06:00,960,24,1.5,3,"sunny","Lycaenidae","Strymon","melinus",4
+7,7,4,"Freya","KPP",50.6698,-120.4153,719,10:06:00,960,24,1.5,3,"sunny","Nymphalidae",NA,NA,2
+7,7,4,"Freya","KPP",50.6698,-120.4153,719,10:06:00,960,24,1.5,3,"sunny","Nymphalidae","Phyciodes","pallida",1
+7,7,4,"Freya","KPP",50.6698,-120.4153,719,10:06:00,960,24,1.5,3,"sunny","Lycaenidae","Plebejus",NA,1
+7,7,4,"Freya","KPP",50.6698,-120.4153,719,10:06:00,960,24,1.5,3,"sunny","Pieridae","Colias",NA,1
+7,7,4,"Freya","KPP",50.6698,-120.4153,719,10:06:00,960,24,1.5,3,"sunny","Nymphalidae","Argynnis","callippe",1
+7,7,4,"Freya","MMF",50.4953,-120.8061,1108,12:21:00,1020,24,2,3,"partly cloudy","Nymphalidae","Phyciodes",NA,10
+7,7,4,"Freya","MMF",50.4953,-120.8061,1108,12:21:00,1020,24,2,3,"partly cloudy","Nymphalidae","Oeneis","chryxus",2
+7,7,4,"Freya","MMF",50.4953,-120.8061,1108,12:21:00,1020,24,2,3,"partly cloudy","Nymphalidae","Cercyonis","oetus",2
+7,7,4,"Freya","MMF",50.4953,-120.8061,1108,12:21:00,1020,24,2,3,"partly cloudy","Lycaenidae",NA,NA,7
+7,7,4,"Freya","MMF",50.4953,-120.8061,1108,12:21:00,1020,24,2,3,"partly cloudy","Pieridae","Colias",NA,1
+7,7,4,"Freya","MMF",50.4953,-120.8061,1108,12:21:00,1020,24,2,3,"partly cloudy","Lycaenidae","Tharsalea","mariposa",1
+7,7,4,"Freya","MMF",50.4953,-120.8061,1108,12:21:00,1020,24,2,3,"partly cloudy","Nymphalidae",NA,NA,6
+7,7,4,"Freya","MMF",50.4953,-120.8061,1108,12:21:00,1020,24,2,3,"partly cloudy","Nymphalidae","Chlosyne",NA,1
+7,7,4,"Freya","MMF",50.4953,-120.8061,1108,12:21:00,1020,24,2,3,"partly cloudy","Nymphalidae","Chlosyne",NA,1
+7,7,4,"Freya","FLT",49.6127,-121.0651,1241,15:10:00,1020,25,2.5,1,"sunny","Nymphalidae",NA,NA,3
+7,7,4,"Freya","FLT",49.6127,-121.0651,1241,15:10:00,1020,25,2.5,1,"sunny","Papilionidae","Papilio",NA,1
+7,7,4,"Freya","FLT",49.6127,-121.0651,1241,15:10:00,1020,25,2.5,1,"sunny","Lycaenidae","Icaricia","icaroides",1
+7,7,4,"Freya","FLT",49.6127,-121.0651,1241,15:10:00,1020,25,2.5,1,"sunny","Nymphalidae","Nymphalis","california",2
+7,7,4,"Freya","FLT",49.6127,-121.0651,1241,15:10:00,1020,25,2.5,1,"sunny","Nymphalidae","Polygonia",NA,3
+7,7,4,"Freya","FLT",49.6127,-121.0651,1241,15:10:00,1020,25,2.5,1,"sunny","Nymphalidae","Boloria","epithore",2
+7,7,4,"Freya","FLT",49.6127,-121.0651,1241,15:10:00,1020,25,2.5,1,"sunny","Nymphalidae","Argynnis","hydaspe",1
+7,8,4,"Freya","JMS",49.1971,-119.7834,407,11:01:00,900,22,3,1,"partly cloudy","Pieridae","Pieris","rapae",2
+7,8,4,"Freya","JMS",49.1971,-119.7834,407,11:01:00,900,22,3,1,"partly cloudy","Hesperiidae",NA,NA,1
+7,8,4,"Freya","JMS",49.1971,-119.7834,407,11:01:00,900,22,3,1,"partly cloudy","Nymphalidae","Nymphalis","california",1
+7,8,4,"Freya","JMS",49.1971,-119.7834,407,11:01:00,900,22,3,1,"partly cloudy","Papilionidae","Papilio","multicaudata",1
+7,8,4,"Freya","JMS",49.1971,-119.7834,407,11:01:00,900,22,3,1,"partly cloudy","Papilionidae","Papilio","rutulus",1
+7,8,4,"Freya","KWL",49.3013,-119.6279,571,10:00:00,840,23,2,1,"partly cloudy","Pieridae","Pieris","rapae",2
+7,8,4,"Freya","KWL",49.3013,-119.6279,571,10:00:00,840,23,2,1,"partly cloudy","Pieridae","Colias",NA,3
+7,8,4,"Freya","KWL",49.3013,-119.6279,571,10:00:00,840,23,2,1,"partly cloudy","Pieridae","Pontia",NA,1
+7,8,4,"Freya","KWL",49.3013,-119.6279,571,10:00:00,840,23,2,1,"partly cloudy","Pieridae",NA,NA,2
+7,8,4,"Freya","KWL",49.3013,-119.6279,571,10:00:00,840,23,2,1,"partly cloudy","Papilionidae","Papilio",NA,1
+7,8,4,"Freya","KWL",49.3013,-119.6279,571,10:00:00,840,23,2,1,"partly cloudy","Hesperiidae",NA,NA,1
+7,8,4,"Freya","OKF",49.3384,-119.5804,340,13:46:00,840,30,1.5,1,"sunny","Nymphalidae",NA,NA,1
+7,8,4,"Freya","OKF",49.3384,-119.5804,340,13:46:00,840,30,1.5,1,"sunny","Pieridae","Pieris","rapae",4
+7,8,4,"Freya","RTT",49.0887,-119.5351,287,12:11:00,900,26,3,1,"sunny","Pieridae","Pieris","rapae",10
+7,8,4,"Freya","RTT",49.0887,-119.5351,287,12:11:00,900,26,3,1,"sunny","Lycaenidae","Tharsalea","helloides",1
+7,8,4,"Freya","KSP",49.3918,-119.5891,322,14:53:00,780,29,0.5,1,"sunny","Papilionidae","Papilio",NA,2
+7,8,4,"Freya","KSP",49.3918,-119.5891,322,14:53:00,780,29,0.5,1,"sunny","Pieridae","Pieris","rapae",1
+7,8,4,"Freya","KMP",49.8645,-119.4583,351,14:00:00,780,28,0,1,"sunny","Pieridae","Pieris","rapae",6
+7,9,4,"Freya","PML",49.5049,-119.6405,491,11:26:00,960,23,1.5,1,"sunny","Pieridae","Pieris","rapae",6
+7,9,4,"Freya","PML",49.5049,-119.6405,491,12:26:00,960,23,1.5,1,"sunny","Lycaenidae","Strymon","melinus",1
+7,9,4,"Freya","PML",49.5049,-119.6405,491,13:26:00,960,23,1.5,1,"sunny","Papilionidae","Papilio",NA,1
+7,9,4,"Freya","PML",49.5049,-119.6405,491,14:26:00,960,23,1.5,1,"sunny","Nymphalidae","Cercyonis",NA,1
+7,9,4,"Freya","UBC",49.942,-119.3988,480,15:20:00,780,28,0.5,1,"partly cloudy","Papilionidae","Papilio",NA,1
+7,9,4,"Freya","RRP",49.8802,-119.5763,575,10:04:00,780,22,1,1,"partly cloudy",NA,NA,NA,0
+7,10,4,"Freya","OHR",49.4214,-120.2563,568,10:08:00,1020,21.5,0.5,1,"partly cloudy","Nymphalidae","Cercyonis",NA,1
+7,10,4,"Freya","OHR",49.4214,-120.2563,568,11:08:00,1020,21.5,0.5,1,"partly cloudy","Nymphalidae","Cercyonis","sthenele",1
+7,10,4,"Freya","OHR",49.4214,-120.2563,568,12:08:00,1020,21.5,0.5,1,"partly cloudy","Nymphalidae","Limenitis","lorquini",3
+7,10,4,"Freya","OHR",49.4214,-120.2563,568,13:08:00,1020,21.5,0.5,1,"partly cloudy","Nymphalidae","Euphydryas","anicia",5
+7,10,4,"Freya","OHR",49.4214,-120.2563,568,14:08:00,1020,21.5,0.5,1,"partly cloudy","Papilionidae","Papilio","multicaudata",3
+7,10,4,"Freya","OHR",49.4214,-120.2563,568,15:08:00,1020,21.5,0.5,1,"partly cloudy","Nymphalidae","Erebia","epipsodea",1
+7,10,4,"Freya","OHR",49.4214,-120.2563,568,16:08:00,1020,21.5,0.5,1,"partly cloudy","Hesperiidae",NA,NA,10
+7,10,4,"Freya","OHR",49.4214,-120.2563,568,17:08:00,1020,21.5,0.5,1,"partly cloudy","Hesperiidae","Thymelicus","lineola",3
+7,10,4,"Freya","OHR",49.4214,-120.2563,568,18:08:00,1020,21.5,0.5,1,"partly cloudy","Pieridae","Colias",NA,1
+7,10,4,"Freya","OHR",49.4214,-120.2563,568,19:08:00,1020,21.5,0.5,1,"partly cloudy","Hesperiidae","Hesperia","colorado",1
+7,10,4,"Freya","OHR",49.4214,-120.2563,568,20:08:00,1020,21.5,0.5,1,"partly cloudy","Papilionidae","Papilio",NA,1
+7,10,4,"Freya","PBM",49.4421,-120.5734,889,11:55:00,1020,19.5,0.5,1,"cloudy","Nymphalidae","Argynnis","cybele",1
+7,10,4,"Freya","PBM",49.4421,-120.5734,889,12:55:00,1020,19.5,0.5,1,"cloudy","Nymphalidae","Argynnis",NA,4
+7,10,4,"Freya","PBM",49.4421,-120.5734,889,13:55:00,1020,19.5,0.5,1,"cloudy","Lycaenidae","Tharsalea",NA,1
+7,10,4,"Freya","PBM",49.4421,-120.5734,889,14:55:00,1020,19.5,0.5,1,"cloudy","Nymphalidae","Euphydryas","anicia",3
+7,10,4,"Freya","PBM",49.4421,-120.5734,889,15:55:00,1020,19.5,0.5,1,"cloudy","Nymphalidae","Limenitis","lorquini",1
+7,10,4,"Freya","PBM",49.4421,-120.5734,889,16:55:00,1020,19.5,0.5,1,"cloudy","Pieridae","Colias",NA,1
+7,10,4,"Freya","PBM",49.4421,-120.5734,889,17:55:00,1020,19.5,0.5,1,"cloudy","Hesperiidae",NA,NA,2
+7,10,4,"Freya","PBM",49.4421,-120.5734,889,18:55:00,1020,19.5,0.5,1,"cloudy","Lycaenidae","Icaricia","icaroides",1
+7,10,4,"Freya","PBM",49.4421,-120.5734,889,19:55:00,1020,19.5,0.5,1,"cloudy","Hesperiidae","Amblyscirtes","vialis",1
+7,12,4,"Freya","BGP",49.0245,-123.0564,5,11:52:00,840,18.5,1.5,1,"sunny","Pieridae","Pieris","rapae",10
+7,12,4,"Freya","PSP",49.2501,-123.1965,85,13:14:00,720,19,1,1,"partly cloudy","Papilionidae","Papilio",NA,1
+7,13,4,"Freya","RBG",48.4935,-123.3822,20,10:02:00,780,18,1,1,"sunny",NA,NA,NA,0
+7,13,4,"Freya","CHP",48.47404,-123.3768,105,10:42:00,1080,18.5,1.5,1,"sunny","Hesperiidae","Ochlodes","sylvanoides",1
+7,13,4,"Freya","CHP",48.47404,-123.3768,105,10:42:00,1080,18.5,1.5,1,"sunny","Nymphalidae","Vanessa",NA,1
+7,13,4,"Freya","CHP",48.47404,-123.3768,105,10:42:00,1080,18.5,1.5,1,"sunny","Nymphalidae","Limenitis","lorquini",1
+7,13,4,"Freya","BHT",48.4099,-123.3644,40,12:37:00,900,21,1,1,"sunny","Hesperiidae","Thymelicus","lineola",2
+7,13,4,"Freya","HRP",48.4355,-123.4065,74,14:06:00,840,20,1.5,1,"sunny","Papilionidae","Papilio","rutulus",3
+7,13,4,"Freya","HRP",48.4355,-123.4065,74,14:06:00,840,20,1.5,1,"sunny","Nymphalidae","Limenitis","lorquini",4
+7,13,4,"Freya","HRP",48.4355,-123.4065,74,14:06:00,840,20,1.5,1,"sunny","Pieridae","Pieris","rapae",1
+7,20,5,"Freya","FLT",49.6127,-121.0651,1241,10:23:00,720,23,1,2,"sunny","Nymphalidae","Limenitis","lorquini",2
+7,20,5,"Freya","FLT",49.6127,-121.0651,1241,10:23:00,720,23,1,2,"sunny","Pieridae",NA,NA,1
+7,20,5,"Freya","FLT",49.6127,-121.0651,1241,10:23:00,720,23,1,2,"sunny","Papilionidae","Papilio",NA,1
+7,20,5,"Freya","FLT",49.6127,-121.0651,1241,10:23:00,720,23,1,2,"sunny","Nymphalidae","Nymphalis","california",7
+7,20,5,"Freya","FLT",49.6127,-121.0651,1241,10:23:00,720,23,1,2,"sunny","Nymphalidae","Boloria","epithore",1
+7,20,5,"Freya","FLT",49.6127,-121.0651,1241,10:23:00,720,23,1,2,"sunny","Nymphalidae","Boloria",NA,1
+7,20,5,"Freya","FLT",49.6127,-121.0651,1241,10:23:00,720,23,1,2,"sunny","Nymphalidae","Argynnis",NA,1
+7,20,5,"Freya","MGT",49.0625,-120.7986,1185,12:28:00,900,21,0,3,"cloudy","Lycaenidae","Tharsalea","mariposa",1
+7,20,5,"Freya","MGT",49.0625,-120.7986,1185,12:28:00,900,21,0,3,"cloudy","Hesperiidae",NA,NA,2
+7,20,5,"Freya","MGT",49.0625,-120.7986,1185,12:28:00,900,21,0,3,"cloudy","Nymphalidae",NA,NA,4
+7,20,5,"Freya","MGT",49.0625,-120.7986,1185,12:28:00,900,21,0,3,"cloudy","Lycaenidae","Icaricia","icaroides",2
+7,20,5,"Freya","PBM",49.4421,-120.5734,889,12:28:00,900,26,2,2,"partly cloudy","Lycaenidae",NA,NA,8
+7,20,5,"Freya","PBM",49.4421,-120.5734,889,12:28:00,900,26,2,2,"partly cloudy","Lycaenidae","Icaricia","icaroides",2
+7,20,5,"Freya","PBM",49.4421,-120.5734,889,12:28:00,900,26,2,2,"partly cloudy","Nymphalidae","Argynnis",NA,18
+7,20,5,"Freya","PBM",49.4421,-120.5734,889,12:28:00,900,26,2,2,"partly cloudy","Nymphalidae","Argynnis","https://www.inaturalist.org/observations/383477014",1
+7,20,5,"Freya","PBM",49.4421,-120.5734,889,12:28:00,900,26,2,2,"partly cloudy","Pieridae","Colias",NA,7
+7,20,5,"Freya","PBM",49.4421,-120.5734,889,12:28:00,900,26,2,2,"partly cloudy","Hesperiidae","Hesperia","colorado",3
+7,20,5,"Freya","PBM",49.4421,-120.5734,889,12:28:00,900,26,2,2,"partly cloudy","Lycaenidae","Tharsalea","mariposa",1
+7,20,5,"Freya","PBM",49.4421,-120.5734,889,12:28:00,900,26,2,2,"partly cloudy","Lycaenidae","Tharsalea",NA,2
+7,20,5,"Freya","PBM",49.4421,-120.5734,889,12:28:00,900,26,2,2,"partly cloudy","Hesperiidae","Thymelicus","lineola",2
+7,20,5,"Freya","PBM",49.4421,-120.5734,889,12:28:00,900,26,2,2,"partly cloudy","Lycaenidae","Strymon","melinus",1
+7,20,5,"Freya","PBM",49.4421,-120.5734,889,12:28:00,900,26,2,2,"partly cloudy","Lycaenidae","Satyrium","saepium",1
+7,20,5,"Freya","PBM",49.4421,-120.5734,889,12:28:00,900,26,2,2,"partly cloudy","Nymphalidae","Euphydryas","anicia",1
+7,20,5,"Freya","PBM",49.4421,-120.5734,889,12:28:00,900,26,2,2,"partly cloudy","Lycaenidae","Plebejus","anna",2
+7,20,5,"Freya","PBM",49.4421,-120.5734,889,12:28:00,900,26,2,2,"partly cloudy","Nymphalidae","Limenitis","lorquini",3
+7,20,5,"Freya","PBM",49.4421,-120.5734,889,12:28:00,900,26,2,2,"partly cloudy","Lycaenidae","Everes","amyntula",1
+7,20,5,"Freya","PBM",49.4421,-120.5734,889,12:28:00,900,26,2,2,"partly cloudy","Hesperiidae",NA,NA,1
+7,20,5,"Freya","PBM",49.4421,-120.5734,889,12:28:00,900,26,2,2,"partly cloudy","Nymphalidae","Cercyonis",NA,1
+7,20,5,"Freya","ABR",49.4194,-129.5247,909,15:20:00,1080,27,1.5,3,"partly cloudy","Nymphalidae","Cercyonis",NA,2
+7,20,5,"Freya","ABR",49.4194,-129.5247,909,15:20:00,1080,27,1.5,3,"partly cloudy","Hesperiidae","Hesperia","colorado",6
+7,20,5,"Freya","ABR",49.4194,-129.5247,909,15:20:00,1080,27,1.5,3,"partly cloudy","Nymphalidae","Argynnis","callippe",9
+7,20,5,"Freya","ABR",49.4194,-129.5247,909,15:20:00,1080,27,1.5,3,"partly cloudy","Hesperiidae","Thymelicus","lineola",4
+7,20,5,"Freya","ABR",49.4194,-129.5247,909,15:20:00,1080,27,1.5,3,"partly cloudy","Hesperiidae","Ochlodes","sylvanoides",1
+7,20,5,"Freya","ABR",49.4194,-129.5247,909,15:20:00,1080,27,1.5,3,"partly cloudy","Nymphalidae","Argynnis",NA,4
+7,20,5,"Freya","ABR",49.4194,-129.5247,909,15:20:00,1080,27,1.5,3,"partly cloudy","Nymphalidae","Oeneis",NA,1
+7,21,5,"Freya","KMP",49.8645,-119.4583,351,10:09:00,720,27,0,1,"sunny","Pieridae","Pieris","rapae",1
+7,21,5,"Freya","UBC",49.942,-119.3988,480,11:05:00,720,30,1.5,2,"sunny",NA,NA,NA,0
+7,21,5,"Freya","RRP",49.8802,-119.5763,575,12:38:00,900,32,0.5,2,"sunny","Nymphalidae","Cercyonis",NA,1
+7,21,5,"Freya","RRP",49.8802,-119.5763,575,12:38:00,900,32,0.5,2,"sunny","Nymphalidae","Cercyonis",NA,1
+7,21,5,"Freya","RRP",49.8802,-119.5763,575,12:38:00,900,32,0.5,2,"sunny","Hesperiidae","Ochlodes","sylvanoides",1
+7,21,5,"Freya","OHR",49.4214,-120.2563,568,15:24:00,960,34,0.5,3,"sunny","Pieridae","Colias",NA,1
+7,21,5,"Freya","OHR",49.4214,-120.2563,568,15:24:00,960,34,0.5,3,"sunny","Nymphalidae","Cercyonis",NA,4
+7,21,5,"Freya","OHR",49.4214,-120.2563,568,15:24:00,960,34,0.5,3,"sunny","Nymphalidae","Argynnis","hydaspe",2
+7,22,5,"Freya","KSP",49.3918,-119.5891,322,10:00:00,960,28.5,0.5,4,"sunny","Pieridae","Pieris","rapae",2
+7,22,5,"Freya","KSP",49.3918,-119.5891,322,10:00:00,960,28.5,0.5,4,"sunny","Papilionidae","Papilio",NA,1
+7,22,5,"Freya","KSP",49.3918,-119.5891,322,10:00:00,960,28.5,0.5,4,"sunny","Hesperiidae","Ochlodes","sylvanoides",3
+7,22,5,"Freya","KSP",49.3918,-119.5891,322,10:00:00,960,28.5,0.5,4,"sunny","Hesperiidae","Pholisora","catullus",4
+7,22,5,"Freya","KSP",49.3918,-119.5891,322,10:00:00,960,28.5,0.5,4,"sunny","Nymphalidae","Cercyonis",NA,1
+7,22,5,"Freya","KSP",49.3918,-119.5891,322,10:00:00,960,28.5,0.5,4,"sunny","Pieridae","Colias",NA,1
+7,22,5,"Freya","OKF",49.3384,-119.5804,340,10:36:00,840,28,1.5,3,"sunny","Lycaenidae",NA,NA,1
+7,22,5,"Freya","JMS",49.1971,-119.7834,407,13:04:00,780,33,2,4,"sunny","Pieridae","Pieris","rapae",2
+7,22,5,"Freya","KWL",49.3013,-119.6279,571,11:33:00,900,32,0.5,4,"sunny","Pieridae","Pieris","rapae",3
+7,22,5,"Freya","KWL",49.3013,-119.6279,571,11:33:00,900,32,0.5,4,"sunny","Lycaenidae","Plebejus","melissa",1
+7,22,5,"Freya","KWL",49.3013,-119.6279,571,11:33:00,900,32,0.5,4,"sunny","Lycaenidae",NA,NA,1
+7,22,5,"Freya","KWL",49.3013,-119.6279,571,11:33:00,900,32,0.5,4,"sunny","Hesperiidae","Pholisora","catullus",4
+7,23,5,"Freya","PML",49.5049,-119.6405,491,10:00:00,900,27.5,1,3,"partly cloudy","Hesperiidae","Ochlodes","sylvanoides",4
+7,23,5,"Freya","PML",49.5049,-119.6405,491,10:00:00,900,27.5,1,3,"partly cloudy","Lycaenidae","Strymon","melinus",1
+7,23,5,"Freya","PML",49.5049,-119.6405,491,10:00:00,900,27.5,1,3,"partly cloudy","Hesperiidae","Pholisora","catullus",4
+7,23,5,"Freya","KPP",50.6698,-120.4153,719,13:05:00,900,31.5,2,7,"partly cloudy","Nymphalidae","Cercyonis",NA,1
+7,23,5,"Freya","KPP",50.6698,-120.4153,719,13:05:00,900,31.5,2,7,"partly cloudy","Lycaenidae","Strymon","melinus",2
+7,23,5,"Freya","MMF",50.4953,-120.8061,1108,14:57:00,1020,29,1,7,"partly cloudy","Nymphalidae","Argynnis",NA,11
+7,23,5,"Freya","MMF",50.4953,-120.8061,1108,14:57:00,1020,29,1,7,"partly cloudy","Nymphalidae",NA,NA,2
+7,23,5,"Freya","MMF",50.4953,-120.8061,1108,14:57:00,1020,29,1,7,"partly cloudy","Hesperiidae",NA,NA,3
+7,23,5,"Freya","MMF",50.4953,-120.8061,1108,14:57:00,1020,29,1,7,"partly cloudy","Hesperiidae","Thymelicus","lineola",3
+7,23,5,"Freya","MMF",50.4953,-120.8061,1108,14:57:00,1020,29,1,7,"partly cloudy","Nymphalidae","Phyciodes","cocyta",13
+7,23,5,"Freya","MMF",50.4953,-120.8061,1108,14:57:00,1020,29,1,7,"partly cloudy","Nymphalidae","Nymphalis","californica",1
+7,23,5,"Freya","MMF",50.4953,-120.8061,1108,14:57:00,1020,29,1,7,"partly cloudy","Nymphalidae","Argynnis","cybele",1
+7,23,5,"Freya","MMF",50.4953,-120.8061,1108,14:57:00,1020,29,1,7,"partly cloudy","Nymphalidae","Cercyonis","oetus",2
+7,23,5,"Freya","MMF",50.4953,-120.8061,1108,14:57:00,1020,29,1,7,"partly cloudy","Lycaenidae",NA,NA,3
+7,23,5,"Freya","MMF",50.4953,-120.8061,1108,14:57:00,1020,29,1,7,"partly cloudy","Nymphalidae","Coenonnympha","california",1
+7,23,5,"Freya","MMF",50.4953,-120.8061,1108,14:57:00,1020,29,1,7,"partly cloudy","Nymphalidae","Argynnis","hydaspe",1
+7,23,5,"Freya","MMF",50.4953,-120.8061,1108,14:57:00,1020,29,1,7,"partly cloudy","Lycaenidae","Satyrium","sylvinus",2
+7,25,5,"Freya","BGP",49.0245,-123.0564,5,10:10:00,780,18,3,1,"cloudy",NA,NA,NA,0
+7,25,5,"Freya","CCM",49.1518,-122.0074,12,13:36:00,840,21,1,1,"cloudy",NA,NA,NA,0
+7,25,5,"Freya","GBH",49.0965,-122.0457,13,12:41:00,780,21,1,1,"cloudy",NA,NA,NA,0
+7,29,5,"Julie","PSP",49.2501,-123.1965,85,13:47:00,1020,21.5,0.5,1,"sunny","Hesperiidae","Ochlodes","sylvanoides",1
+7,29,5,"Freya","CHP",48.47404,-123.3768,105,12:35:00,900,20,0.5,1,"partly cloudy","Hesperiidae","Ochlodes","sylvanoides",1
+7,29,5,"Freya","CHP",48.47404,-123.3768,105,12:35:00,900,20,0.5,1,"partly cloudy","Pieridae","Pieris","rapae",1
+7,27,5,"Freya","HRP",48.4355,-123.4065,74,13:33:00,720,20,0,1,"cloudy",NA,NA,NA,0
+7,29,5,"Freya","BHT",48.4099,-123.3644,40,11:43:00,900,19,1,1,"sunny","Hesperiidae","Ochlodes","sylvanoides",3
+8,3,6,"Freya","CCM",49.1518,-122.0074,12,10:04:00,840,18,1.5,2,"sunny","Hesperiidae","Ochlodes","sylvanoides",8
+8,3,6,"Freya","CCM",49.1518,-122.0074,12,10:04:00,840,18,1.5,2,"sunny","Pieridae","Pieris","rapae",4
+8,3,6,"Freya","GBH",49.0965,-122.0457,13,10:52:00,900,20,1.5,1,"sunny","Pieridae","Pieris","rapae",3
+8,3,6,"Freya","GBH",49.0965,-122.0457,13,10:52:00,900,20,1.5,1,"sunny","Hesperiidae","Ochlodes","sylvanoides",5
+8,3,6,"Freya","GBH",49.0965,-122.0457,13,10:52:00,900,20,1.5,1,"sunny","Nymphalidae","Vanessa","atalanta",2
+8,3,6,"Freya","BGP",49.0245,-123.0564,5,13:13:00,960,21,3,1,"sunny","Hesperiidae","Ochlodes","sylvanoides",3
+8,3,6,"Freya","PSP",49.2501,-123.1965,85,14:52:00,900,22,1.5,1,"sunny","Pieridae","Pieris","rapae",1
+8,4,6,"Freya","FLT",49.6127,-121.0651,1241,10:26:00,900,17,0.5,4,"sunny","Pieridae","Colias",NA,1
+8,4,6,"Freya","FLT",49.6127,-121.0651,1241,10:26:00,900,17,0.5,4,"sunny","Nymphalidae","Limenitis","lorquini",1
+8,4,6,"Freya","FLT",49.6127,-121.0651,1241,10:26:00,900,17,0.5,4,"sunny","Lycaenidae","Tharsalea",NA,1
+8,4,6,"Freya","FLT",49.6127,-121.0651,1241,10:26:00,900,17,0.5,4,"sunny","Nymphalidae","Argynnis",NA,2
+8,4,6,"Freya","FLT",49.6127,-121.0651,1241,10:26:00,900,17,0.5,4,"sunny","Nymphalidae","Euphydryas","anicia",2
+8,4,6,"Freya","FLT",49.6127,-121.0651,1241,10:26:00,900,17,0.5,4,"sunny","Hesperiidae",NA,NA,1
+8,4,6,"Freya","FLT",49.6127,-121.0651,1241,10:26:00,900,17,0.5,4,"sunny","Hesperiidae","Thymelicus","lineola",2
+8,4,6,"Freya","KPP",50.6698,-120.4153,719,14:55:00,840,27,0,4,"sunny","Nymphalidae","Cercyonis","oetus",1
+8,4,6,"Freya","PSL",50.6633,-120.3285,447,14:03:00,960,26.5,1,4,"sunny","Pieridae","Colias",NA,1
+8,4,6,"Freya","PSL",50.6633,-120.3285,447,14:03:00,960,26.5,1,4,"sunny","Hesperiidae","Ochlodes","sylvanoides",3
+8,4,6,"Freya","MMF",50.4953,-120.8061,1108,12:13:00,900,21,0.5,3,"sunny","Nymphalidae","Argynnis",NA,16
+8,4,6,"Freya","MMF",50.4953,-120.8061,1108,12:13:00,900,21,0.5,3,"sunny","Nymphalidae","Phyciodes","cocyta",2
+8,4,6,"Freya","MMF",50.4953,-120.8061,1108,12:13:00,900,21,0.5,3,"sunny","Hesperiidae","Thymelicus","lineola",1
+8,4,6,"Freya","MMF",50.4953,-120.8061,1108,12:13:00,900,21,0.5,3,"sunny","Lycaenidae","Satyrium","sylvinus",1
+8,4,6,"Freya","MMF",50.4953,-120.8061,1108,12:13:00,900,21,0.5,3,"sunny","Pieridae","Colias",NA,1
+8,4,6,"Freya","MMF",50.4953,-120.8061,1108,12:13:00,900,21,0.5,3,"sunny","Hesperiidae","Hesperia","colorado",1
+8,5,6,"Freya","RRP",49.8802,-119.5763,575,12:23:00,900,27,1,3,"sunny",NA,NA,NA,0
+8,5,6,"Freya","KWL",49.3013,-119.6279,571,14:22:00,1020,29,2.5,5,"sunny","Hesperiidae","Pholisora","catullus",2
+8,5,6,"Freya","KWL",49.3013,-119.6279,571,14:22:00,1020,29,2.5,5,"sunny","Hesperiidae","Hesperia","colorado",1
+8,5,6,"Freya","KWL",49.3013,-119.6279,571,14:22:00,1020,29,2.5,5,"sunny","Lycaenidae","Plebejus","melissa",1
+8,5,6,"Freya","KMP",49.8645,-119.4583,351,11:33:00,720,26,0,2,"sunny","Pieridae","Pieris","rapae",10
+8,5,6,"Freya","UBC",49.942,-119.3988,480,10:00:00,780,22,0.5,5,"sunny","Hesperiidae","Thymelicus","lineola",5
+8,5,6,"Freya","UBC",49.942,-119.3988,480,10:00:00,780,22,0.5,5,"sunny","Nymphalidae","Cercyonis","sthenele",1
+8,6,6,"Freya","RTT",49.0887,-119.5351,287,10:58:00,960,22,0.5,11,"sunny","Pieridae","Pieris","rapae",13
+8,6,6,"Freya","RTT",49.0887,-119.5351,287,10:58:00,960,22,0.5,11,"sunny","Hesperiidae","Pholisora","catullus",1
+8,6,6,"Freya","RTT",49.0887,-119.5351,287,10:58:00,960,22,0.5,11,"sunny","Hesperiidae","Ochlodes","sylvanoides",4
+8,6,6,"Freya","KSP",49.3918,-119.5891,322,10:00:00,720,22.5,0.5,8,"sunny",NA,NA,NA,0
+8,6,6,"Freya","JMS",49.1971,-119.7834,407,12:32:00,900,31,0.5,6,"sunny","Pieridae","Pieris","rapae",11
+8,6,6,"Freya","JMS",49.1971,-119.7834,407,12:32:00,900,31,0.5,6,"sunny","Hesperiidae",NA,NA,1
+8,6,6,"Freya","OKF",49.3384,-119.5804,340,14:18:00,840,33.5,1,7,"sunny","Lycaenidae",NA,NA,1
+8,6,6,"Freya","OKF",49.3384,-119.5804,340,14:18:00,840,33.5,1,7,"sunny","Hesperiidae","Ochlodes","sylvanoides",4
+8,6,6,"Freya","OKF",49.3384,-119.5804,340,14:18:00,840,33.5,1,7,"sunny","Pieridae","Colias",NA,1
+8,6,6,"Freya","PML",49.5049,-119.6405,491,15:27:00,960,34,0.5,7,"sunny","Lycaenidae","Callophrys","spinetorum",1
+8,6,6,"Freya","PML",49.5049,-119.6405,491,15:27:00,960,34,0.5,7,"sunny","Nymphalidae","Cercyonis","oetus",2
+8,6,6,"Freya","PML",49.5049,-119.6405,491,15:27:00,960,34,0.5,7,"sunny","Hesperiidae","Thymelicus","lineola",3
+8,6,6,"Freya","PML",49.5049,-119.6405,491,15:27:00,960,34,0.5,7,"sunny","Hesperiidae","Pholisora","catullus",2
+8,6,6,"Freya","PML",49.5049,-119.6405,491,15:27:00,960,34,0.5,7,"sunny","Hesperiidae","Hesperia","colorado",1
+8,7,6,"Freya","PBM",49.4421,-120.5734,889,10:00:00,1020,21.5,0,5,"sunny","Nymphalidae","Boloria",NA,1
+8,7,6,"Freya","PBM",49.4421,-120.5734,889,10:00:00,1020,21.5,0,5,"sunny","Nymphalidae","Argynnis","cybele",2
+8,7,6,"Freya","PBM",49.4421,-120.5734,889,10:00:00,1020,21.5,0,5,"sunny","Nymphalidae","Argynnis",NA,12
+8,7,6,"Freya","PBM",49.4421,-120.5734,889,10:00:00,1020,21.5,0,5,"sunny","Nymphalidae","Limenitis","lorquini",3
+8,7,6,"Freya","PBM",49.4421,-120.5734,889,10:00:00,1020,21.5,0,5,"sunny","Hesperiidae","Ochlodes","sylvanoides",4
+8,7,6,"Freya","OHR",49.4214,-120.2563,568,11:13:00,840,22,1.5,7,"sunny","Hesperiidae","Ochlodes","sylvanoides",3
+8,7,6,"Freya","OHR",49.4214,-120.2563,568,11:13:00,840,22,1.5,7,"sunny","Nymphalidae","Cercyonis","sthenele",2
+8,7,6,"Freya","OHR",49.4214,-120.2563,568,11:13:00,840,22,1.5,7,"sunny","Pieridae","Pieris","rapae",1
+8,7,6,"Freya","OHR",49.4214,-120.2563,568,11:13:00,840,22,1.5,7,"sunny","Pieridae","Colias",NA,2
+8,7,6,"Freya","ABR",49.4194,-129.5247,909,12:16:00,960,27,0,6,"sunny","Pieridae","Colias",NA,2
+8,7,6,"Freya","ABR",49.4194,-129.5247,909,12:16:00,960,27,0,6,"sunny","Hesperiidae","Ochlodes","sylvanoides",12
+8,7,6,"Freya","ABR",49.4194,-129.5247,909,12:16:00,960,27,0,6,"sunny","Pieridae","Pontia","beckerii",2
+8,7,6,"Freya","ABR",49.4194,-129.5247,909,12:16:00,960,27,0,6,"sunny","Hesperiidae","Thymelicus","lineola",1
+8,7,6,"Freya","ABR",49.4194,-129.5247,909,12:16:00,960,27,0,6,"sunny","Nymphalidae","Argynnis",NA,2
+8,7,6,"Freya","ABR",49.4194,-129.5247,909,12:16:00,960,27,0,6,"sunny","Lycaenidae","Plebejus","melissa",1
+8,7,6,"Freya","ABR",49.4194,-129.5247,909,12:16:00,960,27,0,6,"sunny","Hesperiidae","Hesperia","colorado",2
+8,7,6,"Freya","MGT",49.0625,-120.7986,1185,14:25:00,900,28,1.5,8,"sunny","Lycaenidae","Tharsalea","mariposa",1
+8,7,6,"Freya","MGT",49.0625,-120.7986,1185,14:25:00,900,28,1.5,8,"sunny","Nymphalidae",NA,NA,1
+8,7,6,"Freya","MGT",49.0625,-120.7986,1185,14:25:00,900,28,1.5,8,"sunny","Pieridae","Colias",NA,2
+8,7,6,"Freya","MGT",49.0625,-120.7986,1185,14:25:00,900,28,1.5,8,"sunny","Lycaenidae",NA,NA,1
+8,8,6,"Freya","HRP",48.4355,-123.4065,74,10:00:00,780,20,0,1,"cloudy",NA,NA,NA,0
+8,8,6,"Freya","BHT",48.4099,-123.3644,40,10:44:00,780,20,0,1,"partly cloudy","Hesperiidae","Ochlodes","sylvanoides",2
+8,8,6,"Freya","CHP",48.47404,-123.3768,105,12:28:00,900,23,1.5,1,"sunny","Papilionidae","Papilio","rutulus",2
+8,8,6,"Freya","CHP",48.47404,-123.3768,105,12:28:00,900,23,1.5,1,"sunny","Hesperiidae","Ochlodes","sylvanoides",1
+8,8,6,"Freya","RBG",48.4935,-123.3822,20,13:13:00,960,25,1,1,"sunny","Pieridae","Pieris","rapae",1
+8,8,6,"Freya","RBG",48.4935,-123.3822,20,13:13:00,960,25,1,1,"sunny","Hesperiidae","Ochlodes","sylvanoides",4
+8,17,7,"Freya","PSP",49.2501,-123.1965,85,10:00:00,720,17,0,1,"sunny",NA,NA,NA,0
+8,17,7,"Freya","GBH",49.0965,-122.0457,13,12:10:00,900,23,2,1,"sunny","Pieridae","Ochlodes","sylvanoides",4
+8,17,7,"Freya","GBH",49.0965,-122.0457,13,12:10:00,900,23,2,1,"sunny","Hesperiidae","Pieris","rapae",2
+8,17,7,"Freya","CCM",49.1518,-122.0074,12,13:23:00,960,24,2,2,"sunny","Pieridae","Ochlodes","sylvanoides",12
+8,17,7,"Freya","CCM",49.1518,-122.0074,12,13:23:00,960,24,2,2,"sunny","Hesperiidae","Pieris","rapae",8
+8,17,7,"Freya","BGP",49.0245,-123.0564,5,15:43:00,1020,22.5,1,1,"sunny","Pieridae","Ochlodes","sylvanoides",20
+8,17,7,"Freya","BGP",49.0245,-123.0564,5,15:43:00,1020,22.5,1,1,"sunny","Hesperiidae","Pieris","rapae",4
+8,18,7,"Freya","BHT",48.4099,-123.3644,40,14:26:00,1200,21.5,1,1,"sunny","Hesperiidae","Ochlodes","sylvanoides",2
+8,18,7,"Freya","HRP",48.4355,-123.4065,74,11:15:00,720,20,0.5,1,"sunny",NA,NA,NA,0
+8,18,7,"Freya","CHP",48.47404,-123.3768,105,10:13:00,960,18,0.5,1,"sunny","Hesperiidae","Ochlodes","sylvanoides",2
+8,18,7,"Freya","RBG",48.4935,-123.3822,20,12:08:00,1200,21.5,0.5,1,"sunny","Hesperiidae","Ochlodes","sylvanoides",5
+8,25,7,"Freya","PBM",49.4421,-120.5734,889,11:15:00,1020,21,1,2,"sunny","Nymphalidae","Argynnis",NA,5
+8,25,7,"Freya","PBM",49.4421,-120.5734,889,11:15:00,1020,21,1,2,"sunny","Hesperiidae",NA,NA,3
+8,25,7,"Freya","PBM",49.4421,-120.5734,889,11:15:00,1020,21,1,2,"sunny","Hesperiidae","Ochlodes","sylvanoides",30
+8,25,7,"Freya","PBM",49.4421,-120.5734,889,11:15:00,1020,21,1,2,"sunny","Nymphalidae","Cercyonis",NA,3
+8,25,7,"Freya","PBM",49.4421,-120.5734,889,11:15:00,1020,21,1,2,"sunny","Pieridae","Colias",NA,3
+8,25,7,"Freya","PBM",49.4421,-120.5734,889,11:15:00,1020,21,1,2,"sunny","Nymphalidae","Polygonia","faunus",4
+8,25,7,"Freya","MGT",49.0625,-120.7986,1185,10:00:00,780,17.5,0,2,"sunny","Pieridae","Colias",NA,1
+8,25,7,"Freya","MGT",49.0625,-120.7986,1185,10:00:00,780,17.5,0,2,"sunny","Nymphalidae","Boloria","epithore",1
+8,25,7,"Freya","OHR",49.4214,-120.2563,568,13:32:00,900,27,0.5,1,"sunny","Nymphalidae","great basin nymphs?","Maybe?",4
+8,25,7,"Freya","OHR",49.4214,-120.2563,568,13:32:00,900,27,0.5,1,"sunny","Pieridae","Colias",NA,4
+8,25,7,"Freya","OHR",49.4214,-120.2563,568,13:32:00,900,27,0.5,1,"sunny","Pieridae","Pontia",NA,1
+8,25,7,"Freya","OHR",49.4214,-120.2563,568,13:32:00,900,27,0.5,1,"sunny","Hesperiidae","Ochlodes","sylvanoides",1
+8,25,7,"Freya","OHR",49.4214,-120.2563,568,13:32:00,900,27,0.5,1,"sunny","Hesperiidae","Hesperia","colorado",1
+8,25,7,"Freya","ABR",49.4194,-129.5247,909,12:21:00,960,25,1,2,"sunny","Hesperiidae","Ochlodes","sylvanoides",10
+8,25,7,"Freya","ABR",49.4194,-129.5247,909,12:21:00,960,25,1,2,"sunny","Pieridae","Colias",NA,4
+8,25,7,"Freya","ABR",49.4194,-129.5247,909,12:21:00,960,25,1,2,"sunny","Pieridae","Pieris","rapae",2
+8,25,7,"Freya","ABR",49.4194,-129.5247,909,12:21:00,960,25,1,2,"sunny","Nymphalidae","Argynnis",NA,1
+8,25,7,"Freya","ABR",49.4194,-129.5247,909,12:21:00,960,25,1,2,"sunny","Lycaenidae","Plebejus","melissa",1
+8,25,7,"Freya","ABR",49.4194,-129.5247,909,12:21:00,960,25,1,2,"sunny","Lycaenidae","Tharsalea","helloides",1
+8,25,7,"Freya","JMS",49.1971,-119.7834,407,14:50:00,960,32,1,2,"sunny","Pieridae","Pieris","rapae",4
+8,25,7,"Freya","JMS",49.1971,-119.7834,407,14:50:00,960,32,1,2,"sunny","Hesperiidae","Ochlodes","sylvanoides",5
+8,25,7,"Freya","JMS",49.1971,-119.7834,407,14:50:00,960,32,1,2,"sunny","Hesperiidae","New","skipper",1
+8,25,7,"Freya","JMS",49.1971,-119.7834,407,14:50:00,960,32,1,2,"sunny","Pieridae","Pontia",NA,1
+8,25,7,"Freya","JMS",49.1971,-119.7834,407,14:50:00,960,32,1,2,"sunny","Pieridae","Colias",NA,2
+8,26,7,"Freya","KSP",49.3918,-119.5891,322,15:00:00,840,34,1,4,"cloudy","Hesperiidae","Ochlodes","sylvanoides",2
+8,26,7,"Freya","KSP",49.3918,-119.5891,322,15:00:00,840,34,1,4,"cloudy","Lycaenidae","Strymon","melinus",1
+8,26,7,"Freya","KWL",49.3013,-119.6279,571,14:02:00,1020,33.5,1,3,"partly cloudy","Hesperiidae","Ochlodes","sylvanoides",8
+8,26,7,"Freya","KWL",49.3013,-119.6279,571,14:02:00,1020,33.5,1,3,"partly cloudy","Hesperiidae","Hesperia","colorado",1
+8,26,7,"Freya","KWL",49.3013,-119.6279,571,14:02:00,1020,33.5,1,3,"partly cloudy","Hesperiidae","Hesperia","juba",18
+8,26,7,"Freya","KWL",49.3013,-119.6279,571,14:02:00,1020,33.5,1,3,"partly cloudy","Hesperiidae",NA,NA,1
+8,26,7,"Freya","KWL",49.3013,-119.6279,571,14:02:00,1020,33.5,1,3,"partly cloudy","Pieridae","Colias",NA,5
+8,26,7,"Freya","RTT",49.0887,-119.5351,287,12:34:00,900,32,1,3,"partly cloudy","Pieridae","Pieris","rapae",20
+8,26,7,"Freya","RTT",49.0887,-119.5351,287,12:34:00,900,32,1,3,"partly cloudy","Hesperiidae","Ochlodes","sylvanoides",4
+8,26,7,"Freya","PML",49.5049,-119.6405,491,10:55:00,900,27,0.5,3,"partly cloudy","Pieridae","Pieris","rapae",1
+8,26,7,"Freya","PML",49.5049,-119.6405,491,10:55:00,900,27,0.5,3,"partly cloudy","Hesperiidae","Ochlodes","sylvanoides",14
+8,26,7,"Freya","OKF",49.3384,-119.5804,340,10:00:00,900,23.5,1.5,3,"partly cloudy","Hesperiidae","Ochlodes","sylvanoides",128
+8,26,7,"Freya","OKF",49.3384,-119.5804,340,11:00:00,900,23.5,1.5,3,"partly cloudy","Nymphalidae","Cercyonis",NA,1
+8,27,7,"Freya","KMP",49.8645,-119.4583,351,10:00:00,720,23,0,2,"cloudy",NA,NA,NA,0
+8,27,7,"Freya","UBC",49.942,-119.3988,480,10:41:00,840,22,0.5,3,"cloudy",NA,NA,NA,0
+8,27,7,"Freya","RRP",49.8802,-119.5763,575,11:57:00,840,23.5,0,2,"cloudy","Nymphalidae","Boloria","epithore",1
+8,27,7,"Freya","RRP",49.8802,-119.5763,575,11:57:00,840,23.5,0,2,"cloudy","Hesperiidae",NA,NA,1
+8,27,7,"Freya","PSL",50.6633,-120.3285,447,15:22:00,960,24.5,2,3,"partly cloudy","Hesperiidae","Hesperia","juba",1
+8,28,7,"Freya","MMF",50.4953,-120.8061,1108,11:08:00,780,15.5,0.5,2,"sunny","Nymphalidae","Argynnis",NA,3
+8,28,7,"Freya","MMF",50.4953,-120.8061,1108,11:08:00,780,15.5,0.5,2,"sunny","Lycaenidae","Tharsalea","helloides",2
+8,28,7,"Freya","MMF",50.4953,-120.8061,1108,11:08:00,780,15.5,0.5,2,"sunny","Hesperiidae","Ochlodes","sylvanoides",1
+8,28,7,"Freya","FLT",49.6127,-121.0651,1241,13:12:00,900,18,1.5,1,"partly cloudy","Nymphalidae","Cercyonis",NA,1
+8,28,7,"Freya","FLT",49.6127,-121.0651,1241,13:12:00,900,18,1.5,1,"partly cloudy","Lycaenidae",NA,NA,1
+8,28,7,"Freya","FLT",49.6127,-121.0651,1241,13:12:00,900,18,1.5,1,"partly cloudy","Nymphalidae","Polygonia",NA,1
+8,28,7,"Freya","FLT",49.6127,-121.0651,1241,13:12:00,900,18,1.5,1,"partly cloudy","Hesperiidae","Thymelicus","https://www.inaturalist.org/observations/396218697",1
+8,31,8,"Freya","CCM",49.1518,-122.0074,12,10:00:00,780,17.5,1,1,"sunny","Hesperiidae","Ochlodes","sylvanoides",5
+8,31,8,"Freya","CCM",49.1518,-122.0074,12,10:00:00,780,17.5,1,1,"sunny","Pieridae","Pieris","rapae",1
+8,31,8,"Freya","GBH",49.0965,-122.0457,13,10:50:00,780,19.5,1.5,1,"sunny","Pieridae","Pieris","rapae",3
+8,31,8,"Freya","BGP",49.0245,-123.0564,5,13:20:00,780,21,2.5,1,"partly cloudy","Pieridae","Pieris","rapae",4
+9,1,8,"Freya","RBG",48.4935,-123.3822,20,12:24:00,960,17,1,1,"partly cloudy",NA,NA,NA,0
+9,1,8,"Freya","BHT",48.4099,-123.3644,40,11:18:00,960,19,1,1,"sunny",NA,NA,NA,0
+9,1,8,"Freya","HRP",48.4355,-123.4065,74,10:43:00,780,18,1,1,"partly cloudy",NA,NA,NA,0
+9,1,8,"Freya","CHP",48.47404,-123.3768,105,10:00:00,960,17.5,1.5,1,"partly cloudy",NA,NA,NA,0
+9,3,8,"Freya","FLT",49.6127,-121.0651,1241,15:41:00,720,15,0,1,"partly cloudy",NA,NA,NA,0
+9,3,8,"Freya","PSP",49.2501,-123.1965,85,13:22:00,780,19,1.5,1,"sunny","Nymphalidae","Nymphalis","californica",2
