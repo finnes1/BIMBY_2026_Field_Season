@@ -33,5 +33,5 @@ ggplot(butterflies_filtered, aes(x = transect, y = duration_s, colour = week)) +
 #### WRITING CLEANED DATA INTO FILE ####
 write.csv(butterflies_filtered,"Clean Data/butterflies_clean.csv", row.names = FALSE)
 write.csv(flowers_raw,"Clean Data/flowers_clean.csv", row.names = FALSE) # PLACE HOLDER SINCE THESE HAVE NOT BEEN CLEANED YET
-write.csv(nectar_raw,"Clean Data/nectaring_clean.csv", row.names = FALSE) # PLACE HOLDER SINCE THESE HAVE NOT BEEN CLEANED YET
+write.csv(nectar_raw,"Clean Data/nectar_clean.csv", row.names = FALSE) # PLACE HOLDER SINCE THESE HAVE NOT BEEN CLEANED YET
 

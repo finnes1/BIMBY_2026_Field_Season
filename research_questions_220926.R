@@ -8,14 +8,14 @@ library(tidyverse)
 #### READING IN DATA ####
 setwd("~/Desktop/School/Graduate/BIMBY_2026_Field_Season")
 
-butterflies_raw <- read_csv("Cleaned Data/BIMBY-field-work-butterfly-2026.csv")
-flowers_raw <- read_csv("Cleaned Data/BIMBY-field-work-flowers-2026.csv")
-nectar_raw <- read_csv("Cleaned Data/BIMBY-field-work-nectaring-2026.csv")
+butterflies_clean <- read_csv("Clean Data/butterflies_clean.csv")
+flowers_clean <- read_csv("Clean Data/flowers_clean.csv")
+nectar_clean <- read_csv("Clean Data/nectar_clean.csv")
 
 #### Can floral resource richness and abundance predict butterfly richness and abundance?####
 # The idea behind this one is a four panelled grid that has the associations
 
-butterfly_summary <- butterflies_filtered %>%
+butterfly_summary <- butterflies_clean %>%
   mutate(date = make_date(year = 2026,
                           month = as.integer(month), 
                           day = as.integer(day))) %>%
@@ -24,7 +24,7 @@ butterfly_summary <- butterflies_filtered %>%
             butterfly_richness = n_distinct(paste(genus, species),na.rm = TRUE),
             .groups = "drop")
 
-flowers_clean <- flowers_raw %>%
+flowers_clean <- flowers_clean %>%
   filter(!is.na(transect), !is.na(month), !is.na(day)) %>%
   mutate(date = make_date(year = 2026,
                           month = as.integer(month),
