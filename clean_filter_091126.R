@@ -7,11 +7,11 @@ library(tidyverse)
 #library()
 
 #### READING IN DATA ####
-setwd("~/Desktop/School/Graduate/BIMBY_2026_Field_Season/Raw Data")
+setwd("~/Desktop/School/Graduate/BIMBY_2026_Field_Season")
 
-butterflies_raw <- read_csv("BIMBY-field-work-butterfly-2026.csv")
-flowers_raw <- read_csv("BIMBY-field-work-flowers-2026.csv")
-nectar_raw <- read_csv("BIMBY-field-work-nectaring-2026.csv")
+butterflies_raw <- read_csv("Raw Data/BIMBY-field-work-butterfly-2026.csv")
+flowers_raw <- read_csv("Raw Data/BIMBY-field-work-flowers-2026.csv")
+nectar_raw <- read_csv("Raw Data/BIMBY-field-work-nectaring-2026.csv")
 
 #### FILTER AND DOUBLE CHECK BUTTERFLY SURVEYS ####
 butterflies_filtered <- butterflies_raw %>% # Making a filtered dataset
@@ -29,17 +29,7 @@ ggplot(butterflies_filtered, aes(x = transect, y = duration_s, colour = week)) +
   geom_point() +
   theme_bw() # checking time data is correctly inputted
 
-butterflies_sum <- butterflies_filtered %>% # Making a dataset with summed total counts for each transect walked
-  
 
 
 
 
-
-
-  
-  
-
-
-
-#
