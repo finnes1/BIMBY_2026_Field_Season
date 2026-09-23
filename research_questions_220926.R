@@ -108,14 +108,17 @@ flowers_clean <- flowers_clean %>%
 
 # Calculate mean floral cover for each plant species
 flower_availability <- flowers_clean %>%
+  filter(!is.na(quadrat)) %>% # Removes quadrats that are NA values
+  group_by(transect, date, quadrat, plant_species) %>%
+  summarise(cover = sum(`cover_%`, na.rm = TRUE),
+            .groups = "drop") %>%
+  complete(transect, date, 
+           quadrat = 1:5,  # specifically calculates for 5 quadrats, not more (NAs)
+           plant_species, fill = list(cover = 0)) %>%
   group_by(transect, date, plant_species) %>%
-  summarise(mean_cover = mean(`cover_%`, na.rm = TRUE),
-            n_quadrats = n(), 
+  summarise(mean_cover = mean(cover),
+            n_quadrats = n(),
             .groups = "drop")
-
-# Check how many quadrats contributed to each mean
-flower_availability %>% # ERROR IN THE DATA
-  count(n_quadrats)
 
 # Calculate total floral cover for each transect on a certain date
 flower_totals <- flower_availability %>%
@@ -204,4 +207,3 @@ ggplot(plant_summary, aes(x = mean_availability, y = mean_use, label = plant_spe
   labs(x = "Mean proportional floral cover",
        y = "Mean proportional nectar use") +
   theme_bw()
-
