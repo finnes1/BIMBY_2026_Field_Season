@@ -287,3 +287,20 @@ ggplot(question3_data, aes(x = proportion_native_floral_cover, y = proportion_na
        y = "Proportion of nectar observations on native plants",
        title = "Native nectar use as a function of native floral availability") +
   theme_bw()
+
+
+nectaring_summary_plot <- nectaring_summary %>%
+  group_by(plant_species) %>%
+  summarise(nectar_visits = sum(nectar_visits, na.rm = TRUE),
+            .groups = "drop") %>%
+  arrange(desc(nectar_visits)) %>%
+  mutate(plant_species = factor(plant_species,
+                           levels = plant_species)) %>%
+  filter(nectar_visits > 5)
+
+ggplot(nectaring_summary_plot, aes(x = plant_species, y = nectar_visits)) +
+  geom_col() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(x = "Flower",
+       y = "Number of nectar observations",
+       title = "Butterfly nectar plant use") 
