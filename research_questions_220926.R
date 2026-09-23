@@ -12,6 +12,7 @@ butterflies_clean <- read_csv("Clean Data/butterflies_clean.csv")
 flowers_clean <- read_csv("Clean Data/flowers_clean.csv")
 nectar_clean <- read_csv("Clean Data/nectar_clean.csv")
 
+
 #### Can floral resource richness and abundance predict butterfly richness and abundance?####
 # The idea behind this one is a four panelled grid that has the associations
 
@@ -91,6 +92,7 @@ ggplot(question1_data, aes(x = butterfly_abundance)) +
 ggplot(question1_data, aes(x = butterfly_richness)) +
   geom_histogram(binwidth = 1) +
   theme_classic()
+
 
 
 
@@ -209,7 +211,6 @@ ggplot(plant_summary, aes(x = mean_availability, y = mean_use, label = plant_spe
   theme_bw()
 
 
-
 #### Does butterfly use of native vs. non-native nectar plants change with seasonal variation in native floral availability?####
 
 # FLORAL DATA #
@@ -289,6 +290,335 @@ ggplot(question3_data, aes(x = proportion_native_floral_cover, y = proportion_na
   theme_bw()
 
 
+
+
+
+
+#### MAKING OTHER RANDOM PLOTS THAT I HAD THE CODE FOR ####
+# Transect Locations ####
+# Adding region to butterfly data
+butterflies <- butterflies_clean %>%
+  mutate(region = case_when(
+    transect %in% c("GBH", "CCM", "BGP", "PSP") ~ "Lower Mainland",
+    transect %in% c("CHP", "RBG", "BHT", "HRP") ~ "Vancouver Island",
+    transect %in% c("MGT", "FLT") ~ "High Elevation Alpine",
+    transect %in% c("MMF", "KPP", "PSL") ~ "Thompson-Nicola",
+    transect %in% c("OHR", "OHRb", "PBM", "ABR", "JMS",
+                    "KSP", "OKF", "KWL", "RTT", "PML") ~ "Okanagan-Similkameen",
+    transect %in% c("UBC", "KMP", "RRP" ) ~ "Thompson-Okanagan"))
+
+# Base map
+canada_prov <- ne_states(country = "canada", returnclass = "sf")
+
+# Load BC boundary
+bc_boundary <- canada_prov %>%
+  filter(gn_name == "British Columbia")
+
+# Convert to sf structure to plot on map 
+transects_sf <- st_as_sf(butterflies, coords = c("lon", "lat"), crs = 4326)
+
+# Clip to BC
+sf_bc <- st_join(transects_sf, bc_boundary, join = st_within, left = FALSE)
+
+# Plot
+ggplot() +
+  geom_sf(data = bc_boundary, fill = "grey95") +
+  geom_sf(data = sf_bc, aes(color = region.x)) +
+  geom_sf_text(data = sf_bc, aes(label = transect),
+               nudge_y = 0.05,
+               size = 2) +
+  coord_sf(xlim = c(-126.0, -119.0),
+           ylim = c(48.0, 51)) +
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()) +
+  labs(title = "BIMBY Transects in British Columbia",
+       x = "Longitude",
+       y = "Latitude",
+       color = "Sampling Region")
+
+
+
+#### 1) SAMPLING SUMMARY ####
+# Binding together sampling summary
+sampling_summary <- bind_rows(
+  flowers_clean %>%
+    distinct(transect, month, day, week) %>%
+    count(transect) %>%
+    mutate(dataset = "Flowers"),
+  
+  nectar_clean %>%
+    distinct(transect, month, day) %>%
+    count(transect) %>%
+    mutate(dataset = "Nectar"),
+  
+  butterflies_clean %>%
+    distinct(transect, month, day) %>%
+    count(transect) %>%
+    mutate(dataset = "Butterflies"))
+
+# Plots the number of times floral surveys, butterfly surveys, and nectar observations have been recorded at each site
+ggplot(sampling_summary, aes(x = reorder(transect, n), y = n, fill = dataset)) +
+  geom_col(position = "dodge") +
+  coord_flip() +
+  labs(x = "Transect", 
+       y = "Number of sampling occasions", 
+       fill = "Dataset") +
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank())
+
+
+
+#### 2) NATIVE VS. NON-NATIVE FLORAL COVER ####
+# Averaging floral cover across five quadrats per transect
+cover_transect <- flowers_clean %>%
+  filter(!is.na(origin)) %>%
+  group_by(month, day, week, transect, quadrat, origin) %>%
+  summarise(cover = sum(`cover_%`, na.rm = TRUE), 
+            .groups = "drop" ) %>%
+  group_by(month, day, week, transect, origin) %>%
+  summarise(mean_cover = mean(cover, na.rm = TRUE), 
+            se = sd(cover, na.rm = TRUE) / sqrt(n()),
+            .groups = "drop")
+
+# Creating day-of-year
+cover_transect <- cover_transect %>%
+  mutate(date = as.Date(paste(2026, month, day, sep = "-")),
+         julian = as.integer(format(date, "%j")),
+         region = case_when(
+           transect %in% c("GBH", "CCM", "BGP", "PSP") ~ "Lower Mainland",
+           transect %in% c("CHP", "RBG", "BHT", "HRP") ~ "Vancouver Island",
+           transect %in% c("MGT", "FLT") ~ "High Elevation Alpine",
+           transect %in% c("MMF", "KPP", "PSL") ~ "Thompson-Nicola",
+           transect %in% c("OHR", "OHRb", "PBM", "ABR", "JMS",
+                           "KSP", "OKF", "KWL", "RTT", "PML") ~ "Okanagan-Similkameen",
+           transect %in% c("UBC", "KMP", "RRP" ) ~ "Thompson-Okanagan"))
+
+# Plotting mean % floral cover vs day of year
+ggplot(cover_transect, aes(x = week, y = mean_cover, colour = origin)) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "loess", se = FALSE) + # Change if changed below
+  facet_wrap(~ region) + # Change if wanting season total, region, or individual transects
+  scale_colour_manual(values = c("Native" = "forestgreen", "Non-native" = "orange")) +
+  scale_x_continuous(breaks = seq(min(cover_transect$week), max(cover_transect$week), by = 1)) +
+  labs(x = "Week",
+       y = "Mean floral cover (%)",
+       colour = "Plant origin") +
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank())
+
+####  3) NECTAR-USE AT TRANSECTS ####
+# Simple summary of nectar-use
+nectar_summary <- nectar_clean %>%
+  count(transect, flower_origin)
+
+# Plots nectaring observations at each transect and whether they were on native or non-native plants
+ggplot(nectar_summary, aes(x = reorder(transect, n), y = n, fill = flower_origin)) +
+  geom_col() +
+  coord_flip() +
+  scale_fill_manual(
+    values = c("Native" = "forestgreen", "Non-native" = "orange")) +
+  labs(x = "Transect",
+       y = "Number of nectaring observations",
+       fill = "Flower origin") +
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank())
+
+####  4) NECTAR-USE THROUGHOUT THE SEASON ####
+# Adding julian date to nectaring data and summing the observations
+nectar_day <- nectar_clean %>%
+  mutate(date = as.Date(paste(2026, month, day, sep = "-")),
+         julian = as.integer(format(date, "%j"))) %>%
+  count(julian, flower_origin)
+
+ggplot(nectar_day, aes(x = julian, y = n, colour = flower_origin)) +
+  geom_point(alpha = 0.6) +
+  geom_smooth(method = "loess", se = FALSE) + # Change for error bars if wanted
+  scale_colour_manual(values = c("Native" = "forestgreen","Non-native" = "orange")) +
+  labs(x = "Day of year",
+       y = "Nectaring observations",
+       colour = "Flower origin") +
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank())
+
+####  5) FLORAL AVAILABILITY VS NECTAR-USE ####
+# Calculating native floral cover for each transect and week
+floral_availability <- flowers_clean %>%
+  filter(!is.na(origin)) %>%
+  group_by(week, transect, quadrat, origin) %>%
+  summarise(cover = sum(`cover_%`, na.rm = TRUE),
+            .groups = "drop") %>%
+  group_by(week, transect, origin) %>%
+  summarise(mean_cover = mean(cover, na.rm = TRUE),
+            .groups = "drop") %>%
+  rename(flower_origin = origin)
+
+# Nectar observations based on week, transect, and flower origin 
+nectar_use <- nectar_clean %>%
+  count(week, transect, flower_origin, name = "nectar_obs")
+
+# Connecting datasets
+nectar_availability <- floral_availability %>%
+  left_join(nectar_use, by = c("week", "transect", "flower_origin")) %>%
+  mutate(nectar_obs = replace_na(nectar_obs, 0))
+
+# Plotting 
+ggplot(nectar_availability, aes(x = mean_cover, y = nectar_obs, colour = flower_origin)) +
+  geom_point(alpha = 0.7) +
+  geom_smooth(method = "lm", se = TRUE) +
+  facet_wrap(~ flower_origin) +
+  scale_colour_manual(values = c("Native" = "forestgreen", "Non-native" = "orange")) +
+  labs(x = "Mean floral cover (%)",
+       y = "Nectaring observations",
+       colour = "Flower origin") +
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank())
+
+
+####  6) BUTTERFLY ABUNDANCE THROUGHOUT THE SEASON ####
+# Abundance at each transect during each week
+butterfly_day <- butterflies_clean %>%
+  group_by(month, day, week, transect) %>%
+  summarise(butterfly_abundance = sum(number, na.rm = TRUE),
+            species_richness = n_distinct(paste(genus, species),na.rm = TRUE), .groups = "drop") %>%
+  mutate(date = as.Date(paste(2026, month, day, sep = "-")),
+         julian = as.integer(format(date, "%j")),
+         region = case_when(
+           transect %in% c("GBH", "CCM", "BGP", "PSP") ~ "Lower Mainland",
+           transect %in% c("CHP", "RBG", "BHT", "HRP") ~ "Vancouver Island",
+           transect %in% c("MGT", "FLT") ~ "High Elevation Alpine",
+           transect %in% c("MMF", "KPP", "PSL") ~ "Thompson-Nicola",
+           transect %in% c("OHR", "OHRb", "PBM", "ABR", "JMS",
+                           "KSP", "OKF", "KWL", "RTT", "PML") ~ "Okanagan-Similkameen",
+           transect %in% c("UBC", "KMP", "RRP" ) ~ "Thompson-Okanagan"))
+
+# Plots abundance (something wonky with the x-axis)
+ggplot(butterfly_day, aes(x = julian, y = butterfly_abundance)) +
+  geom_point(alpha = 0.6) +
+  geom_smooth(method = "loess",se = TRUE) +
+  facet_wrap(~ region) +
+  labs(x = "Day of year", 
+       y = "Butterfly abundance") +
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank())
+
+
+# Plots richness (still wonky)
+ggplot(butterfly_day, aes(x = julian,y = species_richness)) +
+  geom_point(alpha = 0.6) +
+  geom_smooth(method = "loess", se = TRUE) +
+  facet_wrap(~ region) +
+  labs(x = "Day of year",
+       y = "Butterfly species richness") +
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank())
+
+
+
+
+
+
+
+
+
+
+
+#### NOT READY YET ####
+availability_prop <- floral_availability %>%
+  group_by(week, transect) %>%
+  mutate(availability_prop = mean_cover / sum(mean_cover)) %>%
+  ungroup()
+
+use_prop <- nectar_use %>%
+  group_by(week, transect) %>%
+  mutate(use_prop = nectar_obs / sum(nectar_obs)) %>%
+  ungroup()
+
+comparison <- availability_prop %>%
+  left_join(use_prop, by = c("week", "transect", "flower_origin")) %>%
+  mutate(use_prop = replace_na(use_prop, 0))
+
+ggplot(comparison, aes(x = availability_prop, y = use_prop, colour = flower_origin)) +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed") +
+  geom_point(size = 3, alpha = 0.7) +
+  scale_colour_manual(values = c("Native" = "forestgreen", "Non-native" = "orange")) +
+  labs(x = "Proportion of floral availability",
+       y = "Proportion of nectar use",
+       colour = "Flower origin") +
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank())
+# One point is a flower origin at a transect during a certain week
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+floral_availability <- flowers_clean %>%
+  filter(!is.na(origin)) %>%
+  group_by(week, transect, quadrat, origin) %>%
+  summarise(cover = sum(`cover_%`, na.rm = TRUE), .groups = "drop") %>%
+  group_by(week, transect, origin) %>% # Average the quadrats to get transect-level 
+  summarise(mean_cover = mean(cover, na.rm = TRUE), .groups = "drop") %>%
+  rename(flower_origin = origin)
+
+nectar_use <- nectar_clean %>%
+  filter(activity == "nectaring") %>%
+  count(week, transect, flower_origin, name = "nectar_obs")
+
+selection_data <- floral_availability %>%
+  left_join(nectar_use, by = c("week", "transect", "flower_origin")) %>% # Add nectar observations
+  mutate(nectar_obs = replace_na(nectar_obs, 0)) # No observations on that flower origin = zero observations
+
+selection_data <- selection_data %>%
+  group_by(week, transect) %>%
+  mutate(availability_prop = mean_cover / sum(mean_cover),
+         use_prop = nectar_obs / sum(nectar_obs)) %>%
+  ungroup()
+
+selection_data <- selection_data %>%
+  filter(!is.na(use_prop), !is.na(availability_prop), availability_prop > 0)
+
+selection_data <- selection_data %>%
+  mutate(selection_ratio = use_prop/availability_prop)
+
+selection_data %>%
+  select(week, transect, flower_origin, availability_prop, use_prop, selection_ratio) %>%
+  arrange(transect, week, flower_origin)
+
+
+ggplot(selection_data, aes(x = flower_origin, y = selection_ratio, colour = flower_origin)) +
+  geom_hline(yintercept = 1, linetype = "dashed") +
+  geom_boxplot() +
+  geom_jitter(size = 2.5, alpha = 0.5) +
+  scale_colour_manual(values = c("Native" = "forestgreen",
+                                 "Non-native" = "orange")) +
+  labs(x = "Flower origin",
+       y = "Selection ratio",
+       colour = "Flower origin") +
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank())
+
+
+# Summary of most common nectar plants visited
 nectaring_summary_plot <- nectaring_summary %>%
   group_by(plant_species) %>%
   summarise(nectar_visits = sum(nectar_visits, na.rm = TRUE),
@@ -297,6 +627,7 @@ nectaring_summary_plot <- nectaring_summary %>%
   mutate(plant_species = factor(plant_species,
                            levels = plant_species)) %>%
   filter(nectar_visits > 5)
+
 
 ggplot(nectaring_summary_plot, aes(x = plant_species, y = nectar_visits)) +
   geom_col() +
