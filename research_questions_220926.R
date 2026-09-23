@@ -78,4 +78,22 @@ ggplot(figure_data, aes(x = x, y = y)) +
   theme_bw()
 
 
-#
+# Checking how many of each transect was surveyed
+question1_data %>%
+  count(transect, name = "n_surveys") %>%
+  arrange(desc(n_surveys))
+
+# Checking distributions
+ggplot(question1_data, aes(x = butterfly_abundance)) +
+  geom_histogram(binwidth = 1) +
+  theme_classic()
+
+ggplot(question1_data, aes(x = butterfly_richness)) +
+  geom_histogram(binwidth = 1) +
+  theme_classic()
+
+
+
+
+
+
