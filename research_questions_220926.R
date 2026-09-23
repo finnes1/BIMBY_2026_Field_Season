@@ -274,7 +274,8 @@ ggplot(question3_data, aes(x = date, y = proportion_native_nectar)) +
   geom_smooth(method = "loess", se = TRUE) +
   labs(x = "Date",
        y = "Proportion of nectar observations on native plants",
-       title = "Seasonal use of native nectar plants") +
+       title = "Seasonal use of native flowers") +
+  ylim(0, 1) +
   theme_bw()
 
 # Plotting native floral availability vs. native nectar use
