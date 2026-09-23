@@ -44,7 +44,7 @@ question1_data <- butterfly_summary %>%
   left_join(flower_summary, by = c("transect", "date"))
 
 
-#### Create data for all four relationships####
+# Create data for all four relationships
 figure_data <- bind_rows( question1_data %>%
                             transmute(transect, date, 
                                       x = floral_richness,
@@ -95,5 +95,113 @@ ggplot(question1_data, aes(x = butterfly_richness)) +
 
 
 
+#### Which floral resources are disproportionately used by butterflies relative to their availability?####
+# FLOWER DATA #
 
+#Ensuring NAs are removed (can be removed once data is properyl cleaned)
+flowers_clean <- flowers_clean %>%
+  filter(!is.na(transect), !is.na(month), !is.na(day)) %>%
+  mutate(date = make_date(year = 2026,
+                          month = as.integer(month),
+                          day = as.integer(day)),
+         plant_species = paste(genus, species))
+
+# Calculate mean floral cover for each plant species
+flower_availability <- flowers_clean %>%
+  group_by(transect, date, plant_species) %>%
+  summarise(mean_cover = mean(`cover_%`, na.rm = TRUE),
+            n_quadrats = n(), 
+            .groups = "drop")
+
+# Check how many quadrats contributed to each mean
+flower_availability %>% # ERROR IN THE DATA
+  count(n_quadrats)
+
+# Calculate total floral cover for each transect on a certain date
+flower_totals <- flower_availability %>%
+  group_by(transect, date) %>%
+  summarise(total_floral_cover = sum(mean_cover, na.rm = TRUE),
+            .groups = "drop")
+
+# Calculate each plant's proportion of floral availability
+flower_availability <- flower_availability %>%
+  left_join(flower_totals, by = c("transect", "date")) %>%
+  mutate(availability_proportion = mean_cover / total_floral_cover)
+
+
+# NECTARING DATA #
+
+# Filtering the dataset (can be removed once data is completed)
+nectar_clean <- nectar_clean %>%
+  filter(!is.na(transect), !is.na(month), !is.na(day)) %>%
+  mutate(date = make_date(year = 2026,
+                          month = as.integer(month),
+                          day = as.integer(day)),
+         plant_species = paste(flower_genus, flower_species))
+
+# Counting nectar observations for each plant
+nectaring_summary <- nectar_clean %>%
+  group_by(transect, date, plant_species) %>%
+  summarise(nectar_visits = n(), 
+            .groups = "drop")
+
+# Calculating the total nectar observations per transect on a certain date
+nectar_totals <- nectaring_summary %>%
+  group_by(transect, date) %>%
+  summarise(total_nectar_visits = sum(nectar_visits, na.rm = TRUE),
+            .groups = "drop")
+
+# Calculate if nectar use was proportional 
+nectaring_summary <- nectaring_summary %>%
+  left_join(nectar_totals, by = c("transect", "date")) %>%
+  mutate(use_proportion = nectar_visits / total_nectar_visits)
+
+
+# COMBINING DATASETS #
+question2_data <- flower_availability %>%
+  select(transect, date, plant_species, mean_cover, availability_proportion) %>%
+  full_join(nectaring_summary %>%
+              select(transect, date, plant_species, nectar_visits, use_proportion),
+            by = c("transect", "date", "plant_species")) %>%
+  mutate(mean_cover = replace_na(mean_cover, 0),
+         availability_proportion = replace_na(availability_proportion, 0),
+         nectar_visits = replace_na(nectar_visits, 0), 
+         use_proportion = replace_na(use_proportion, 0))
+
+# Calculate selection ratio
+#
+# > 1 = used more than expected based on availability
+# = 1 = used in proportion to availability
+# < 1 = used less than expected
+
+question2_data <- question2_data %>%
+  mutate(selection_ratio = case_when(availability_proportion > 0 ~ use_proportion / availability_proportion,
+                                     TRUE ~ NA_real_))
+
+#  Plotting data
+# Each point represents a plant species at a particular transect on a particular date
+ggplot(question2_data, aes(x = availability_proportion, y = use_proportion)) +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed") + # 1:1 line = use proportional to availability
+  geom_point(alpha = 0.6) +
+  labs(x = "Proportion of floral cover available",
+       y = "Proportion of nectar observations",
+       title = "Butterfly nectar use relative to floral availability") +
+  theme_bw()
+
+# Plant-level summary for a second figure
+plant_summary <- question2_data %>%
+  group_by(plant_species) %>%
+  summarise(mean_availability = mean(availability_proportion, na.rm = TRUE),
+            mean_use = mean(use_proportion, na.rm = TRUE),
+            total_visits = sum(nectar_visits, na.rm = TRUE),
+            .groups = "drop")
+
+# Plant-level availability vs. use figure
+ggplot(plant_summary, aes(x = mean_availability, y = mean_use, label = plant_species)) +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed") + # 1:1 line = use proportional to availability
+  geom_point(alpha = 0.6) +
+  geom_text(nudge_y = 0.01, check_overlap = TRUE) +
+  labs(x = "Mean proportional floral cover",
+       y = "Mean proportional nectar use") +
+  theme_bw()
 
