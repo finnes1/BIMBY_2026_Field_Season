@@ -26,38 +26,25 @@ butterfly_summary <- butterflies_clean %>%
             butterfly_richness = n_distinct(paste(genus, species), na.rm = TRUE), # Making a column for species richness
             .groups = "drop")
 
-
-
-
 # Making floral summary with native and non-native cover and richness in case I want to use it later
 flower_summary <- flowers_clean %>%
+  filter(!is.na(genus)) %>%  # drop placeholder "no plant in this quadrat" rows
   mutate(date = make_date(year = 2026,
                           month = as.integer(month),
                           day = as.integer(day)),
          plant_species = paste(genus, species)) %>%
-  complete(transect, date, plant_species, origin, quadrat = 1:5,
-           fill = list(`cover_%` = 0)) %>%
+  distinct(transect, date, quadrat, plant_species, origin, cover_pct) %>%  # guard against dup entries
+  group_by(transect, date) %>%
+  complete(quadrat = 1:5, nesting(plant_species, origin),
+           fill = list(cover_pct = 0)) %>%
+  ungroup() %>%
   group_by(transect, date, origin, plant_species) %>%
-  summarise(mean_cover = mean(cover_%),   # now includes zeros for absent quadrats
-            .groups = "drop") %>%
+  summarise(mean_cover = mean(cover_pct), .groups = "drop") %>%
   group_by(transect, date, origin) %>%
-                         summarise(
-                           richness = n_distinct(plant_species),
-                           cover = sum(mean_cover),
-                           .groups = "drop")
+  summarise(floral_richness = n_distinct(plant_species),
+            floral_cover = sum(mean_cover),
+            .groups = "drop")
                        
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -66,40 +53,38 @@ question1_data <- butterfly_summary %>%
   left_join(flower_summary, by = c("transect", "date"))
 
 
-# Create data for all four relationships
-figure_data <- bind_rows( question1_data %>%
-                            transmute(transect, date, 
-                                      x = floral_richness,
-                                      y = butterfly_richness, 
-                                      x_variable = "Floral richness", 
-                                      y_variable = "Butterfly richness"),
-                          question1_data %>%
-                            transmute(transect, date,
-                                      x = floral_abundance,
-                                      y = butterfly_richness,
-                                      x_variable = "Floral % cover",
-                                      y_variable = "Butterfly richness"),
-                          question1_data %>%
-                            transmute(transect, date,
-                                      x = floral_richness,
-                                      y = butterfly_abundance,
-                                      x_variable = "Floral richness",
-                                      y_variable = "Butterfly abundance"),
-                          question1_data %>%
-                            transmute(transect, date,
-                                      x = floral_abundance,
-                                      y = butterfly_abundance,
-                                      x_variable = "Floral % cover",
-                                      y_variable = "Butterfly abundance"))
+figure_data <- bind_rows(
+  question1_data %>%
+    transmute(transect, date, origin,
+              x = floral_richness,
+              y = butterfly_richness,
+              x_variable = "Floral richness",
+              y_variable = "Butterfly richness"),
+  question1_data %>%
+    transmute(transect, date, origin,
+              x = floral_cover,
+              y = butterfly_richness,
+              x_variable = "Floral % cover",
+              y_variable = "Butterfly richness"),
+  question1_data %>%
+    transmute(transect, date, origin,
+              x = floral_richness,
+              y = butterfly_abundance,
+              x_variable = "Floral richness",
+              y_variable = "Butterfly abundance"),
+  question1_data %>%
+    transmute(transect, date, origin,
+              x = floral_cover,
+              y = butterfly_abundance,
+              x_variable = "Floral % cover",
+              y_variable = "Butterfly abundance"))
 
-ggplot(figure_data, aes(x = x, y = y)) +
+ggplot(figure_data, aes(x = x, y = y, color = origin, fill = origin)) +
   geom_point(alpha = 0.6) +
   geom_smooth(method = "lm", se = TRUE) +
   facet_grid(y_variable ~ x_variable, scales = "free") +
-  labs(x = NULL, 
-       y = NULL) +
+  labs(x = NULL, y = NULL, color = "Origin", fill = "Origin") +
   theme_bw()
-
 
 # Checking how many of each transect was surveyed
 question1_data %>%
