@@ -13,34 +13,55 @@ flowers_clean <- read_csv("Clean Data/flowers_clean.csv")
 nectar_clean <- read_csv("Clean Data/nectar_clean.csv")
 
 
-#### Can floral resource richness and abundance predict butterfly richness and abundance?####
+#### Can floral resource richness and abundance predict butterfly richness and abundance? ####
 # The idea behind this one is a four panelled grid that has the associations
 
+# Making a usable butterfly summary
 butterfly_summary <- butterflies_clean %>%
   mutate(date = make_date(year = 2026,
                           month = as.integer(month), 
-                          day = as.integer(day))) %>%
+                          day = as.integer(day))) %>% # Combining the date
   group_by(transect, date) %>%
-  summarise(butterfly_abundance = sum(number, na.rm = TRUE),
-            butterfly_richness = n_distinct(paste(genus, species),na.rm = TRUE),
+  summarise(butterfly_abundance = sum(number, na.rm = TRUE), # Making a column for butterfly abundance
+            butterfly_richness = n_distinct(paste(genus, species), na.rm = TRUE), # Making a column for species richness
             .groups = "drop")
 
-flowers_clean <- flowers_clean %>%
-  filter(!is.na(transect), !is.na(month), !is.na(day)) %>%
+
+
+
+# Making floral summary with native and non-native cover and richness in case I want to use it later
+flower_summary <- flowers_clean %>%
   mutate(date = make_date(year = 2026,
                           month = as.integer(month),
-                          day = as.integer(day)))
-
-
-flower_summary <- flowers_clean %>%
-  group_by(transect, date, genus, species) %>%
-  summarise(mean_cover = mean(`cover_%`, na.rm = TRUE),
+                          day = as.integer(day)),
+         plant_species = paste(genus, species)) %>%
+  complete(transect, date, plant_species, origin, quadrat = 1:5,
+           fill = list(`cover_%` = 0)) %>%
+  group_by(transect, date, origin, plant_species) %>%
+  summarise(mean_cover = mean(cover_%),   # now includes zeros for absent quadrats
             .groups = "drop") %>%
-  group_by(transect, date) %>%
-  summarise(floral_richness = n_distinct(paste(genus, species)),
-            floral_abundance = sum(mean_cover, na.rm = TRUE),
-            .groups = "drop")
+  group_by(transect, date, origin) %>%
+                         summarise(
+                           richness = n_distinct(plant_species),
+                           cover = sum(mean_cover),
+                           .groups = "drop")
+                       
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Making a sumamry table to plot more easily
 question1_data <- butterfly_summary %>%
   left_join(flower_summary, by = c("transect", "date"))
 
@@ -75,7 +96,8 @@ ggplot(figure_data, aes(x = x, y = y)) +
   geom_point(alpha = 0.6) +
   geom_smooth(method = "lm", se = TRUE) +
   facet_grid(y_variable ~ x_variable, scales = "free") +
-  labs(x = NULL, y = NULL) +
+  labs(x = NULL, 
+       y = NULL) +
   theme_bw()
 
 
