@@ -13,17 +13,20 @@ flowers_clean <- read_csv("Clean Data/flowers_clean.csv")
 nectar_clean <- read_csv("Clean Data/nectar_clean.csv")
 
 
+
 #### Can floral resource richness and abundance predict butterfly richness and abundance? ####
-# The idea behind this one is a four panelled grid that has the associations
+# The idea behind this one is a four paneled grid that has the associations
 
 # Making a usable butterfly summary
 butterfly_summary <- butterflies_clean %>%
   mutate(date = make_date(year = 2026,
                           month = as.integer(month), 
-                          day = as.integer(day))) %>% # Combining the date
+                          day = as.integer(day)),
+         butterfly_species = paste(genus, species)) %>% # Combining the date
+  filter(butterfly_species != "NA NA") %>% # Removes rows with no species but the name "NA NA"
   group_by(transect, date) %>%
   summarise(butterfly_abundance = sum(number, na.rm = TRUE), # Making a column for butterfly abundance
-            butterfly_richness = n_distinct(paste(genus, species), na.rm = TRUE), # Making a column for species richness
+            butterfly_richness = n_distinct(butterfly_species), # Making a column for species richness
             .groups = "drop")
 
 # Making floral summary with native and non-native cover and richness in case I want to use it later
@@ -33,9 +36,9 @@ flower_summary <- flowers_clean %>%
                           month = as.integer(month),
                           day = as.integer(day)),
          plant_species = paste(genus, species)) %>%
-  distinct(transect, date, quadrat, plant_species, origin, cover_pct) %>%  # guard against dup entries
+  distinct(transect, date, quadrat, plant_species, origin, cover_pct) %>%  # Guard against duplicate entries
   group_by(transect, date) %>%
-  complete(quadrat = 1:5, nesting(plant_species, origin),
+  complete(quadrat = 1:5, nesting(plant_species, origin), # Keeps species and their origin together instead of duplicating
            fill = list(cover_pct = 0)) %>%
   ungroup() %>%
   group_by(transect, date, origin, plant_species) %>%
@@ -44,15 +47,12 @@ flower_summary <- flowers_clean %>%
   summarise(floral_richness = n_distinct(plant_species),
             floral_cover = sum(mean_cover),
             .groups = "drop")
-                       
 
-
-
-# Making a sumamry table to plot more easily
+# Making a summary table to plot more easily
 question1_data <- butterfly_summary %>%
   left_join(flower_summary, by = c("transect", "date"))
 
-
+# Making the data array for the figure
 figure_data <- bind_rows(
   question1_data %>%
     transmute(transect, date, origin,
@@ -85,23 +85,6 @@ ggplot(figure_data, aes(x = x, y = y, color = origin, fill = origin)) +
   facet_grid(y_variable ~ x_variable, scales = "free") +
   labs(x = NULL, y = NULL, color = "Origin", fill = "Origin") +
   theme_bw()
-
-# Checking how many of each transect was surveyed
-question1_data %>%
-  count(transect, name = "n_surveys") %>%
-  arrange(desc(n_surveys))
-
-# Checking distributions
-ggplot(question1_data, aes(x = butterfly_abundance)) +
-  geom_histogram(binwidth = 1) +
-  theme_classic()
-
-ggplot(question1_data, aes(x = butterfly_richness)) +
-  geom_histogram(binwidth = 1) +
-  theme_classic()
-
-
-
 
 
 #### Which floral resources are disproportionately used by butterflies relative to their availability?####
