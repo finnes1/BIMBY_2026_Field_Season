@@ -295,7 +295,7 @@ ggplot(question3_data, aes(x = proportion_native_floral_cover, y = proportion_na
 
 
 #### MAKING OTHER RANDOM PLOTS THAT I HAD THE CODE FOR ####
-# Transect Locations ####
+# Transect Locations
 # Adding region to butterfly data
 butterflies <- butterflies_clean %>%
   mutate(region = case_when(
@@ -339,7 +339,7 @@ ggplot() +
 
 
 
-#### 1) SAMPLING SUMMARY ####
+# SAMPLING SUMMARY
 # Binding together sampling summary
 sampling_summary <- bind_rows(
   flowers_clean %>%
@@ -370,7 +370,7 @@ ggplot(sampling_summary, aes(x = reorder(transect, n), y = n, fill = dataset)) +
 
 
 
-#### 2) NATIVE VS. NON-NATIVE FLORAL COVER ####
+# NATIVE VS. NON-NATIVE FLORAL COVER
 # Averaging floral cover across five quadrats per transect
 cover_transect <- flowers_clean %>%
   filter(!is.na(origin)) %>%
@@ -409,7 +409,7 @@ ggplot(cover_transect, aes(x = week, y = mean_cover, colour = origin)) +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank())
 
-####  3) NECTAR-USE AT TRANSECTS ####
+# NECTAR-USE AT TRANSECTS 
 # Simple summary of nectar-use
 nectar_summary <- nectar_clean %>%
   count(transect, flower_origin)
@@ -427,7 +427,7 @@ ggplot(nectar_summary, aes(x = reorder(transect, n), y = n, fill = flower_origin
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank())
 
-####  4) NECTAR-USE THROUGHOUT THE SEASON ####
+# NECTAR-USE THROUGHOUT THE SEASON
 # Adding julian date to nectaring data and summing the observations
 nectar_day <- nectar_clean %>%
   mutate(date = as.Date(paste(2026, month, day, sep = "-")),
@@ -445,7 +445,7 @@ ggplot(nectar_day, aes(x = julian, y = n, colour = flower_origin)) +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank())
 
-####  5) FLORAL AVAILABILITY VS NECTAR-USE ####
+#FLORAL AVAILABILITY VS NECTAR-USE 
 # Calculating native floral cover for each transect and week
 floral_availability <- flowers_clean %>%
   filter(!is.na(origin)) %>%
@@ -480,7 +480,7 @@ ggplot(nectar_availability, aes(x = mean_cover, y = nectar_obs, colour = flower_
         panel.grid.minor = element_blank())
 
 
-####  6) BUTTERFLY ABUNDANCE THROUGHOUT THE SEASON ####
+# BUTTERFLY ABUNDANCE THROUGHOUT THE SEASON 
 # Abundance at each transect during each week
 butterfly_day <- butterflies_clean %>%
   group_by(month, day, week, transect) %>%
@@ -513,7 +513,7 @@ ggplot(butterfly_day, aes(x = julian, y = butterfly_abundance)) +
 ggplot(butterfly_day, aes(x = julian,y = species_richness)) +
   geom_point(alpha = 0.6) +
   geom_smooth(method = "loess", se = TRUE) +
-  facet_wrap(~ region) +
+  #facet_wrap(~ region) +
   labs(x = "Day of year",
        y = "Butterfly species richness") +
   theme_bw() +
@@ -530,7 +530,7 @@ ggplot(butterfly_day, aes(x = julian,y = species_richness)) +
 
 
 
-#### NOT READY YET ####
+# NOT READY YET
 availability_prop <- floral_availability %>%
   group_by(week, transect) %>%
   mutate(availability_prop = mean_cover / sum(mean_cover)) %>%
