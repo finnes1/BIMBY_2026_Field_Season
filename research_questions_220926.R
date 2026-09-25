@@ -46,7 +46,9 @@ flower_summary <- flowers_clean %>%
   group_by(transect, date, origin) %>%
   summarise(floral_richness = n_distinct(plant_species),
             floral_cover = sum(mean_cover),
-            .groups = "drop")
+            .groups = "drop") %>%
+  complete(nesting(transect, date), origin, 
+           fill = list(floral_richness = 0, floral_cover = 0))
 
 # Making a summary table to plot more easily
 question1_data <- butterfly_summary %>%
@@ -85,7 +87,6 @@ ggplot(figure_data, aes(x = x, y = y, color = origin, fill = origin)) +
   facet_grid(y_variable ~ x_variable, scales = "free") +
   labs(x = NULL, y = NULL, color = "Origin", fill = "Origin") +
   theme_bw()
-
 
 #### Which floral resources are disproportionately used by butterflies relative to their availability?####
 # FLOWER DATA #

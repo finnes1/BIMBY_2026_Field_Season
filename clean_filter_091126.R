@@ -29,6 +29,8 @@ ggplot(butterflies_filtered, aes(x = transect, y = duration_s, colour = week)) +
   geom_point() +
   theme_bw() # checking time data is correctly inputted
 
+#### FILTER AND DOUBLE CHECK FLORAL SURVEYS ####
+# Add filter to remove plants that make nectar and don't make nectar
 
 #### WRITING CLEANED DATA INTO FILE ####
 write.csv(butterflies_filtered,"Clean Data/butterflies_clean.csv", row.names = FALSE)
