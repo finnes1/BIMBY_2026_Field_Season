@@ -81,9 +81,9 @@ figure_data <- bind_rows(
               x_variable = "Floral % cover",
               y_variable = "Butterfly abundance"))
 
-ggplot(figure_data, aes(x = x, y = y, color = origin, fill = origin)) +
+ggplot(figure_data, aes(x = x, y = y)) + # Removed colour = origin and fill = origin from aes for now
   geom_point(alpha = 0.6) +
-  geom_smooth(method = "lm", se = TRUE) +
+  #geom_smooth(method = "lm", se = TRUE) +
   facet_grid(y_variable ~ x_variable, scales = "free") +
   labs(x = NULL, y = NULL, color = "Origin", fill = "Origin") +
   theme_bw()
