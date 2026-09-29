@@ -1320,36 +1320,36 @@ month,day,week,observer,transect,quadrat,location_m,side,num_units,floral_unit,u
 9,1,8,Erez,RBG,3,243,L,1,head,small,2,purple,Asteraceae,Tragopogon,porrifolius,NA,Non-native,,,,Tragopogon porrifolius NA
 9,1,8,Erez,RBG,4,314,R,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,,,NA NA NA
 9,1,8,Erez,RBG,5,485,R,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,,,NA NA NA
-,3,8,,PBM,1,79,R,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,,,NA NA NA
-,3,8,,PBM,2,108,R,2,head,medium,1,white,Asteraceae,Tripleurospermum,inodorum,NA,Non-native,Y,,,Tripleurospermum inodorum NA
-,3,8,,PBM,2,108,R,6,infl,small,1,white,Brassicaceae,Small white,mustard,,NA,NA,,,Small white mustard 
-,3,8,,PBM,3,224,R,2,head,medium,1,white,Asteraceae,Tripleurospermum,inodorum,NA,Non-native,Y,,,Tripleurospermum inodorum NA
-,3,8,,PBM,4,301,L,5,head,medium,1,purple,Asteraceae,Centaurea,stoebe,NA,Non-native,,,,Centaurea stoebe NA
-,3,8,,PBM,5,423,L,2,head,small,1,purple,Asteraceae,Cirsium,arvense,NA,Non-native,Y,,,Cirsium arvense NA
-,3,8,,PBM,5,423,L,3,flr,small,1,pink,Onagraceae,Chamaenerion,angustifolium,NA,Native,Y,,,Chamaenerion angustifolium NA
-,3,8,,JMS,1,90,L,4,flr,small,1,white,Caryophyllaceae,Silene,vulgaris,NA,Non-native,,,,Silene vulgaris NA
-,3,8,,JMS,2,125,R,24,head,small,1,white,Asteraceae,Centaurea,diffusa,NA,Non-native,,,,Centaurea diffusa NA
-,3,8,,JMS,3,254,R,25,head,small,2,white,Asteraceae,Centaurea,diffusa,NA,Non-native,,,,Centaurea diffusa NA
-,3,8,,JMS,4,390,L,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,,,NA NA NA
-,3,8,,JMS,5,400,R,2,head,medium,1,yellow,Asteraceae,Grindelia,squarrosa,NA,Native,,,,Grindelia squarrosa NA
-,3,8,,PML,1,35,L,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,,,NA NA NA
-,3,8,,PML,2,131,L,68,infl,small,2,purple,Fabaceae,Medicago,sativa,NA,Non-native,,,,Medicago sativa NA
-,3,8,,PML,3,229,R,10,infl,small,1,purple,Fabaceae,Medicago,sativa,NA,Non-native,,,,Medicago sativa NA
-,3,8,,PML,4,380,R,51,infl,small,1,purple,Fabaceae,Medicago,sativa,NA,Non-native,,,,Medicago sativa NA
-,3,8,,PML,4,380,R,54,infl,small,1,white,Fabaceae,Melilotus,albus,NA,Non-native,,,,Melilotus albus NA
-,3,8,,PML,5,460,R,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,,,NA NA NA
-,3,8,,FLT,1,33,L,8,infl,small,1,pink,Fabaceae,Trifolium,hybridum,NA,Non-native,,,,Trifolium hybridum NA
-,3,8,,FLT,2,151,L,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,,,NA NA NA
-,3,8,,FLT,3,276,R,2,stm,large,1,yellow,Asteraceae,Solidago,lepida,NA,Native,,,,Solidago lepida NA
-,3,8,,FLT,4,391,R,1,stm,large,1,yellow,Asteraceae,Solidago,lepida,NA,Native,,,,Solidago lepida NA
-,3,8,,FLT,4,391,R,2,head,small,1,purple,Asteraceae,Canadanthus,modestus,NA,Native,,,,Canadanthus modestus NA
-,3,8,,FLT,5,463,L,1,infl,medium,1,red,Orobanchaceae,Castilleja,hispida,NA,Native,,,,Castilleja hispida NA
-,3,8,,FLT,5,463,L,15,flr,small,1,purple,Caryophyllaceae,Spergularia,rubra,NA,Non-native,,,,Spergularia rubra NA
-,6,9,,PSP,1,76,L,1,flr,small,1,yellow,Ranunculaceae,Ranunculus,repens,NA,Non-native,Y,,,Ranunculus repens NA
-,6,9,,PSP,2,163,L,1,head,small,1,purple,Asteraceae,Cirsium,arvense,NA,Non-native,Y,,,Cirsium arvense NA
-,6,9,,PSP,3,261,L,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,,,NA NA NA
-,6,9,,PSP,4,386,L,3,head,small,1,yellow,Asteraceae,Hypochaeris,radicata,NA,Non-native,Y,,,Hypochaeris radicata NA
-,6,9,,PSP,5,460,L,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,,,NA NA NA
+9,3,8,Freya,PBM,1,79,R,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,,,NA NA NA
+9,3,8,Freya,PBM,2,108,R,2,head,medium,1,white,Asteraceae,Tripleurospermum,inodorum,NA,Non-native,Y,,,Tripleurospermum inodorum NA
+9,3,8,Freya,PBM,2,108,R,6,infl,small,1,white,Brassicaceae,Small white,mustard,,NA,NA,,,Small white mustard 
+9,3,8,Freya,PBM,3,224,R,2,head,medium,1,white,Asteraceae,Tripleurospermum,inodorum,NA,Non-native,Y,,,Tripleurospermum inodorum NA
+9,3,8,Freya,PBM,4,301,L,5,head,medium,1,purple,Asteraceae,Centaurea,stoebe,NA,Non-native,,,,Centaurea stoebe NA
+9,3,8,Freya,PBM,5,423,L,2,head,small,1,purple,Asteraceae,Cirsium,arvense,NA,Non-native,Y,,,Cirsium arvense NA
+9,3,8,Freya,PBM,5,423,L,3,flr,small,1,pink,Onagraceae,Chamaenerion,angustifolium,NA,Native,Y,,,Chamaenerion angustifolium NA
+9,3,8,Freya,JMS,1,90,L,4,flr,small,1,white,Caryophyllaceae,Silene,vulgaris,NA,Non-native,,,,Silene vulgaris NA
+9,3,8,Freya,JMS,2,125,R,24,head,small,1,white,Asteraceae,Centaurea,diffusa,NA,Non-native,,,,Centaurea diffusa NA
+9,3,8,Freya,JMS,3,254,R,25,head,small,2,white,Asteraceae,Centaurea,diffusa,NA,Non-native,,,,Centaurea diffusa NA
+9,3,8,Freya,JMS,4,390,L,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,,,NA NA NA
+9,3,8,Freya,JMS,5,400,R,2,head,medium,1,yellow,Asteraceae,Grindelia,squarrosa,NA,Native,,,,Grindelia squarrosa NA
+9,3,8,Freya,PML,1,35,L,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,,,NA NA NA
+9,3,8,Freya,PML,2,131,L,68,infl,small,2,purple,Fabaceae,Medicago,sativa,NA,Non-native,,,,Medicago sativa NA
+9,3,8,Freya,PML,3,229,R,10,infl,small,1,purple,Fabaceae,Medicago,sativa,NA,Non-native,,,,Medicago sativa NA
+9,3,8,Freya,PML,4,380,R,51,infl,small,1,purple,Fabaceae,Medicago,sativa,NA,Non-native,,,,Medicago sativa NA
+9,3,8,Freya,PML,4,380,R,54,infl,small,1,white,Fabaceae,Melilotus,albus,NA,Non-native,,,,Melilotus albus NA
+9,3,8,Freya,PML,5,460,R,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,,,NA NA NA
+9,3,8,Freya,FLT,1,33,L,8,infl,small,1,pink,Fabaceae,Trifolium,hybridum,NA,Non-native,,,,Trifolium hybridum NA
+9,3,8,Freya,FLT,2,151,L,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,,,NA NA NA
+9,3,8,Freya,FLT,3,276,R,2,stm,large,1,yellow,Asteraceae,Solidago,lepida,NA,Native,,,,Solidago lepida NA
+9,3,8,Freya,FLT,4,391,R,1,stm,large,1,yellow,Asteraceae,Solidago,lepida,NA,Native,,,,Solidago lepida NA
+9,3,8,Freya,FLT,4,391,R,2,head,small,1,purple,Asteraceae,Canadanthus,modestus,NA,Native,,,,Canadanthus modestus NA
+9,3,8,Freya,FLT,5,463,L,1,infl,medium,1,red,Orobanchaceae,Castilleja,hispida,NA,Native,,,,Castilleja hispida NA
+9,3,8,Freya,FLT,5,463,L,15,flr,small,1,purple,Caryophyllaceae,Spergularia,rubra,NA,Non-native,,,,Spergularia rubra NA
+9,6,9,Freya,PSP,1,76,L,1,flr,small,1,yellow,Ranunculaceae,Ranunculus,repens,NA,Non-native,Y,,,Ranunculus repens NA
+9,6,9,Freya,PSP,2,163,L,1,head,small,1,purple,Asteraceae,Cirsium,arvense,NA,Non-native,Y,,,Cirsium arvense NA
+9,6,9,Freya,PSP,3,261,L,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,,,NA NA NA
+9,6,9,Freya,PSP,4,386,L,3,head,small,1,yellow,Asteraceae,Hypochaeris,radicata,NA,Non-native,Y,,,Hypochaeris radicata NA
+9,6,9,Freya,PSP,5,460,L,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,,,NA NA NA
 ,,,,,,,,,,,,,,,,,NA,NA,,,  
 ,,,,,,,,,,,,,,,,,NA,NA,,,  
 ,,,,,,,,,,,,,,,,,NA,NA,,,  
