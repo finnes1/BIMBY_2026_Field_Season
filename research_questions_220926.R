@@ -23,7 +23,7 @@ butterfly_summary <- butterflies_clean %>%
                           month = as.integer(month), 
                           day = as.integer(day)),
          butterfly_species = paste(genus, species)) %>% # Combining the date
-  filter(butterfly_species != "NA NA") %>% # Removes rows with no species but the name "NA NA"
+  #filter(butterfly_species != "NA NA") %>% # Removes rows with no species but the name "NA NA"
   group_by(transect, date, week) %>%
   summarise(butterfly_abundance = sum(number, na.rm = TRUE), # Making a column for butterfly abundance
             butterfly_richness = n_distinct(butterfly_species), # Making a column for species richness
@@ -31,7 +31,7 @@ butterfly_summary <- butterflies_clean %>%
 
 # Making floral summary with native and non-native cover and richness in case I want to use it later
 flower_summary <- flowers_clean %>%
-  filter(!is.na(genus)) %>%  # drop placeholder "no plant in this quadrat" rows
+  #filter(!is.na(genus)) %>%  # drop placeholder "no plant in this quadrat" rows
   mutate(date = make_date(year = 2026,
                           month = as.integer(month),
                           day = as.integer(day)),
