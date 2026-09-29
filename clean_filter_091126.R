@@ -31,9 +31,11 @@ ggplot(butterflies_filtered, aes(x = transect, y = duration_s, colour = week)) +
 
 #### FILTER AND DOUBLE CHECK FLORAL SURVEYS ####
 # Add filter to remove plants that make nectar and don't make nectar
+flowers_filtered <- flowers_raw %>%
+  filter(!if_all(everything(), is.na)) # Removes rows with trailing 0's from the csv download
 
 #### WRITING CLEANED DATA INTO FILE ####
 write.csv(butterflies_filtered,"Clean Data/butterflies_clean.csv", row.names = FALSE)
-write.csv(flowers_raw,"Clean Data/flowers_clean.csv", row.names = FALSE) # PLACE HOLDER SINCE THESE HAVE NOT BEEN CLEANED YET
+write.csv(flowers_filtered,"Clean Data/flowers_clean.csv", row.names = FALSE) # PLACE HOLDER SINCE THESE HAVE NOT BEEN CLEANED YET
 write.csv(nectar_raw,"Clean Data/nectar_clean.csv", row.names = FALSE) # PLACE HOLDER SINCE THESE HAVE NOT BEEN CLEANED YET
 
