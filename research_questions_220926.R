@@ -36,18 +36,18 @@ flower_summary <- flowers_clean %>%
                           month = as.integer(month),
                           day = as.integer(day)),
          plant_species = paste(genus, species)) %>%
-  distinct(transect, date, week, quadrat, plant_species, origin, cover_pct) %>%  # No duplicate entries
+  distinct(transect, date, week, quadrat, plant_species, cover_pct) %>%  # No duplicate entries
   group_by(transect, date, week) %>%
-  complete(quadrat = 1:5, nesting(plant_species, origin), # Keeps species and their origin together instead of duplicating
+  complete(quadrat = 1:5, nesting(plant_species), 
            fill = list(cover_pct = 0)) %>%
   ungroup() %>%
-  group_by(transect, date, week, origin, plant_species) %>%
+  group_by(transect, date, week, plant_species) %>%
   summarise(mean_cover = mean(cover_pct), .groups = "drop") %>%
-  group_by(transect, date, week, origin) %>%
+  group_by(transect, date, week) %>%
   summarise(floral_richness = n_distinct(plant_species),
             floral_cover = sum(mean_cover),
             .groups = "drop") %>%
-  complete(nesting(transect, date, week), origin, 
+  complete(nesting(transect, date, week), 
            fill = list(floral_richness = 0, floral_cover = 0))
 
 # Making a summary table to plot more easily
@@ -56,19 +56,19 @@ question1_data <- butterfly_summary %>%
 
 figure_data <- bind_rows(
   question1_data %>%
-    transmute(transect, date, week, origin,
+    transmute(transect, date, week, # ", origin" has been removed from here and needs to be readded
               x = floral_richness, y = butterfly_richness,
               x_variable = "Floral richness", y_variable = "Butterfly richness"),
   question1_data %>%
-    transmute(transect, date, week, origin,
+    transmute(transect, date, week,
               x = floral_cover, y = butterfly_richness,
               x_variable = "Floral % cover", y_variable = "Butterfly richness"),
   question1_data %>%
-    transmute(transect, date, week, origin,
+    transmute(transect, date, week,
               x = floral_richness, y = butterfly_abundance,
               x_variable = "Floral richness", y_variable = "Butterfly abundance"),
   question1_data %>%
-    transmute(transect, date, week, origin,
+    transmute(transect, date, week,
               x = floral_cover, y = butterfly_abundance,
               x_variable = "Floral % cover", y_variable = "Butterfly abundance"))
 
@@ -87,7 +87,6 @@ for (wk in sort(unique(figure_data$week))) {
   
   print(p)
 }
-
 
 
 
