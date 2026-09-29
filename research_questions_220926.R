@@ -12,8 +12,6 @@ butterflies_clean <- read_csv("Clean Data/butterflies_clean.csv")
 flowers_clean <- read_csv("Clean Data/flowers_clean.csv")
 nectar_clean <- read_csv("Clean Data/nectar_clean.csv")
 
-
-
 #### Can floral resource richness and abundance predict butterfly richness and abundance? ####
 # The idea behind this one is a four paneled grid that has the associations
 
@@ -23,32 +21,39 @@ butterfly_summary <- butterflies_clean %>%
                           month = as.integer(month), 
                           day = as.integer(day)),
          butterfly_species = paste(genus, species)) %>% # Combining the date
-  #filter(butterfly_species != "NA NA") %>% # Removes rows with no species but the name "NA NA"
   group_by(transect, date, week) %>%
   summarise(butterfly_abundance = sum(number, na.rm = TRUE), # Making a column for butterfly abundance
-            butterfly_richness = n_distinct(butterfly_species), # Making a column for species richness
+            butterfly_richness = n_distinct(butterfly_species[butterfly_species != "NA NA"]), # Making a column for species richness, but does not include "NA NA" (no butterflies seen) as a species 
             .groups = "drop")
 
-# Making floral summary with native and non-native cover and richness in case I want to use it later
+# Master list of every visit that was actually surveyed, regardless of plants found
+flower_visits <- flowers_clean %>%
+  mutate(date = make_date(year = 2026, 
+                          month = as.integer(month), 
+                          day = as.integer(day))) %>%
+  distinct(transect, date, week)
+
 flower_summary <- flowers_clean %>%
-  #filter(!is.na(genus)) %>%  # drop placeholder "no plant in this quadrat" rows
-  mutate(date = make_date(year = 2026,
-                          month = as.integer(month),
+  mutate(date = make_date(year = 2026, 
+                          month = as.integer(month), 
                           day = as.integer(day)),
          plant_species = paste(genus, species)) %>%
-  distinct(transect, date, week, quadrat, plant_species, cover_pct) %>%  # No duplicate entries
+  distinct(transect, date, week, quadrat, plant_species, cover_pct) %>%
   group_by(transect, date, week) %>%
-  complete(quadrat = 1:5, nesting(plant_species), 
-           fill = list(cover_pct = 0)) %>%
+  complete(quadrat = 1:5, nesting(plant_species), fill = list(cover_pct = 0)) %>%
   ungroup() %>%
+  filter(plant_species != "NA NA") %>%   # exclude placeholders from the math, but only after quadrat-level zeros are already filled in
   group_by(transect, date, week, plant_species) %>%
   summarise(mean_cover = mean(cover_pct), .groups = "drop") %>%
   group_by(transect, date, week) %>%
   summarise(floral_richness = n_distinct(plant_species),
             floral_cover = sum(mean_cover),
             .groups = "drop") %>%
-  complete(nesting(transect, date, week), 
-           fill = list(floral_richness = 0, floral_cover = 0))
+  right_join(flower_visits, by = c("transect", "date", "week")) %>%
+  mutate(floral_richness = replace_na(floral_richness, 0),
+         floral_cover = replace_na(floral_cover, 0))
+
+
 
 # Making a summary table to plot more easily
 question1_data <- butterfly_summary %>%
