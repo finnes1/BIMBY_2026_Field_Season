@@ -24,7 +24,7 @@ butterfly_summary <- butterflies_clean %>%
                           day = as.integer(day)),
          butterfly_species = paste(genus, species)) %>% # Combining the date
   filter(butterfly_species != "NA NA") %>% # Removes rows with no species but the name "NA NA"
-  group_by(transect, date) %>%
+  group_by(transect, date, week) %>%
   summarise(butterfly_abundance = sum(number, na.rm = TRUE), # Making a column for butterfly abundance
             butterfly_richness = n_distinct(butterfly_species), # Making a column for species richness
             .groups = "drop")
@@ -36,57 +36,83 @@ flower_summary <- flowers_clean %>%
                           month = as.integer(month),
                           day = as.integer(day)),
          plant_species = paste(genus, species)) %>%
-  distinct(transect, date, quadrat, plant_species, origin, cover_pct) %>%  # Guard against duplicate entries
-  group_by(transect, date) %>%
+  distinct(transect, date, week, quadrat, plant_species, origin, cover_pct) %>%  # No duplicate entries
+  group_by(transect, date, week) %>%
   complete(quadrat = 1:5, nesting(plant_species, origin), # Keeps species and their origin together instead of duplicating
            fill = list(cover_pct = 0)) %>%
   ungroup() %>%
-  group_by(transect, date, origin, plant_species) %>%
+  group_by(transect, date, week, origin, plant_species) %>%
   summarise(mean_cover = mean(cover_pct), .groups = "drop") %>%
-  group_by(transect, date, origin) %>%
+  group_by(transect, date, week, origin) %>%
   summarise(floral_richness = n_distinct(plant_species),
             floral_cover = sum(mean_cover),
             .groups = "drop") %>%
-  complete(nesting(transect, date), origin, 
+  complete(nesting(transect, date, week), origin, 
            fill = list(floral_richness = 0, floral_cover = 0))
 
 # Making a summary table to plot more easily
 question1_data <- butterfly_summary %>%
-  left_join(flower_summary, by = c("transect", "date"))
+  left_join(flower_summary, by = c("transect", "date", "week"))
 
-# Making the data array for the figure
 figure_data <- bind_rows(
   question1_data %>%
-    transmute(transect, date, origin,
-              x = floral_richness,
-              y = butterfly_richness,
-              x_variable = "Floral richness",
-              y_variable = "Butterfly richness"),
+    transmute(transect, date, week, origin,
+              x = floral_richness, y = butterfly_richness,
+              x_variable = "Floral richness", y_variable = "Butterfly richness"),
   question1_data %>%
-    transmute(transect, date, origin,
-              x = floral_cover,
-              y = butterfly_richness,
-              x_variable = "Floral % cover",
-              y_variable = "Butterfly richness"),
+    transmute(transect, date, week, origin,
+              x = floral_cover, y = butterfly_richness,
+              x_variable = "Floral % cover", y_variable = "Butterfly richness"),
   question1_data %>%
-    transmute(transect, date, origin,
-              x = floral_richness,
-              y = butterfly_abundance,
-              x_variable = "Floral richness",
-              y_variable = "Butterfly abundance"),
+    transmute(transect, date, week, origin,
+              x = floral_richness, y = butterfly_abundance,
+              x_variable = "Floral richness", y_variable = "Butterfly abundance"),
   question1_data %>%
-    transmute(transect, date, origin,
-              x = floral_cover,
-              y = butterfly_abundance,
-              x_variable = "Floral % cover",
-              y_variable = "Butterfly abundance"))
+    transmute(transect, date, week, origin,
+              x = floral_cover, y = butterfly_abundance,
+              x_variable = "Floral % cover", y_variable = "Butterfly abundance"))
 
-ggplot(figure_data, aes(x = x, y = y)) + # Removed colour = origin and fill = origin from aes for now
-  geom_point(alpha = 0.6) +
-  #geom_smooth(method = "lm", se = TRUE) +
-  facet_grid(y_variable ~ x_variable, scales = "free") +
-  labs(x = NULL, y = NULL, color = "Origin", fill = "Origin") +
-  theme_bw()
+# Loop: one 2x2 grid figure per week, click through in the Plots pane
+for (wk in sort(unique(figure_data$week))) {
+  
+  wk_data <- figure_data %>% filter(week == wk)
+  
+  p <- ggplot(wk_data, aes(x = x, y = y)) + # Removing plant origin colour and fill for now
+    geom_point(alpha = 0.6) +
+    facet_grid(y_variable ~ x_variable, scales = "free") +
+    labs(x = NULL,
+         y = NULL,
+         title = paste("Week", wk)) +
+    theme_bw()
+  
+  print(p)
+}
+
+
+
+
+# THIS IS DUPLICATE CODE FOR THE FLORAL SUMMARY THAT SEPARATES BY ORIGIN #
+
+# Making floral summary with native and non-native cover and richness in case I want to use it later
+flower_summary <- flowers_clean %>%
+  filter(!is.na(genus)) %>%  # drop placeholder "no plant in this quadrat" rows
+  mutate(date = make_date(year = 2026,
+                          month = as.integer(month),
+                          day = as.integer(day)),
+         plant_species = paste(genus, species)) %>%
+  distinct(transect, date, week, quadrat, plant_species, origin, cover_pct) %>%  # No duplicate entries
+  group_by(transect, date, week) %>%
+  complete(quadrat = 1:5, nesting(plant_species, origin), # Keeps species and their origin together instead of duplicating
+           fill = list(cover_pct = 0)) %>%
+  ungroup() %>%
+  group_by(transect, date, week, origin, plant_species) %>%
+  summarise(mean_cover = mean(cover_pct), .groups = "drop") %>%
+  group_by(transect, date, week, origin) %>%
+  summarise(floral_richness = n_distinct(plant_species),
+            floral_cover = sum(mean_cover),
+            .groups = "drop") %>%
+  complete(nesting(transect, date, week), origin, 
+           fill = list(floral_richness = 0, floral_cover = 0))
 
 #### Which floral resources are disproportionately used by butterflies relative to their availability?####
 # FLOWER DATA #
