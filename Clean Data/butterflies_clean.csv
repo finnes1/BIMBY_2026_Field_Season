@@ -37,10 +37,10 @@
 6,8,2,"Freya","RTT",49.0887,-119.5351,287,11:54:00,1020,18,2,1,"partly cloudy","Nymphalidae","Phyciodes",NA,1
 6,8,2,"Freya","RTT",49.0887,-119.5351,287,11:54:00,1020,18,2,1,"partly cloudy","Pieridae",NA,NA,5
 6,8,2,"Freya","RTT",49.0887,-119.5351,287,11:54:00,1020,18,2,1,"partly cloudy","Nymphalidae","Algais","milberti",3
-6,8,2,"Freya","OKF",49.3384,-119.5804,340,14:32:00,1200,16,0,1,"partly cloudy","Pieridae",NA,NA,1
-6,8,2,"Freya","OKF",49.3384,-119.5804,340,14:32:00,1200,16,0,1,"partly cloudy","Papilionidae","Papilio",NA,5
-6,8,2,"Freya","OKF",49.3384,-119.5804,340,14:32:00,1200,16,0,1,"partly cloudy","Pieridae","Pieris","rapae",3
-6,8,2,"Freya","KSP",49.3918,-119.5891,322,15:47:00,780,18,0,1,"partly cloudy","Pieridae","Pieris","rapae",1
+6,9,2,"Freya","OKF",49.3384,-119.5804,340,14:32:00,1200,16,0,1,"partly cloudy","Pieridae",NA,NA,1
+6,9,2,"Freya","OKF",49.3384,-119.5804,340,14:32:00,1200,16,0,1,"partly cloudy","Papilionidae","Papilio",NA,5
+6,9,2,"Freya","OKF",49.3384,-119.5804,340,14:32:00,1200,16,0,1,"partly cloudy","Pieridae","Pieris","rapae",3
+6,9,2,"Freya","KSP",49.3918,-119.5891,322,15:47:00,780,18,0,1,"partly cloudy","Pieridae","Pieris","rapae",1
 6,11,2,"Freya","OHR",49.4214,-120.2563,568,10:22:00,900,18,1.5,1,"sunny","Nymphalidae","Euphydryas","anicia",13
 6,11,2,"Freya","OHR",49.4214,-120.2563,568,10:22:00,900,18,1.5,1,"sunny","Nymphalidae","Limenitis","lorquini",4
 6,11,2,"Freya","OHR",49.4214,-120.2563,568,10:22:00,900,18,1.5,1,"sunny","Papilionidae","Papilio","multicaudata",1
@@ -199,7 +199,7 @@
 7,8,4,"Freya","RTT",49.0887,-119.5351,287,12:11:00,900,26,3,1,"sunny","Lycaenidae","Tharsalea","helloides",1
 7,8,4,"Freya","KSP",49.3918,-119.5891,322,14:53:00,780,29,0.5,1,"sunny","Papilionidae","Papilio",NA,2
 7,8,4,"Freya","KSP",49.3918,-119.5891,322,14:53:00,780,29,0.5,1,"sunny","Pieridae","Pieris","rapae",1
-7,8,4,"Freya","KMP",49.8645,-119.4583,351,14:00:00,780,28,0,1,"sunny","Pieridae","Pieris","rapae",6
+7,9,4,"Freya","KMP",49.8645,-119.4583,351,14:00:00,780,28,0,1,"sunny","Pieridae","Pieris","rapae",6
 7,9,4,"Freya","PML",49.5049,-119.6405,491,11:26:00,960,23,1.5,1,"sunny","Pieridae","Pieris","rapae",6
 7,9,4,"Freya","PML",49.5049,-119.6405,491,12:26:00,960,23,1.5,1,"sunny","Lycaenidae","Strymon","melinus",1
 7,9,4,"Freya","PML",49.5049,-119.6405,491,13:26:00,960,23,1.5,1,"sunny","Papilionidae","Papilio",NA,1
@@ -312,10 +312,10 @@
 7,25,5,"Freya","CCM",49.1518,-122.0074,12,13:36:00,840,21,1,1,"cloudy",NA,NA,NA,0
 7,25,5,"Freya","GBH",49.0965,-122.0457,13,12:41:00,780,21,1,1,"cloudy",NA,NA,NA,0
 7,29,5,"Julie","PSP",49.2501,-123.1965,85,13:47:00,1020,21.5,0.5,1,"sunny","Hesperiidae","Ochlodes","sylvanoides",1
-7,29,5,"Freya","CHP",48.47404,-123.3768,105,12:35:00,900,20,0.5,1,"partly cloudy","Hesperiidae","Ochlodes","sylvanoides",1
-7,29,5,"Freya","CHP",48.47404,-123.3768,105,12:35:00,900,20,0.5,1,"partly cloudy","Pieridae","Pieris","rapae",1
-7,27,5,"Freya","HRP",48.4355,-123.4065,74,13:33:00,720,20,0,1,"cloudy",NA,NA,NA,0
-7,29,5,"Freya","BHT",48.4099,-123.3644,40,11:43:00,900,19,1,1,"sunny","Hesperiidae","Ochlodes","sylvanoides",3
+7,26,5,"Freya","CHP",48.47404,-123.3768,105,12:35:00,900,20,0.5,1,"partly cloudy","Hesperiidae","Ochlodes","sylvanoides",1
+7,26,5,"Freya","CHP",48.47404,-123.3768,105,12:35:00,900,20,0.5,1,"partly cloudy","Pieridae","Pieris","rapae",1
+7,26,5,"Freya","HRP",48.4355,-123.4065,74,13:33:00,720,20,0,1,"cloudy",NA,NA,NA,0
+7,26,5,"Freya","BHT",48.4099,-123.3644,40,11:43:00,900,19,1,1,"sunny","Hesperiidae","Ochlodes","sylvanoides",3
 8,3,6,"Freya","CCM",49.1518,-122.0074,12,10:04:00,840,18,1.5,2,"sunny","Hesperiidae","Ochlodes","sylvanoides",8
 8,3,6,"Freya","CCM",49.1518,-122.0074,12,10:04:00,840,18,1.5,2,"sunny","Pieridae","Pieris","rapae",4
 8,3,6,"Freya","GBH",49.0965,-122.0457,13,10:52:00,900,20,1.5,1,"sunny","Pieridae","Pieris","rapae",3
@@ -455,4 +455,4 @@
 9,1,8,"Freya","HRP",48.4355,-123.4065,74,10:43:00,780,18,1,1,"partly cloudy",NA,NA,NA,0
 9,1,8,"Freya","CHP",48.47404,-123.3768,105,10:00:00,960,17.5,1.5,1,"partly cloudy",NA,NA,NA,0
 9,3,8,"Freya","FLT",49.6127,-121.0651,1241,15:41:00,720,15,0,1,"partly cloudy",NA,NA,NA,0
-9,3,8,"Freya","PSP",49.2501,-123.1965,85,13:22:00,780,19,1.5,1,"sunny","Nymphalidae","Nymphalis","californica",2
+9,6,8,"Freya","PSP",49.2501,-123.1965,85,13:22:00,780,19,1.5,1,"sunny","Nymphalidae","Nymphalis","californica",2

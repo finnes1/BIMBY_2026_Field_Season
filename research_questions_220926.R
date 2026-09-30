@@ -94,7 +94,8 @@ for (wk in sort(unique(figure_data$week))) {
 }
 
 
-
+figure_data %>%
+  filter(is.na(x) | is.na(y))
 # THIS IS DUPLICATE CODE FOR THE FLORAL SUMMARY THAT SEPARATES BY ORIGIN #
 
 # Making floral summary with native and non-native cover and richness in case I want to use it later
