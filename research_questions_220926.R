@@ -26,11 +26,9 @@ butterfly_summary <- butterflies_clean %>%
             butterfly_richness = n_distinct(butterfly_species[butterfly_species != "NA NA"]), # Making a column for species richness, but does not include "NA NA" (no butterflies seen) as a species 
             .groups = "drop")
 
-# Master list of every visit that was actually surveyed, regardless of plants found
+# Master list of every transect-date-week that was actually surveyed for flowers
 flower_visits <- flowers_clean %>%
-  mutate(date = make_date(year = 2026, 
-                          month = as.integer(month), 
-                          day = as.integer(day))) %>%
+  mutate(date = make_date(year = 2026, month = as.integer(month), day = as.integer(day))) %>%
   distinct(transect, date, week)
 
 flower_summary <- flowers_clean %>%
@@ -42,7 +40,7 @@ flower_summary <- flowers_clean %>%
   group_by(transect, date, week) %>%
   complete(quadrat = 1:5, nesting(plant_species), fill = list(cover_pct = 0)) %>%
   ungroup() %>%
-  filter(plant_species != "NA NA") %>%   # exclude placeholders from the math, but only after quadrat-level zeros are already filled in
+  filter(plant_species != "NA NA") %>%
   group_by(transect, date, week, plant_species) %>%
   summarise(mean_cover = mean(cover_pct), .groups = "drop") %>%
   group_by(transect, date, week) %>%
@@ -52,7 +50,6 @@ flower_summary <- flowers_clean %>%
   right_join(flower_visits, by = c("transect", "date", "week")) %>%
   mutate(floral_richness = replace_na(floral_richness, 0),
          floral_cover = replace_na(floral_cover, 0))
-
 
 
 # Making a summary table to plot more easily
@@ -92,6 +89,10 @@ for (wk in sort(unique(figure_data$week))) {
   
   print(p)
 }
+
+
+
+
 
 
 figure_data %>%
