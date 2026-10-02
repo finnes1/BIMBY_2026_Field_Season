@@ -74,22 +74,23 @@ figure_data <- bind_rows(
               x = floral_cover, y = butterfly_abundance,
               x_variable = "Floral % cover", y_variable = "Butterfly abundance"))
 
-# Loop: one 2x2 grid figure per week, click through in the Plots pane
+# Loop one 2x2 grid figure per week
 for (wk in sort(unique(figure_data$week))) {
   
   wk_data <- figure_data %>% filter(week == wk)
   
-  p <- ggplot(wk_data, aes(x = x, y = y)) + # Removing plant origin colour and fill for now
+  p <- ggplot(wk_data, aes(x = x, y = y)) + 
     geom_point(alpha = 0.6) +
     facet_grid(y_variable ~ x_variable, scales = "free") +
     labs(x = NULL,
          y = NULL,
          title = paste("Week", wk)) +
-    theme_bw()
+    theme_bw() +
+    theme(panel.grid.major = element_blank(), # Removes grid lines
+          panel.grid.minor = element_blank()) 
   
   print(p)
 }
-
 
 
 
