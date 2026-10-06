@@ -132,10 +132,34 @@ check(abun_nb)
 rich_pois <- glmer(butterfly_richness ~ floral_richness_s + floral_cover_s + week + (1 | transect),
                  data = model_data, family = poisson, control = ctrl)
 rich_nb <- glmer.nb(butterfly_richness ~ floral_richness_s + floral_cover_s + week + (1 | transect),
-                    data = model_data, control = ctrl)  
+                    data = model_data, control = ctrl) # Runs with a warning
 AIC(rich_pois, rich_nb)
 check(rich_pois) # Both are OK, poisson is slightly better
 check(rich_nb)
+
+# Testing candidate set before fitting the model
+abun_set <- list(week_only = glmer.nb(butterfly_abundance ~ week + (1 | transect), data = model_data, control = ctrl),
+               richness = glmer.nb(butterfly_abundance ~ floral_richness_s + week + (1 | transect), data = model_data, control = ctrl),
+               cover= glmer.nb(butterfly_abundance ~ floral_cover_s + week + (1 | transect), data = model_data, control = ctrl),
+               both = glmer.nb(butterfly_abundance ~ floral_richness_s + floral_cover_s + week + (1 | transect), data = model_data,
+                               control = ctrl))
+rich_set <- list(week_only = glmer(butterfly_richness ~ week + (1 | transect), data = model_data, family = poisson, control = ctrl),
+                 richness = glmer(butterfly_richness ~ floral_richness_s + week + (1 | transect), data = model_data, family = poisson,
+                                   control = ctrl),
+                 cover = glmer(butterfly_richness ~ floral_cover_s + week + (1 | transect), data = model_data, family = poisson,
+                                   control = ctrl),
+                 both = glmer(butterfly_richness ~ floral_richness_s + floral_cover_s + week + (1 | transect), data = model_data,
+                                   family = poisson, control = ctrl))
+
+# Using AIC to rank the choices 
+abun_tab <- model.sel(abun_set, rank = AIC)
+rich_tab <- model.sel(rich_set, rank = AIC)
+abun_tab
+rich_tab
+subset(abun_tab, cumsum(weight) <= 0.95)
+subset(rich_tab, cumsum(weight) <= 0.95)
+
+
 
 
 m1 <- glmer.nb(butterfly_abundance ~ floral_richness + week + (1 | transect), data = model_data) # Abundance is twice as variable as poisson allows
