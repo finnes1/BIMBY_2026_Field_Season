@@ -120,6 +120,22 @@ check <- function(m) { # Builds a function to spit out results of the model fits
   invisible(sim)
 }
 
+# Checking which distribution fits best
+abun_pois <- glmer(butterfly_abundance ~ floral_richness_s + floral_cover_s + week + (1 | transect),
+                 data = model_data, family = poisson, control = ctrl)
+abun_nb <- glmer.nb(butterfly_abundance ~ floral_richness_s + floral_cover_s + week + (1 | transect),
+                    data = model_data, control = ctrl)
+AIC(abun_pois, abun_nb)
+check(abun_pois) # DOES NOT FIT RIGHT
+check(abun_nb)
+
+rich_pois <- glmer(butterfly_richness ~ floral_richness_s + floral_cover_s + week + (1 | transect),
+                 data = model_data, family = poisson, control = ctrl)
+rich_nb <- glmer.nb(butterfly_richness ~ floral_richness_s + floral_cover_s + week + (1 | transect),
+                    data = model_data, control = ctrl)  
+AIC(rich_pois, rich_nb)
+check(rich_pois) # Both are OK, poisson is slightly better
+check(rich_nb)
 
 
 m1 <- glmer.nb(butterfly_abundance ~ floral_richness + week + (1 | transect), data = model_data) # Abundance is twice as variable as poisson allows
