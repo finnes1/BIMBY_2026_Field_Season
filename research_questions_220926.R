@@ -4,6 +4,11 @@
 
 # Open Packages
 library(tidyverse)
+library(lme4)
+library(MuMIn) # To use commands like model.sel() and model.avg()
+library(DHARMa)
+library(broom.mixed)
+
 
 #### READING IN DATA ####
 setwd("~/Desktop/School/Graduate/BIMBY_2026_Field_Season")
@@ -79,9 +84,9 @@ for (wk in sort(unique(figure_data$week))) {
   
   wk_data <- figure_data %>% filter(week == wk)
   
-  p <- ggplot(wk_data, aes(x = x, y = y)) + 
-    geom_point(alpha = 0.6) +
-    facet_grid(y_variable ~ x_variable, scales = "free") +
+  abundance_richness_plot <- ggplot(wk_data, aes(x = x, y = y)) + 
+    geom_point(alpha = 0.7) + # Adds transparency for overlapped points
+    facet_grid(y_variable ~ x_variable, scales = "free") + # scales = "free" means y-axis can be different between graphs
     labs(x = NULL,
          y = NULL,
          title = paste("Week", wk)) +
@@ -89,9 +94,49 @@ for (wk in sort(unique(figure_data$week))) {
     theme(panel.grid.major = element_blank(), # Removes grid lines
           panel.grid.minor = element_blank()) 
   
-  print(p)
+  print(abundance_richness_plot)
 }
 
+
+
+
+# RUNNING THE STATS AND BUILDING THE MODELS
+model_data <- question1_data %>%
+  mutate(transect = factor(transect), # Making transect and week factors
+         week = factor(week)) 
+
+ctrl <- glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e5))
+
+m1 <- glmer.nb(butterfly_abundance ~ floral_richness + week + (1 | transect), data = model_data) # Abundance is twice as variable as poisson allows
+m2 <- glmer.nb(butterfly_abundance ~ floral_cover + week + (1 | transect), data = model_data)
+m3 <- glmer(butterfly_richness ~ floral_richness + week + (1 | transect), data = model_data,
+            family = "poisson") # Dispersal fits the poisson
+m4 <- glmer(butterfly_richness ~ floral_cover + week + (1 | transect), data = model_data,
+            family = "poisson", control = ctrl)
+
+# Residual checks on each final model
+for (m in list(m1, m2, m3, m4)) 
+  {
+  sim <- simulateResiduals(m)
+  plot(sim)
+  print(testDispersion(sim))
+  print(testZeroInflation(sim))
+}
+
+cor(model_data$floral_richness, model_data$floral_cover)
+# Rate ratios with 95% CIs (Wald), plus Holm-adjusted p-values
+models <- list("Abundance ~ floral richness" = abun_rich,
+               "Abundance ~ floral cover"    = abun_cvr,
+               "Richness ~ floral richness"  = rich_rich,
+               "Richness ~ floral cover"     = rich_cvr)
+
+results <- purrr::imap_dfr(models, ~ tidy(.x, effects = "fixed", 
+                                          conf.int = TRUE,
+                                          exponentiate = TRUE) %>%
+                             filter(grepl("floral", term)) %>%
+                             mutate(model = .y)) %>%
+  mutate(p_holm = p.adjust(p.value, method = "holm"))
+results
 
 
 
