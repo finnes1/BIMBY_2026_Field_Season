@@ -101,11 +101,26 @@ for (wk in sort(unique(figure_data$week))) {
 
 
 # RUNNING THE STATS AND BUILDING THE MODELS
-model_data <- question1_data %>%
-  mutate(transect = factor(transect), # Making transect and week factors
-         week = factor(week)) 
+ctrl <- glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e5)) # NEED TO RESEARCH THIS MORE
 
-ctrl <- glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e5))
+model_data <- question1_data %>%
+  mutate(transect = factor(transect),
+         week = factor(week),
+         floral_richness_s = as.numeric(scale(floral_richness)), # Adding scale so coefficients represent 1
+         floral_cover_s = as.numeric(scale(floral_cover))) # SD of the predictor, making count and (#) and cover (%) more comparable 
+
+# Checking correlation between floral richness and cover
+cor(model_data$floral_richness, model_data$floral_cover, use = "complete.obs")
+
+check <- function(m) { # Builds a function to spit out results of the model fits
+  sim <- simulateResiduals(m)
+  plot(sim)
+  print(testDispersion(sim))
+  print(testZeroInflation(sim))
+  invisible(sim)
+}
+
+
 
 m1 <- glmer.nb(butterfly_abundance ~ floral_richness + week + (1 | transect), data = model_data) # Abundance is twice as variable as poisson allows
 m2 <- glmer.nb(butterfly_abundance ~ floral_cover + week + (1 | transect), data = model_data)
