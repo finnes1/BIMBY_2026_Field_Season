@@ -160,7 +160,16 @@ subset(abun_tab, cumsum(weight) <= 0.95)
 subset(rich_tab, cumsum(weight) <= 0.95)
 
 
+# Effect sizes with likelihood-based inference
+anova(abun_set$week_only, abun_set$richness)
+exp(confint(abun_set$richness, parm = "floral_richness_s", method = "profile"))  # slow; method = "Wald" is faster
 
+# Checking on the residuals of the models 
+for (m in c(abun_set[c("richness", "cover")], rich_set[c("richness", "cover")])) check(m)
+
+
+
+##### UP TO HERE IS CORRECT #####
 
 m1 <- glmer.nb(butterfly_abundance ~ floral_richness + week + (1 | transect), data = model_data) # Abundance is twice as variable as poisson allows
 m2 <- glmer.nb(butterfly_abundance ~ floral_cover + week + (1 | transect), data = model_data)
