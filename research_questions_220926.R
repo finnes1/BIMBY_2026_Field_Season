@@ -138,18 +138,22 @@ check(rich_pois) # Both are OK, poisson is slightly better
 check(rich_nb)
 
 # Testing candidate set before fitting the model
-abun_set <- list(week_only = glmer.nb(butterfly_abundance ~ week + (1 | transect), data = model_data, control = ctrl),
-               richness = glmer.nb(butterfly_abundance ~ floral_richness_s + week + (1 | transect), data = model_data, control = ctrl),
-               cover= glmer.nb(butterfly_abundance ~ floral_cover_s + week + (1 | transect), data = model_data, control = ctrl),
-               both = glmer.nb(butterfly_abundance ~ floral_richness_s + floral_cover_s + week + (1 | transect), data = model_data,
+abun_set <- list(week_only = glmer.nb(butterfly_abundance ~ week + (1|transect), data = model_data, 
+                                      control = ctrl),
+                 richness = glmer.nb(butterfly_abundance ~ floral_richness_s + week + (1|transect), data = model_data, 
+                                     control = ctrl),
+                 cover= glmer.nb(butterfly_abundance ~ floral_cover_s + week + (1|transect), data = model_data,
+                                 control = ctrl),
+                 both = glmer.nb(butterfly_abundance ~ floral_richness_s + floral_cover_s + week + (1|transect), data = model_data,
                                control = ctrl))
-rich_set <- list(week_only = glmer(butterfly_richness ~ week + (1 | transect), data = model_data, family = poisson, control = ctrl),
-                 richness = glmer(butterfly_richness ~ floral_richness_s + week + (1 | transect), data = model_data, family = poisson,
+rich_set <- list(week_only = glmer(butterfly_richness ~ week + (1|transect), data = model_data, family = poisson,
                                    control = ctrl),
-                 cover = glmer(butterfly_richness ~ floral_cover_s + week + (1 | transect), data = model_data, family = poisson,
+                 richness = glmer(butterfly_richness ~ floral_richness_s + week + (1|transect), data = model_data, family = poisson,
                                    control = ctrl),
-                 both = glmer(butterfly_richness ~ floral_richness_s + floral_cover_s + week + (1 | transect), data = model_data,
-                                   family = poisson, control = ctrl))
+                 cover = glmer(butterfly_richness ~ floral_cover_s + week + (1|transect), data = model_data, family = poisson,
+                               control = ctrl),
+                 both = glmer(butterfly_richness ~ floral_richness_s + floral_cover_s + week + (1|transect), data = model_data,
+                              family = poisson, control = ctrl))
 
 # Using AIC to rank the choices 
 abun_tab <- model.sel(abun_set, rank = AIC)
@@ -166,6 +170,17 @@ exp(confint(abun_set$richness, parm = "floral_richness_s", method = "profile")) 
 
 # Checking on the residuals of the models 
 for (m in c(abun_set[c("richness", "cover")], rich_set[c("richness", "cover")])) check(m)
+
+single <- list("Abundance ~ floral richness" = abun_set$richness,
+               "Abundance ~ floral cover" = abun_set$cover,
+               "Richness ~ floral richness" = rich_set$richness,
+               "Richness ~ floral cover" = rich_set$cover)
+
+results <- purrr::imap_dfr(single, ~ tidy(.x, effects = "fixed", conf.int = TRUE, exponentiate = TRUE) %>%
+                             filter(grepl("floral", term)) %>%
+                             mutate(model = .y)) %>%
+  mutate(p_holm = p.adjust(p.value, method = "holm"))  # drop if you report AIC only
+results
 
 
 
