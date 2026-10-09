@@ -121,9 +121,9 @@ check <- function(m) { # Builds a function to spit out results of the model fits
 }
 
 # Checking which distribution fits best
-abun_pois <- glmer(butterfly_abundance ~ floral_richness_s + floral_cover_s + week + (1 | transect),
-                 data = model_data, family = poisson, control = ctrl)
-abun_nb <- glmer.nb(butterfly_abundance ~ floral_richness_s + floral_cover_s + week + (1 | transect),
+abun_pois <- glmer(butterfly_abundance ~ floral_richness_s + floral_cover_s + week + (1|transect),
+                   data = model_data, family = poisson, control = ctrl)
+abun_nb <- glmer.nb(butterfly_abundance ~ floral_richness_s + floral_cover_s + week + (1|transect),
                     data = model_data, control = ctrl)
 AIC(abun_pois, abun_nb)
 check(abun_pois) # DOES NOT FIT RIGHT
@@ -181,44 +181,6 @@ results <- purrr::imap_dfr(single, ~ tidy(.x, effects = "fixed", conf.int = TRUE
                              mutate(model = .y)) %>%
   mutate(p_holm = p.adjust(p.value, method = "holm"))  # drop if you report AIC only
 results
-
-
-
-##### UP TO HERE IS CORRECT #####
-
-m1 <- glmer.nb(butterfly_abundance ~ floral_richness + week + (1 | transect), data = model_data) # Abundance is twice as variable as poisson allows
-m2 <- glmer.nb(butterfly_abundance ~ floral_cover + week + (1 | transect), data = model_data)
-m3 <- glmer(butterfly_richness ~ floral_richness + week + (1 | transect), data = model_data,
-            family = "poisson") # Dispersal fits the poisson
-m4 <- glmer(butterfly_richness ~ floral_cover + week + (1 | transect), data = model_data,
-            family = "poisson", control = ctrl)
-
-# Residual checks on each final model
-for (m in list(m1, m2, m3, m4)) 
-  {
-  sim <- simulateResiduals(m)
-  plot(sim)
-  print(testDispersion(sim))
-  print(testZeroInflation(sim))
-}
-
-cor(model_data$floral_richness, model_data$floral_cover)
-# Rate ratios with 95% CIs (Wald), plus Holm-adjusted p-values
-models <- list("Abundance ~ floral richness" = abun_rich,
-               "Abundance ~ floral cover"    = abun_cvr,
-               "Richness ~ floral richness"  = rich_rich,
-               "Richness ~ floral cover"     = rich_cvr)
-
-results <- purrr::imap_dfr(models, ~ tidy(.x, effects = "fixed", 
-                                          conf.int = TRUE,
-                                          exponentiate = TRUE) %>%
-                             filter(grepl("floral", term)) %>%
-                             mutate(model = .y)) %>%
-  mutate(p_holm = p.adjust(p.value, method = "holm"))
-results
-
-
-
 
 
 # THIS IS DUPLICATE CODE FOR THE FLORAL SUMMARY THAT SEPARATES BY ORIGIN #
