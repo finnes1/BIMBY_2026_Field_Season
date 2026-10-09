@@ -156,17 +156,11 @@ rich_set <- list(week_only = glmer(butterfly_richness ~ week + (1|transect), dat
                               family = poisson, control = ctrl))
 
 # Using AIC to rank the choices 
-abun_tab <- model.sel(abun_set, rank = AIC)
-rich_tab <- model.sel(rich_set, rank = AIC)
-abun_tab
-rich_tab
-subset(abun_tab, cumsum(weight) <= 0.95)
-subset(rich_tab, cumsum(weight) <= 0.95)
+abun_AIC <- model.sel(abun_set, rank = AIC)
+rich_AIC <- model.sel(rich_set, rank = AIC)
+abun_AIC
+rich_AIC
 
-
-# Effect sizes with likelihood-based inference
-anova(abun_set$week_only, abun_set$richness)
-exp(confint(abun_set$richness, parm = "floral_richness_s", method = "profile"))  # slow; method = "Wald" is faster
 
 # Checking on the residuals of the models 
 for (m in c(abun_set[c("richness", "cover")], rich_set[c("richness", "cover")])) check(m)
