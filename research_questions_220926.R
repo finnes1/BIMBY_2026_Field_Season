@@ -100,7 +100,7 @@ for (wk in sort(unique(figure_data$week))) {
 
 
 
-# RUNNING THE STATS AND BUILDING THE MODELS
+# RUNNING THE STATS AND BUILDING THE MODELS #
 ctrl <- glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e5)) # NEED TO RESEARCH THIS MORE
 
 model_data <- question1_data %>%
@@ -161,7 +161,6 @@ rich_AIC <- model.sel(rich_set, rank = AIC)
 abun_AIC
 rich_AIC
 
-
 # Checking on the residuals of the models 
 for (m in c(abun_set[c("richness", "cover")], rich_set[c("richness", "cover")])) check(m)
 
@@ -175,6 +174,42 @@ results <- purrr::imap_dfr(single, ~ tidy(.x, effects = "fixed", conf.int = TRUE
                              mutate(model = .y)) %>%
   mutate(p_holm = p.adjust(p.value, method = "holm"))  # drop if you report AIC only
 results
+
+
+# Comparing the models of week with no interaction vs week with interaction
+abun_rich_no_int <- glmer.nb(butterfly_abundance ~ floral_richness_s + week + (1|transect), data = model_data, # Richness
+                                 control = ctrl)
+abun_rich_int <- glmer.nb(butterfly_abundance ~ floral_richness_s * week + (1|transect), data = model_data,
+                              control = ctrl)
+abun_cover_no_int <- glmer.nb(butterfly_abundance ~ floral_cover_s + week + (1|transect), data = model_data, # Richness
+                                 control = ctrl)
+abun_cover_int <- glmer.nb(butterfly_abundance ~ floral_cover_s * week + (1|transect), data = model_data,
+                              control = ctrl)
+# Compare the models
+AIC(abun_rich_no_int, abun_rich_int) # 950 vs 951
+AIC(abun_cover_no_int, abun_cover_int) # 952 vs 954
+check(abun_rich_int) # Good 
+check(abun_cover_int) # Good
+
+rich_rich_no_int <- glmer.nb(butterfly_richness ~ floral_richness_s + week + (1|transect), data = model_data, # Abundance
+                                 control = ctrl)
+rich_rich_int <- glmer.nb(butterfly_richness ~ floral_richness_s * week + (1|transect), data = model_data,
+                              control = ctrl)
+rich_cover_no_int <- glmer.nb(butterfly_richness ~ floral_cover_s + week + (1|transect), data = model_data, # Abundance
+                                 control = ctrl)
+rich_cover_int <- glmer.nb(butterfly_richness ~ floral_cover_s * week + (1|transect), data = model_data,
+                              control = ctrl)
+AIC(rich_rich_no_int, rich_rich_int) # 561 vs 568
+AIC(rich_cover_no_int, rich_cover_int) # 557 vs 563
+check(rich_rich_int) # Good 
+check(abun_cover_int) # Good
+
+
+# Compare the models
+AIC(abun_richness_no_int, abun_richness_int)
+check(abun_richness_int)
+
+
 
 
 # THIS IS DUPLICATE CODE FOR THE FLORAL SUMMARY THAT SEPARATES BY ORIGIN #
