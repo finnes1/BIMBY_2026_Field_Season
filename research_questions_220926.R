@@ -210,6 +210,16 @@ AIC(abun_richness_no_int, abun_richness_int)
 check(abun_richness_int)
 
 
+species_origin <- flowers_clean %>%
+  mutate(plant_species = paste(genus, species)) %>%
+  distinct(plant_species, origin)
+
+
+
+
+
+
+
 
 
 # THIS IS DUPLICATE CODE FOR THE FLORAL SUMMARY THAT SEPARATES BY ORIGIN #
