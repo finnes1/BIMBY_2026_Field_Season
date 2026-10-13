@@ -202,8 +202,8 @@
 7,9,4,"Freya","KMP",49.8645,-119.4583,351,14:00:00,780,28,0,1,"sunny","Pieridae","Pieris","rapae",6
 7,9,4,"Freya","PML",49.5049,-119.6405,491,11:26:00,960,23,1.5,1,"sunny","Pieridae","Pieris","rapae",6
 7,9,4,"Freya","PML",49.5049,-119.6405,491,11:26:00,960,23,1.5,1,"sunny","Lycaenidae","Strymon","melinus",1
-7,9,4,"Freya","PML",49.5049,-119.6405,491,13:26:00,960,23,1.5,1,"sunny","Papilionidae","Papilio",NA,1
-7,9,4,"Freya","PML",49.5049,-119.6405,491,14:26:00,960,23,1.5,1,"sunny","Nymphalidae","Cercyonis",NA,1
+7,9,4,"Freya","PML",49.5049,-119.6405,491,11:26:00,960,23,1.5,1,"sunny","Papilionidae","Papilio",NA,1
+7,9,4,"Freya","PML",49.5049,-119.6405,491,11:26:00,960,23,1.5,1,"sunny","Nymphalidae","Cercyonis",NA,1
 7,9,4,"Freya","UBC",49.942,-119.3988,480,15:20:00,780,28,0.5,1,"partly cloudy","Papilionidae","Papilio",NA,1
 7,9,4,"Freya","RRP",49.8802,-119.5763,575,10:04:00,780,22,1,1,"partly cloudy",NA,NA,NA,0
 7,10,4,"Freya","OHR",49.4214,-120.2563,568,10:08:00,1020,21.5,0.5,1,"partly cloudy","Nymphalidae","Cercyonis",NA,1
