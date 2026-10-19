@@ -5,9 +5,10 @@
 # Open Packages
 library(tidyverse)
 library(lme4)
-library(MuMIn) # To use commands like model.sel() and model.avg()
+library(MuMIn)       # model.sel()
 library(DHARMa)
 library(broom.mixed)
+library(performance) # check_collinearity() for VIFs
 
 
 #### READING IN DATA ####
@@ -17,42 +18,41 @@ butterflies_clean <- read_csv("Clean Data/butterflies_clean.csv")
 flowers_clean <- read_csv("Clean Data/flowers_clean.csv")
 nectar_clean <- read_csv("Clean Data/nectar_clean.csv")
 
-#### Can floral resource richness and abundance predict butterfly richness and abundance? ####
-# The idea behind this one is a four paneled grid that has the associations
 
-# Making a usable butterfly summary
+#### Can floral resource richness and abundance predict butterfly richness and abundance? ####
+
+# Small helper so the date is built the same way everywhere
+add_date <- function(df) {
+  mutate(df, date = make_date(year = 2026, month = as.integer(month), day = as.integer(day)))
+}
+
+# Butterfly summary: one row per transect visit
 butterfly_summary <- butterflies_clean %>%
-  mutate(date = make_date(year = 2026,
-                          month = as.integer(month), 
-                          day = as.integer(day)),
-         butterfly_species = paste(genus, species)) %>% # Combining the date
+  add_date() %>%
+  mutate(butterfly_species = paste(genus, species)) %>%
   group_by(transect, date, week) %>%
-  summarise(butterfly_abundance = sum(number, na.rm = TRUE), # Making a column for butterfly abundance
-            butterfly_richness = n_distinct(butterfly_species[butterfly_species != "NA NA"],),
+  summarise(butterfly_abundance = sum(number, na.rm = TRUE),
+            butterfly_richness = n_distinct(butterfly_species[butterfly_species != "NA NA"]),
             elevation_m = first(elevation_m),
             temp_avg = first(temp_avg),
             wind_avg = first(wind_avg),
             weather = first(weather),
-            air_quality= first(air_quality),
+            air_quality = first(air_quality),
             .groups = "drop")
 
-# Master list of every transect-date-week that was actually surveyed for flowers
+# Master list of every transect-date-week surveyed for flowers (keeps visits with zero flowers)
 flower_visits <- flowers_clean %>%
-  mutate(date = make_date(year = 2026, month = as.integer(month), day = as.integer(day))) %>%
+  add_date() %>%
   distinct(transect, date, week)
 
+# Floral summary: mean cover per species per visit (quadrats where the species was absent count as 0)
 flower_summary <- flowers_clean %>%
-  mutate(date = make_date(year = 2026, 
-                          month = as.integer(month), 
-                          day = as.integer(day)),
-         plant_species = paste(genus, species)) %>%
-  distinct(transect, date, week, quadrat, plant_species, cover_pct) %>%
-  group_by(transect, date, week) %>%
-  complete(quadrat = 1:5, nesting(plant_species), fill = list(cover_pct = 0)) %>%
-  ungroup() %>%
+  add_date() %>%
+  mutate(plant_species = paste(genus, species)) %>%
   filter(plant_species != "NA NA") %>%
+  distinct(transect, date, week, quadrat, plant_species, cover_pct) %>%
   group_by(transect, date, week, plant_species) %>%
-  summarise(mean_cover = mean(cover_pct), .groups = "drop") %>%
+  summarise(mean_cover = sum(cover_pct) / 5, .groups = "drop") %>% # 5 quadrats per visit
   group_by(transect, date, week) %>%
   summarise(floral_richness = n_distinct(plant_species),
             floral_cover = sum(mean_cover),
@@ -61,63 +61,58 @@ flower_summary <- flowers_clean %>%
   mutate(floral_richness = replace_na(floral_richness, 0),
          floral_cover = replace_na(floral_cover, 0))
 
-
-# Making a summary table to plot more easily
 question1_data <- butterfly_summary %>%
   left_join(flower_summary, by = c("transect", "date", "week"))
 
-figure_data <- bind_rows(
-  question1_data %>%
-    transmute(transect, date, week, # ", origin" has been removed from here and needs to be readded
-              x = floral_richness, y = butterfly_richness,
-              x_variable = "Floral richness", y_variable = "Butterfly richness"),
-  question1_data %>%
-    transmute(transect, date, week,
-              x = floral_cover, y = butterfly_richness,
-              x_variable = "Floral % cover", y_variable = "Butterfly richness"),
-  question1_data %>%
-    transmute(transect, date, week,
-              x = floral_richness, y = butterfly_abundance,
-              x_variable = "Floral richness", y_variable = "Butterfly abundance"),
-  question1_data %>%
-    transmute(transect, date, week,
-              x = floral_cover, y = butterfly_abundance,
-              x_variable = "Floral % cover", y_variable = "Butterfly abundance"))
 
-# Loop one 2x2 grid figure per week
+#### FIGURES ####
+figure_data <- question1_data %>%
+  pivot_longer(c(floral_richness, floral_cover), names_to = "x_variable", values_to = "x") %>%
+  pivot_longer(c(butterfly_richness, butterfly_abundance), names_to = "y_variable", values_to = "y") %>%
+  mutate(x_variable = recode(x_variable, floral_richness = "Floral richness", floral_cover = "Floral % cover"),
+         y_variable = recode(y_variable, butterfly_richness = "Butterfly richness", butterfly_abundance = "Butterfly abundance"))
+
+# One 2x2 grid per week
 for (wk in sort(unique(figure_data$week))) {
   
-  wk_data <- figure_data %>% filter(week == wk)
-  
-  abundance_richness_plot <- ggplot(wk_data, aes(x = x, y = y)) + 
-    geom_point(alpha = 0.7) + # Adds transparency for overlapped points
-    facet_grid(y_variable ~ x_variable, scales = "free") + # scales = "free" means y-axis can be different between graphs
-    labs(x = NULL,
-         y = NULL,
-         title = paste("Week", wk)) +
+  abundance_richness_plot <- ggplot(filter(figure_data, week == wk), aes(x = x, y = y)) +
+    geom_point(alpha = 0.7) +
+    facet_grid(y_variable ~ x_variable, scales = "free") +
+    labs(x = NULL, y = NULL, title = paste("Week", wk)) +
     theme_bw() +
-    theme(panel.grid.major = element_blank(), # Removes grid lines
-          panel.grid.minor = element_blank()) 
+    theme(panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank())
   
   print(abundance_richness_plot)
 }
 
 
-
-
-# RUNNING THE STATS AND BUILDING THE MODELS #
-ctrl <- glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e5)) # NEED TO RESEARCH THIS MORE
-
+#### MODEL DATA ####
+# Drop incomplete visits FIRST, then scale, so every model uses the same rows and the SDs match those rows
 model_data <- question1_data %>%
+  drop_na(butterfly_abundance, butterfly_richness, floral_richness, floral_cover,
+          elevation_m, temp_avg, wind_avg, weather, week, transect) %>%
   mutate(transect = factor(transect),
          week = factor(week),
-         floral_richness_s = as.numeric(scale(floral_richness)), # Adding scale so coefficients represent 1
-         floral_cover_s = as.numeric(scale(floral_cover))) # SD of the predictor, making count and (#) and cover (%) more comparable 
+         weather = factor(weather),
+         across(c(floral_richness, floral_cover, elevation_m, temp_avg, wind_avg),
+                ~ as.numeric(scale(.x)), .names = "{.col}_s")) # coefficients = effect of 1 SD
 
-# Checking correlation between floral richness and cover
-cor(model_data$floral_richness, model_data$floral_cover, use = "complete.obs")
+# Collinearity among predictors (decides whether the "both" model is interpretable)
+model_data %>%
+  select(floral_richness, floral_cover, elevation_m, temp_avg, wind_avg) %>%
+  cor() %>% round(2)
 
-check <- function(m) { # Builds a function to spit out results of the model fits
+ctrl <- glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e5)) # only needed if default optimizer warns; use for ALL models so they are comparable
+
+# Helper: fit one model from a response and right-hand side
+fit_model <- function(resp, rhs, nb = FALSE) {
+  f <- as.formula(paste(resp, "~", rhs))
+  if (nb) glmer.nb(f, data = model_data, control = ctrl)
+  else glmer(f, data = model_data, family = poisson, control = ctrl)
+}
+
+check <- function(m) { # DHARMa residual checks
   sim <- simulateResiduals(m)
   plot(sim)
   print(testDispersion(sim))
@@ -125,170 +120,75 @@ check <- function(m) { # Builds a function to spit out results of the model fits
   invisible(sim)
 }
 
-# Checking which distribution fits best
-abun_pois <- glmer(butterfly_abundance ~ floral_richness_s + floral_cover_s + week + (1|transect),
-                   data = model_data, family = poisson, control = ctrl)
-abun_nb <- glmer.nb(butterfly_abundance ~ floral_richness_s + floral_cover_s + week + (1|transect),
-                    data = model_data, control = ctrl)
+# Base structure shared by every model (covariates are fixed a priori, NOT selected by AIC)
+base <- "week + elevation_m_s + temp_avg_s + wind_avg_s + weather + (1 | transect)"
+both <- paste("floral_richness_s + floral_cover_s +", base)
+
+
+#### STEP 1: CHOOSE THE DISTRIBUTION (using the fullest model) ####
+abun_pois <- fit_model("butterfly_abundance", both)
+abun_nb   <- fit_model("butterfly_abundance", both, nb = TRUE)
+rich_pois <- fit_model("butterfly_richness", both)
+rich_nb   <- fit_model("butterfly_richness", both, nb = TRUE)
+
 AIC(abun_pois, abun_nb)
-check(abun_pois) # DOES NOT FIT RIGHT
-check(abun_nb)
-
-
-rich_pois <- glmer(butterfly_richness ~ floral_richness_s + floral_cover_s + week + (1 | transect),
-                 data = model_data, family = poisson, control = ctrl)
-rich_nb <- glmer.nb(butterfly_richness ~ floral_richness_s + floral_cover_s + week + (1 | transect),
-                    data = model_data, control = ctrl) # Runs with a warning
 AIC(rich_pois, rich_nb)
-check(rich_pois) # Both are OK, poisson is slightly better
-check(rich_nb)
+check(abun_pois); check(abun_nb)
+check(rich_pois); check(rich_nb)
 
-# Testing candidate set before fitting the model
-abun_set <- list(week_only = glmer.nb(butterfly_abundance ~ week + (1|transect), data = model_data, 
-                                      control = ctrl),
-                 richness = glmer.nb(butterfly_abundance ~ floral_richness_s + week + (1|transect), data = model_data, 
-                                     control = ctrl),
-                 cover= glmer.nb(butterfly_abundance ~ floral_cover_s + week + (1|transect), data = model_data,
-                                 control = ctrl),
-                 both = glmer.nb(butterfly_abundance ~ floral_richness_s + floral_cover_s + week + (1|transect), data = model_data,
-                               control = ctrl))
-rich_set <- list(week_only = glmer(butterfly_richness ~ week + (1|transect), data = model_data, family = poisson,
-                                   control = ctrl),
-                 richness = glmer(butterfly_richness ~ floral_richness_s + week + (1|transect), data = model_data, family = poisson,
-                                   control = ctrl),
-                 cover = glmer(butterfly_richness ~ floral_cover_s + week + (1|transect), data = model_data, family = poisson,
-                               control = ctrl),
-                 both = glmer(butterfly_richness ~ floral_richness_s + floral_cover_s + week + (1|transect), data = model_data,
-                              family = poisson, control = ctrl))
 
-# Using AIC to rank the choices 
-abun_AIC <- model.sel(abun_set, rank = AIC)
-rich_AIC <- model.sel(rich_set, rank = AIC)
-abun_AIC
-rich_AIC
+#### STEP 2: FLORAL CANDIDATE SET (same covariates in every model) ####
+floral_terms <- c(base = "",
+                  richness = "floral_richness_s +",
+                  cover = "floral_cover_s +",
+                  both = "floral_richness_s + floral_cover_s +")
 
-# Checking on the residuals of the models 
+abun_set <- map(floral_terms, ~ fit_model("butterfly_abundance", paste(.x, base), nb = TRUE))
+rich_set <- map(floral_terms, ~ fit_model("butterfly_richness", paste(.x, base)))
+
+model.sel(abun_set, rank = AIC) # delta AIC and weights
+model.sel(rich_set, rank = AIC)
+
+# Likelihood-ratio test of each floral predictor against the base model
+lrt <- function(null, alt) anova(null, alt)$`Pr(>Chisq)`[2]
+
+lrt_results <- tibble(model = c("Abundance ~ floral richness", "Abundance ~ floral cover",
+                                "Richness ~ floral richness", "Richness ~ floral cover"),
+                      p_lrt = c(lrt(abun_set$base, abun_set$richness), lrt(abun_set$base, abun_set$cover),
+                                lrt(rich_set$base, rich_set$richness), lrt(rich_set$base, rich_set$cover))) %>%
+  mutate(p_holm = p.adjust(p_lrt, method = "holm"))
+lrt_results
+
+
+#### STEP 3: DIAGNOSTICS ON THE MODELS YOU WILL REPORT ####
 for (m in c(abun_set[c("richness", "cover")], rich_set[c("richness", "cover")])) check(m)
 
+
+#### STEP 4: EFFECT SIZES (rate ratios per 1 SD of the floral predictor) ####
 single <- list("Abundance ~ floral richness" = abun_set$richness,
                "Abundance ~ floral cover" = abun_set$cover,
                "Richness ~ floral richness" = rich_set$richness,
                "Richness ~ floral cover" = rich_set$cover)
 
-results <- purrr::imap_dfr(single, ~ tidy(.x, effects = "fixed", conf.int = TRUE, exponentiate = TRUE) %>%
+results <- purrr::imap_dfr(single, ~ tidy(.x, effects = "fixed", conf.int = TRUE,
+                                          conf.method = "profile", exponentiate = TRUE) %>% # profile CIs are better than Wald for GLMMs (slow)
                              filter(grepl("floral", term)) %>%
                              mutate(model = .y)) %>%
-  mutate(p_holm = p.adjust(p.value, method = "holm"))  # drop if you report AIC only
+  left_join(lrt_results, by = "model")
 results
 
 
-# Comparing the models of week with no interaction vs week with interaction
-abun_rich_no_int <- glmer.nb(butterfly_abundance ~ floral_richness_s + week + (1|transect), data = model_data, # Richness
-                                 control = ctrl)
-abun_rich_int <- glmer.nb(butterfly_abundance ~ floral_richness_s * week + (1|transect), data = model_data,
-                              control = ctrl)
-abun_cover_no_int <- glmer.nb(butterfly_abundance ~ floral_cover_s + week + (1|transect), data = model_data, # Richness
-                                 control = ctrl)
-abun_cover_int <- glmer.nb(butterfly_abundance ~ floral_cover_s * week + (1|transect), data = model_data,
-                              control = ctrl)
-# Compare the models
-AIC(abun_rich_no_int, abun_rich_int) # 950 vs 951
-AIC(abun_cover_no_int, abun_cover_int) # 952 vs 954
-check(abun_rich_int) # Good 
-check(abun_cover_int) # Good
+#### SUPPLEMENT: DOES THE FLORAL EFFECT DIFFER BY WEEK? ####
+int_check <- list(
+  abun_rich_int = fit_model("butterfly_abundance", paste("floral_richness_s * week + elevation_m_s + temp_avg_s + wind_avg_s + weather + (1 | transect)"), nb = TRUE),
+  abun_cover_int = fit_model("butterfly_abundance", paste("floral_cover_s * week + elevation_m_s + temp_avg_s + wind_avg_s + weather + (1 | transect)"), nb = TRUE),
+  rich_rich_int = fit_model("butterfly_richness", paste("floral_richness_s * week + elevation_m_s + temp_avg_s + wind_avg_s + weather + (1 | transect)")),
+  rich_cover_int = fit_model("butterfly_richness", paste("floral_cover_s * week + elevation_m_s + temp_avg_s + wind_avg_s + weather + (1 | transect)")))
 
-rich_rich_no_int <- glmer.nb(butterfly_richness ~ floral_richness_s + week + (1|transect), data = model_data, # Abundance
-                                 control = ctrl)
-rich_rich_int <- glmer.nb(butterfly_richness ~ floral_richness_s * week + (1|transect), data = model_data,
-                              control = ctrl)
-rich_cover_no_int <- glmer.nb(butterfly_richness ~ floral_cover_s + week + (1|transect), data = model_data, # Abundance
-                                 control = ctrl)
-rich_cover_int <- glmer.nb(butterfly_richness ~ floral_cover_s * week + (1|transect), data = model_data,
-                              control = ctrl)
-AIC(rich_rich_no_int, rich_rich_int) # 561 vs 568
-AIC(rich_cover_no_int, rich_cover_int) # 557 vs 563
-check(rich_rich_int) # Good 
-check(abun_cover_int) # Good
-
-
-# Compare the models
-AIC(abun_richness_no_int, abun_richness_int)
-check(abun_richness_int)
-
-
-species_origin <- flowers_clean %>%
-  mutate(plant_species = paste(genus, species)) %>%
-  distinct(plant_species, origin)
-
-
-# Adding and scaling ecologically relevant covariates 
-model_data <- question1_data %>%
-  mutate(transect = factor(transect),
-         week = factor(week),
-         floral_richness_s = as.numeric(scale(floral_richness)), # Scaling predictors CHECK WITH MICHELLE I CAN DO THIS
-         floral_cover_s = as.numeric(scale(floral_cover)),
-         elevation_s = as.numeric(scale(elevation_m)),
-         temp_s = as.numeric(scale(temp_avg)),
-         wind_s = as.numeric(scale(wind_avg))) %>%
-  drop_na(butterfly_abundance, 
-          butterfly_richness,
-          floral_richness_s, 
-          floral_cover_s,
-          elevation_s,
-          temp_s,
-          wind_s,
-          week,
-          transect)
-
-
-
-# Pasting all environmental effects into the model
-env <- "elevation_s + temp_s + wind_s + weather"
-
-# Butterfly abundance ~ floral richness
-abun_rich <- glmer.nb(as.formula(paste("butterfly_abundance ~ floral_richness_s +", env, "+ week + (1 | transect)")),
-                      data = model_data, control = ctrl)
-
-# Butterfly abundance ~ floral cover
-abun_cover <- glmer.nb(as.formula(paste("butterfly_abundance ~ floral_cover_s +", env, "+ week + (1 | transect)")),
-                       data = model_data, control = ctrl)
-
-# Butterfly richness ~ floral richness
-rich_rich <- glmer(as.formula(paste("butterfly_richness ~ floral_richness_s +", env, "+ week + (1 | transect)")),
-                   data = model_data, family = poisson, control = ctrl)
-
-# Butterfly richness ~ floral cover
-rich_cover <- glmer(as.formula(paste("butterfly_richness ~ floral_cover_s +", env, "+ week + (1 | transect)")), 
-                    data = model_data, family = poisson, control = ctrl)
-
-
-# Making null models to compare AIC against models with environmental covariates
-abun_null <- glmer.nb(butterfly_abundance ~ elevation_s + temp_s + wind_s + week + (1 | transect),
-                      data = model_data, control = ctrl)
-
-rich_null <- glmer(butterfly_richness ~ elevation_s + temp_s + wind_s + week + (1 | transect),
-                   data = model_data, family = poisson, control = ctrl)
-
-# Compare models with and without each floral predictor
-AIC(abun_null, abun_rich, abun_cover)
-AIC(rich_null, rich_rich, rich_cover)
-
-# Likelihood-ratio tests for each floral predictor
-anova(abun_null, abun_rich, test = "Chisq")
-anova(abun_null, abun_cover, test = "Chisq")
-
-anova(rich_null, rich_rich, test = "Chisq")
-anova(rich_null, rich_cover, test = "Chisq")
-
-
-results <- purrr::imap_dfr(models, ~ tidy(.x, effects = "fixed", conf.int = TRUE, exponentiate = TRUE) %>%
-                             filter(grepl("floral|elevation|temperature|wind_speed", term)) %>%
-                             mutate(model = .y))
-
-results
-
-
-
+AIC(abun_set$richness, int_check$abun_rich_int)
+AIC(abun_set$cover, int_check$abun_cover_int)
+AIC(rich_set$richness, int_check$rich_rich_int)
+AIC(rich_set$cover, int_check$rich_cover_int)
 
 
 
