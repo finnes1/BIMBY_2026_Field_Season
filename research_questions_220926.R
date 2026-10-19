@@ -281,30 +281,17 @@ anova(rich_null, rich_rich, test = "Chisq")
 anova(rich_null, rich_cover, test = "Chisq")
 
 
+results <- purrr::imap_dfr(models, ~ tidy(.x, effects = "fixed", conf.int = TRUE, exponentiate = TRUE) %>%
+                             filter(grepl("floral|elevation|temperature|wind_speed", term)) %>%
+                             mutate(model = .y))
+
+results
 
 
-# THIS IS DUPLICATE CODE FOR THE FLORAL SUMMARY THAT SEPARATES BY ORIGIN #
 
-# Making floral summary with native and non-native cover and richness in case I want to use it later
-flower_summary <- flowers_clean %>%
-  filter(!is.na(genus)) %>%  # drop placeholder "no plant in this quadrat" rows
-  mutate(date = make_date(year = 2026,
-                          month = as.integer(month),
-                          day = as.integer(day)),
-         plant_species = paste(genus, species)) %>%
-  distinct(transect, date, week, quadrat, plant_species, origin, cover_pct) %>%  # No duplicate entries
-  group_by(transect, date, week) %>%
-  complete(quadrat = 1:5, nesting(plant_species, origin), # Keeps species and their origin together instead of duplicating
-           fill = list(cover_pct = 0)) %>%
-  ungroup() %>%
-  group_by(transect, date, week, origin, plant_species) %>%
-  summarise(mean_cover = mean(cover_pct), .groups = "drop") %>%
-  group_by(transect, date, week, origin) %>%
-  summarise(floral_richness = n_distinct(plant_species),
-            floral_cover = sum(mean_cover),
-            .groups = "drop") %>%
-  complete(nesting(transect, date, week), origin, 
-           fill = list(floral_richness = 0, floral_cover = 0))
+
+
+
 
 #### Which floral resources are disproportionately used by butterflies relative to their availability?####
 # FLOWER DATA #
