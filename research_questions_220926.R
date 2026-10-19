@@ -28,7 +28,12 @@ butterfly_summary <- butterflies_clean %>%
          butterfly_species = paste(genus, species)) %>% # Combining the date
   group_by(transect, date, week) %>%
   summarise(butterfly_abundance = sum(number, na.rm = TRUE), # Making a column for butterfly abundance
-            butterfly_richness = n_distinct(butterfly_species[butterfly_species != "NA NA"]), # Making a column for species richness, but does not include "NA NA" (no butterflies seen) as a species 
+            butterfly_richness = n_distinct(butterfly_species[butterfly_species != "NA NA"],),
+            elevation_m = first(elevation_m),
+            temp_avg = first(temp_avg),
+            wind_avg = first(wind_avg),
+            weather = first(weather),
+            air_quality= first(air_quality),
             .groups = "drop")
 
 # Master list of every transect-date-week that was actually surveyed for flowers
@@ -129,6 +134,7 @@ AIC(abun_pois, abun_nb)
 check(abun_pois) # DOES NOT FIT RIGHT
 check(abun_nb)
 
+
 rich_pois <- glmer(butterfly_richness ~ floral_richness_s + floral_cover_s + week + (1 | transect),
                  data = model_data, family = poisson, control = ctrl)
 rich_nb <- glmer.nb(butterfly_richness ~ floral_richness_s + floral_cover_s + week + (1 | transect),
@@ -215,9 +221,64 @@ species_origin <- flowers_clean %>%
   distinct(plant_species, origin)
 
 
+# Adding and scaling ecologically relevant covariates 
+model_data <- question1_data %>%
+  mutate(transect = factor(transect),
+         week = factor(week),
+         floral_richness_s = as.numeric(scale(floral_richness)), # Scaling predictors CHECK WITH MICHELLE I CAN DO THIS
+         floral_cover_s = as.numeric(scale(floral_cover)),
+         elevation_s = as.numeric(scale(elevation_m)),
+         temp_s = as.numeric(scale(temp_avg)),
+         wind_s = as.numeric(scale(wind_avg))) %>%
+  drop_na(butterfly_abundance, 
+          butterfly_richness,
+          floral_richness_s, 
+          floral_cover_s,
+          elevation_s,
+          temp_s,
+          wind_s,
+          week,
+          transect)
 
 
 
+# Pasting all environmental effects into the model
+env <- "elevation_s + temp_s + wind_s + weather"
+
+# Butterfly abundance ~ floral richness
+abun_rich <- glmer.nb(as.formula(paste("butterfly_abundance ~ floral_richness_s +", env, "+ week + (1 | transect)")),
+                      data = model_data, control = ctrl)
+
+# Butterfly abundance ~ floral cover
+abun_cover <- glmer.nb(as.formula(paste("butterfly_abundance ~ floral_cover_s +", env, "+ week + (1 | transect)")),
+                       data = model_data, control = ctrl)
+
+# Butterfly richness ~ floral richness
+rich_rich <- glmer(as.formula(paste("butterfly_richness ~ floral_richness_s +", env, "+ week + (1 | transect)")),
+                   data = model_data, family = poisson, control = ctrl)
+
+# Butterfly richness ~ floral cover
+rich_cover <- glmer(as.formula(paste("butterfly_richness ~ floral_cover_s +", env, "+ week + (1 | transect)")), 
+                    data = model_data, family = poisson, control = ctrl)
+
+
+# Making null models to compare AIC against models with environmental covariates
+abun_null <- glmer.nb(butterfly_abundance ~ elevation_s + temp_s + wind_s + week + (1 | transect),
+                      data = model_data, control = ctrl)
+
+rich_null <- glmer(butterfly_richness ~ elevation_s + temp_s + wind_s + week + (1 | transect),
+                   data = model_data, family = poisson, control = ctrl)
+
+# Compare models with and without each floral predictor
+AIC(abun_null, abun_rich, abun_cover)
+AIC(rich_null, rich_rich, rich_cover)
+
+# Likelihood-ratio tests for each floral predictor
+anova(abun_null, abun_rich, test = "Chisq")
+anova(abun_null, abun_cover, test = "Chisq")
+
+anova(rich_null, rich_rich, test = "Chisq")
+anova(rich_null, rich_cover, test = "Chisq")
 
 
 
