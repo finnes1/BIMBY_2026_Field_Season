@@ -5,10 +5,10 @@
 # Open Packages
 library(tidyverse)
 library(lme4)
-library(MuMIn)       # model.sel()
+library(MuMIn) # to use model.sel()
 library(DHARMa)
 library(broom.mixed)
-library(performance) # check_collinearity() for VIFs
+library(performance) # to check_collinearity() for VIFs
 
 
 #### READING IN DATA ####
@@ -21,18 +21,18 @@ nectar_clean <- read_csv("Clean Data/nectar_clean.csv")
 
 #### Can floral resource richness and abundance predict butterfly richness and abundance? ####
 
-# Small helper so the date is built the same way everywhere
+# Helper function so the date is built the same way everywhere
 add_date <- function(df) {
   mutate(df, date = make_date(year = 2026, month = as.integer(month), day = as.integer(day)))
 }
 
-# Butterfly summary: one row per transect visit
+# Butterfly summary to make one row per transect visit
 butterfly_summary <- butterflies_clean %>%
   add_date() %>%
   mutate(butterfly_species = paste(genus, species)) %>%
   group_by(transect, date, week) %>%
   summarise(butterfly_abundance = sum(number, na.rm = TRUE),
-            butterfly_richness = n_distinct(butterfly_species[butterfly_species != "NA NA"]),
+            butterfly_richness = n_distinct(butterfly_species[butterfly_species != "NA NA"]), # removes species "NA NA" from counting towards richness
             elevation_m = first(elevation_m),
             temp_avg = first(temp_avg),
             wind_avg = first(wind_avg),
@@ -40,7 +40,7 @@ butterfly_summary <- butterflies_clean %>%
             air_quality = first(air_quality),
             .groups = "drop")
 
-# Master list of every transect-date-week surveyed for flowers (keeps visits with zero flowers)
+# Master list of every transect-date-week surveyed for flowers (keeps visits with zero flowers to compare)
 flower_visits <- flowers_clean %>%
   add_date() %>%
   distinct(transect, date, week)
@@ -88,7 +88,7 @@ for (wk in sort(unique(figure_data$week))) {
 
 
 #### MODEL DATA ####
-# Drop incomplete visits FIRST, then scale, so every model uses the same rows and the SDs match those rows
+# Drops incomplete visits first, then scales, so every model uses the same rows and the SDs match those rows
 model_data <- question1_data %>%
   drop_na(butterfly_abundance, butterfly_richness, floral_richness, floral_cover,
           elevation_m, temp_avg, wind_avg, weather, week, transect) %>%
@@ -98,20 +98,21 @@ model_data <- question1_data %>%
          across(c(floral_richness, floral_cover, elevation_m, temp_avg, wind_avg),
                 ~ as.numeric(scale(.x)), .names = "{.col}_s")) # coefficients = effect of 1 SD
 
-# Collinearity among predictors (decides whether the "both" model is interpretable)
+# Checking for collinearity between covariates
 model_data %>%
   select(floral_richness, floral_cover, elevation_m, temp_avg, wind_avg) %>%
   cor() %>% round(2)
 
-ctrl <- glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e5)) # only needed if default optimizer warns; use for ALL models so they are comparable
+ctrl <- glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e5)) # Still need to get into understanding this
 
-# Helper: fit one model from a response and right-hand side
+# Function to help fit the model
 fit_model <- function(resp, rhs, nb = FALSE) {
   f <- as.formula(paste(resp, "~", rhs))
   if (nb) glmer.nb(f, data = model_data, control = ctrl)
   else glmer(f, data = model_data, family = poisson, control = ctrl)
 }
 
+# Funciton to check the residuals of each model
 check <- function(m) { # DHARMa residual checks
   sim <- simulateResiduals(m)
   plot(sim)
@@ -120,12 +121,12 @@ check <- function(m) { # DHARMa residual checks
   invisible(sim)
 }
 
-# Base structure shared by every model (covariates are fixed a priori, NOT selected by AIC)
+# Base structure shared by every model 
 base <- "week + elevation_m_s + temp_avg_s + wind_avg_s + weather + (1 | transect)"
 both <- paste("floral_richness_s + floral_cover_s +", base)
 
 
-#### STEP 1: CHOOSE THE DISTRIBUTION (using the fullest model) ####
+## Choosing the model distribution 
 abun_pois <- fit_model("butterfly_abundance", both)
 abun_nb   <- fit_model("butterfly_abundance", both, nb = TRUE)
 rich_pois <- fit_model("butterfly_richness", both)
@@ -133,11 +134,13 @@ rich_nb   <- fit_model("butterfly_richness", both, nb = TRUE)
 
 AIC(abun_pois, abun_nb)
 AIC(rich_pois, rich_nb)
-check(abun_pois); check(abun_nb)
-check(rich_pois); check(rich_nb)
+check(abun_pois) # DOES NOT FIT
+check(abun_nb) # FITS
+check(rich_pois) # FITS
+check(rich_nb) # FITS
 
 
-#### STEP 2: FLORAL CANDIDATE SET (same covariates in every model) ####
+## Setting up model with consistent terms
 floral_terms <- c(base = "",
                   richness = "floral_richness_s +",
                   cover = "floral_cover_s +",
@@ -160,25 +163,25 @@ lrt_results <- tibble(model = c("Abundance ~ floral richness", "Abundance ~ flor
 lrt_results
 
 
-#### STEP 3: DIAGNOSTICS ON THE MODELS YOU WILL REPORT ####
-for (m in c(abun_set[c("richness", "cover")], rich_set[c("richness", "cover")])) check(m)
+## Model diagnostics
+for (m in c(abun_set[c("richness", "cover")], rich_set[c("richness", "cover")])) check(m) # Fits are all good
 
 
-#### STEP 4: EFFECT SIZES (rate ratios per 1 SD of the floral predictor) ####
+## Checking effect sizes (rate ratios per 1 SD of the floral predictor)
 single <- list("Abundance ~ floral richness" = abun_set$richness,
                "Abundance ~ floral cover" = abun_set$cover,
                "Richness ~ floral richness" = rich_set$richness,
                "Richness ~ floral cover" = rich_set$cover)
 
 results <- purrr::imap_dfr(single, ~ tidy(.x, effects = "fixed", conf.int = TRUE,
-                                          conf.method = "profile", exponentiate = TRUE) %>% # profile CIs are better than Wald for GLMMs (slow)
+                                          conf.method = "profile", exponentiate = TRUE) %>%
                              filter(grepl("floral", term)) %>%
                              mutate(model = .y)) %>%
   left_join(lrt_results, by = "model")
 results
 
 
-#### SUPPLEMENT: DOES THE FLORAL EFFECT DIFFER BY WEEK? ####
+## Checking if the floral effect differs between different weeks
 int_check <- list(
   abun_rich_int = fit_model("butterfly_abundance", paste("floral_richness_s * week + elevation_m_s + temp_avg_s + wind_avg_s + weather + (1 | transect)"), nb = TRUE),
   abun_cover_int = fit_model("butterfly_abundance", paste("floral_cover_s * week + elevation_m_s + temp_avg_s + wind_avg_s + weather + (1 | transect)"), nb = TRUE),
