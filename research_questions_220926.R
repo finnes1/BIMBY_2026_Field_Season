@@ -67,25 +67,33 @@ question1_data <- butterfly_summary %>%
 
 #### FIGURES ####
 figure_data <- question1_data %>%
-  pivot_longer(c(floral_richness, floral_cover), names_to = "x_variable", values_to = "x") %>%
-  pivot_longer(c(butterfly_richness, butterfly_abundance), names_to = "y_variable", values_to = "y") %>%
-  mutate(x_variable = recode(x_variable, floral_richness = "Floral richness", floral_cover = "Floral % cover"),
-         y_variable = recode(y_variable, butterfly_richness = "Butterfly richness", butterfly_abundance = "Butterfly abundance"))
+  pivot_longer(c(floral_richness, floral_cover),
+               names_to = "x_variable", values_to = "x") %>%
+  pivot_longer(c(butterfly_richness, butterfly_abundance),
+               names_to = "y_variable", values_to = "y") %>%
+  mutate(x_variable = recode(x_variable, floral_richness = "Floral richness", floral_cover    = "Floral % cover"),
+         y_variable = recode(y_variable, butterfly_richness  = "Butterfly richness", butterfly_abundance = "Butterfly abundance"))
 
 # One 2x2 grid per week
 for (wk in sort(unique(figure_data$week))) {
   
-  abundance_richness_plot <- ggplot(filter(figure_data, week == wk), aes(x = x, y = y)) +
+  abundance_richness_plot <- ggplot(filter(figure_data, week == wk),
+                                    aes(x = x, y = y)) +
+    # invisible layer using ALL weeks so each panel's limits are shared across weeks
+    geom_blank(data = figure_data) +
     geom_point(alpha = 0.7) +
-    facet_grid(y_variable ~ x_variable, scales = "free") +
+    facet_grid(y_variable ~ x_variable, scales = "free", switch = "both") +
     labs(x = NULL, y = NULL, title = paste("Week", wk)) +
     theme_bw() +
     theme(panel.grid.major = element_blank(),
-          panel.grid.minor = element_blank())
+          panel.grid.minor = element_blank(),
+          strip.placement = "outside",          # labels sit outside the tick labels
+          strip.background = element_blank(),    # no grey boxes, so they look like axis titles
+          strip.text = element_text(size = 11),
+          strip.text.y.left = element_text(angle = 90))
   
   print(abundance_richness_plot)
 }
-
 
 #### MODEL DATA ####
 # Drops incomplete visits first, then scales, so every model uses the same rows and the SDs match those rows
