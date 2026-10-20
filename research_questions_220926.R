@@ -71,7 +71,7 @@ figure_data <- question1_data %>%
                names_to = "x_variable", values_to = "x") %>%
   pivot_longer(c(butterfly_richness, butterfly_abundance),
                names_to = "y_variable", values_to = "y") %>%
-  mutate(x_variable = recode(x_variable, floral_richness = "Floral richness", floral_cover    = "Floral % cover"),
+  mutate(x_variable = recode(x_variable, floral_richness = "Floral richness", floral_cover    = "Average % floral cover"),
          y_variable = recode(y_variable, butterfly_richness  = "Butterfly richness", butterfly_abundance = "Butterfly abundance"))
 
 # One 2x2 grid per week
@@ -94,6 +94,27 @@ for (wk in sort(unique(figure_data$week))) {
   
   print(abundance_richness_plot)
 }
+
+# Figure with all weeks together (colour = week)
+combined_plot <- ggplot(figure_data, aes(x = x, y = y, colour = factor(week))) +
+  geom_point(alpha = 0.7, size = 2) +
+  facet_grid(y_variable ~ x_variable, scales = "free", switch = "both") +
+  scale_colour_viridis_d(name = "Week") +
+  labs(x = NULL, y = NULL) +
+  theme_bw() +
+  theme(
+    panel.grid.major  = element_blank(),
+    panel.grid.minor  = element_blank(),
+    strip.placement   = "outside",
+    strip.background  = element_blank(),
+    strip.text        = element_text(size = 11),
+    strip.text.y.left = element_text(angle = 90),
+    legend.position   = "right"
+  )
+
+print(combined_plot)
+
+
 
 #### MODEL DATA ####
 # Drops incomplete visits first, then scales, so every model uses the same rows and the SDs match those rows
