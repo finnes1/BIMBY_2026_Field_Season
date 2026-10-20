@@ -102,15 +102,13 @@ combined_plot <- ggplot(figure_data, aes(x = x, y = y, colour = factor(week))) +
   scale_colour_viridis_d(name = "Week") +
   labs(x = NULL, y = NULL) +
   theme_bw() +
-  theme(
-    panel.grid.major  = element_blank(),
-    panel.grid.minor  = element_blank(),
-    strip.placement   = "outside",
-    strip.background  = element_blank(),
-    strip.text        = element_text(size = 11),
-    strip.text.y.left = element_text(angle = 90),
-    legend.position   = "right"
-  )
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        strip.placement = "outside",
+        strip.background = element_blank(),
+        strip.text = element_text(size = 11),
+        strip.text.y.left = element_text(angle = 90),
+        legend.position = "right")
 
 print(combined_plot)
 
