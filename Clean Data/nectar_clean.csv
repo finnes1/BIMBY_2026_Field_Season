@@ -192,7 +192,7 @@
 7,20,5,"MGT","07_20_MGT_4","nectaring","Lycaenidae","Icaricia","icarioides","flower","white","Rosaceae","Spiraea","lucida","Native"
 7,20,5,"MGT","07_20_MGT_5","nectaring","Lycaenidae","Plebejus","anna","flower","white","Rosaceae","Spiraea","lucida","Native"
 7,20,5,"PBM","07_20_PBM_1","nectaring","Lycaenidae","Lycaena","heteronea","flower","white","Asteraceae","Tripleurospermum","inodorum","Non-native"
-7,20,5,"PBM","07_20_PBM_2","nectaring","Hesperiidae","Hesperia","colorado","flower","yellow","Asteraceae","Hieracium",NA,NA
+7,20,5,"PBM","07_20_PBM_2","nectaring","Hesperiidae","Hesperia","colorado","flower","yellow","Asteraceae","Hieracium","scouleri","Native"
 7,20,5,"PBM","07_20_PBM_3","nectaring","Lycaenidae","Tharsalea","mariposa","flower","white","Asteraceae","Tripleurospermum","inodorum","Non-native"
 7,20,5,"PBM","07_20_PBM_4","nectaring","Nymphalidae","Boloria","chariclea","flower","white","Asteraceae","Tripleurospermum","inodorum","Non-native"
 7,20,5,"PBM","07_20_PBM_5","nectaring","Lycaenidae","Tharsalea","mariposa","flower","white","Asteraceae","Tripleurospermum","inodorum","Non-native"
@@ -490,7 +490,7 @@
 8,27,7,"PSL","08_27_PSL_1","nectaring","Hesperiidae","Hesperia","juba","flower","yellow","Asteraceae","Grindelia","squarrosa","Native"
 8,27,7,"PSL","08_27_PSL_2","nectaring","Hesperiidae","Ochlodes","sylvanoides","flower","purple","Fabaceae","Medicago","sativa","Non-native"
 8,28,7,"MMF","08_28_MMF_1","nectaring","Nymphalidae","Argynnis","https://www.inaturalist.org/observations/396218690","flower","yellow","Asteraceae","Taraxacum",NA,NA
-8,28,7,"MMF","08_28_MMF_2","nectaring","Pieridae","Colias",NA,"flower","yellow","Asteraceae","Hieracium","scouleri",NA
+8,28,7,"MMF","08_28_MMF_2","nectaring","Pieridae","Colias",NA,"flower","yellow","Asteraceae","Hieracium","scouleri","Native"
 8,28,7,"MMF","08_28_MMF_3","nectaring","Lycaenidae","Tharsalea","helloides","flower","purple","Asteraceae","Symphyotrichum",NA,"Native"
 8,28,7,"FLT","08_28_FLT_1","nectaring","Hesperiidae","Hesperia","https://www.inaturalist.org/observations/396218697","flower","purple","Asteraceae","Cirsium","vulgare","Non-native"
 8,31,8,"BGP","NO PHOTO","nectaring","Nymphalidae","Vanessa","cardui","flower","yellow","Asteraceae","Tanacetum","vulgare","Non-native"
