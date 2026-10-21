@@ -9,6 +9,7 @@ library(MuMIn) # to use model.sel()
 library(DHARMa)
 library(broom.mixed)
 library(performance) # to check_collinearity() for VIFs
+library(ggrepel) # for plots to answer question 2
 
 
 #### READING IN DATA ####
@@ -251,7 +252,7 @@ plant_use <- nectar_clean %>%
   count(plant, name = "n_visits")
 
 # Combining and converting to proportions 
-plot_dat <- full_join(floral_availability, plant_use, by = "plant") %>%
+plot_data <- full_join(floral_availability, plant_use, by = "plant") %>%
   replace_na(list(total_cover = 0, n_visits = 0)) %>%
   mutate(avail_prop = total_cover/sum(total_cover),
          use_prop = n_visits/sum(n_visits),
@@ -261,12 +262,12 @@ plot_dat <- full_join(floral_availability, plant_use, by = "plant") %>%
          dev = abs(use_prop - avail_prop))
 
 # Checking for flowers that down line up between the datasets
-anti_join(use, avail, by = "plant") # used but never recorded in floral surveys
+anti_join(plant_use, avail, by = "plant") # used but never recorded in floral surveys
 sum(is.na(nectar_clean$flower_species)) # nectaring obs dropped for missing ID
 
-# 4. Plot ----
-ggplot(plot_dat, aes(x = avail_prop, y = use_prop)) +
-  geom_abline(slope = 1, intercept = 0, linetype = "dashed", colour = "grey40") +
+# PLotting combined data
+ggplot(plot_data, aes(x = avail_prop, y = use_prop)) +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed") +
   geom_point(aes(size = n_visits, colour = direction), alpha = 0.75) +
   geom_text_repel(data = slice_max(plot_dat, dev, n = 12),
                   aes(label = plant), fontface = "italic", size = 3,
@@ -274,12 +275,10 @@ ggplot(plot_dat, aes(x = avail_prop, y = use_prop)) +
   scale_x_continuous(labels = scales::percent) +
   scale_y_continuous(labels = scales::percent) +
   scale_size_continuous(name = "Nectaring\nobservations", range = c(1.5, 6)) +
-  scale_colour_manual(values = c("Used more than available" = "#D55E00",
-                                 "Used less than available" = "#0072B2"),
-                      name = NULL) +
   coord_equal() +
-  labs(x = "Availability (% of total floral cover)",
-       y = "Use (% of nectaring observations)") +
+  labs(x = "Availability (% of total mean floral cover)",
+       y = "Floral use (% of total nectaring observations)",
+       legend = NULL) +
   theme_classic()
 
 
