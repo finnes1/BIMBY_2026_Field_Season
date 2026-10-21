@@ -225,22 +225,87 @@ AIC(rich_set$cover, int_check$rich_cover_int)
 
 #### Which floral resources are disproportionately used by butterflies relative to their availability?####
 
+# FLOWER DATA - Using flower summary from question 1 
+
+# Mean % cover per species per transect (by averaging 5 quadrats - week)
+n_quad <- 5
+
+floral_availability_plant_week <- flowers_clean %>%
+  filter(!is.na(genus), !is.na(species)) %>%
+  mutate(plant = paste(genus, species)) %>%
+  group_by(week, transect, plant) %>%
+  summarise(mean_cover = sum(cover_pct, na.rm = TRUE) / n_quad,
+            .groups = "drop")                         
+
+# Combining between transects and weeks (for the same plant)
+floral_availability <- floral_availability_plant_week%>%
+  group_by(plant) %>%
+  summarise(total_cover = sum(mean_cover), 
+            .groups = "drop")
+
+# Number of nectaring observations per plant species 
+plant_use <- nectar_clean %>%
+  filter(activity == "nectaring", # There are ovipositing species in the dataset
+         !is.na(flower_genus), !is.na(flower_species)) %>%
+  mutate(plant = paste(flower_genus, flower_species)) %>%
+  count(plant, name = "n_visits")
+
+# Combining and converting to proportions 
+plot_dat <- full_join(floral_availability, plant_use, by = "plant") %>%
+  replace_na(list(total_cover = 0, n_visits = 0)) %>%
+  mutate(avail_prop = total_cover/sum(total_cover),
+         use_prop = n_visits/sum(n_visits),
+         direction = if_else(use_prop > avail_prop,
+                              "Used more than available",
+                              "Used less than available"),
+         dev = abs(use_prop - avail_prop))
+
+# Checking for flowers that down line up between the datasets
+anti_join(use, avail, by = "plant") # used but never recorded in floral surveys
+sum(is.na(nectar_clean$flower_species)) # nectaring obs dropped for missing ID
+
+# 4. Plot ----
+ggplot(plot_dat, aes(x = avail_prop, y = use_prop)) +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed", colour = "grey40") +
+  geom_point(aes(size = n_visits, colour = direction), alpha = 0.75) +
+  geom_text_repel(data = slice_max(plot_dat, dev, n = 12),
+                  aes(label = plant), fontface = "italic", size = 3,
+                  max.overlaps = Inf, min.segment.length = 0) +
+  scale_x_continuous(labels = scales::percent) +
+  scale_y_continuous(labels = scales::percent) +
+  scale_size_continuous(name = "Nectaring\nobservations", range = c(1.5, 6)) +
+  scale_colour_manual(values = c("Used more than available" = "#D55E00",
+                                 "Used less than available" = "#0072B2"),
+                      name = NULL) +
+  coord_equal() +
+  labs(x = "Availability (% of total floral cover)",
+       y = "Use (% of nectaring observations)") +
+  theme_classic()
 
 
-# FLOWER DATA #
-#Ensuring NAs are removed (can be removed once data is properly cleaned)
-flowers_clean <- flowers_clean %>%
-  filter(!is.na(transect), !is.na(month), !is.na(day)) %>%
-  mutate(date = make_date(year = 2026,
-                          month = as.integer(month),
-                          day = as.integer(day)),
-         plant_species = paste(genus, species))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Calculate mean floral cover for each plant species
 flower_availability <- flowers_clean %>%
   filter(!is.na(quadrat)) %>% # Removes quadrats that are NA values
   group_by(transect, date, quadrat, plant_species) %>%
-  summarise(cover = sum(`cover_%`, na.rm = TRUE),
+  summarise(cover = sum(cover_pct, na.rm = TRUE),
             .groups = "drop") %>%
   complete(transect, date, 
            quadrat = 1:5,  # specifically calculates for 5 quadrats, not more (NAs)
