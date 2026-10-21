@@ -49,7 +49,7 @@ month,day,week,transect,photo_id,activity,butterfly_family,butterfly_genus,butte
 6,11,2,ABR,06_11_ABR_3,nectaring,Lycaenidae,Tharsalea,helloides,flower,yellow,Rosaceae,Potentilla,argentea,Non-native
 6,11,2,ABR,06_11_ABR_4,nectaring,Lycaenidae,Icaricia,icarioides,flower,pink,Polemoniaceae,Collomia,linearis,Native
 6,11,2,ABR,06_11_ABR_5,nectaring,Nymphalidae,Oeneis,chryxus,flower,white,Asteraceae,Achillea,millefolium,Non-native
-6,11,2,ABR,06_11_ABR_6,nectaring,Nymphalidae,Erebia,epipsodea,flower,yellow,Asteraceae,Gaillardia,artistata,Native
+6,11,2,ABR,06_11_ABR_6,nectaring,Nymphalidae,Erebia,epipsodea,flower,yellow,Asteraceae,Gaillardia,aristata,Native
 6,11,2,PBM,06_11_PBM_1,nectaring,Pieridae,Anthocharis,julia,flower,pink,Polemoniaceae,Microsteris,gracilis,Native
 6,11,2,MGT,06_11_MGT_1,nectaring,Hesperiidae,Carterocephalus,skada,flower,blue,Polemoniaceae,Polemonium,pulcherrimum ,Native
 6,11,2,MGT,06_11_MGT_2,nectaring,Papilionidae,Papilio,rutulus,flower,blue,Polemoniaceae,Phlox,diffusa,Native
@@ -148,7 +148,7 @@ month,day,week,transect,photo_id,activity,butterfly_family,butterfly_genus,butte
 7,7,4,MMF,07_07_MMF_2,nectaring,Lycaenidae,Plebejus,idas,flower,pink,Fabaceae,Astragalus,miser,Native
 7,7,4,MMF,07_07_MMF_3,nectaring,Lycaenidae,Plebejus,https://www.inaturalist.org/observations/379295570,flower,pink,Fabaceae,Astragalus,miser,Native
 7,7,4,MMF,07_07_MMF_4,nectaring,Lycaenidae,Plebejus,https://www.inaturalist.org/observations/379295573,flower,pink,Fabaceae,Astragalus,miser,Native
-7,7,4,MMF,07_07_MMF_5,nectaring,Nymphalidae,Chloesyne,NA,flower,purple,Asteraceae,Erigeron,speciosa,Native
+7,7,4,MMF,07_07_MMF_5,nectaring,Nymphalidae,Chloesyne,NA,flower,purple,Asteraceae,Erigeron,speciosus,Native
 7,7,4,FLT,07_07_FLT_1,nectaring,Lycaenidae,Icaricia,icarioides,flower,white,Caprifoliaceae,Valeriana,sitchensis,Native
 7,8,4,KWL,NO PHOTO,nectaring,Pieridae,Pieris,rapae,flower,purple,Fabaceae,Medicago,sativa,Non-native
 7,8,4,KWL,07_08_KWL_1,nectaring,Pieridae,Colias,NA,flower,purple,Fabaceae,Medicago,sativa,Non-native
@@ -174,7 +174,7 @@ month,day,week,transect,photo_id,activity,butterfly_family,butterfly_genus,butte
 7,10,4,OHR,NO PHOTO,nectaring,Papilionidae,Papilio,multicaudata,flower,purple,Fabaceae,Medicago,sativa,Non-native
 7,10,4,OHR,NO PHOTO,nectaring,Papilionidae,Papilio,multicaudata,flower,purple,Asteraceae,Cirsium,undulatum,Native
 7,10,4,OHR,NO PHOTO,nectaring,Hesperiidae,Hesperia,colorado,flower,purple,Fabaceae,Medicago,sativa,Non-native
-7,10,4,PBM,NO PHOTO,nectaring,Lycaenidae,Tharsalea,NA,flower,white,Asteraceae,Non-native,inodorum,NOn-native
+7,10,4,PBM,NO PHOTO,nectaring,Lycaenidae,Tharsalea,NA,flower,white,Asteraceae,Tripleurospermum,inodorum,NOn-native
 7,10,4,PBM,NO PHOTO,nectaring,Nymphalidae,Euphydryas,anicia,flower,white,Asteraceae,Achillea,millefolium,Non-native
 7,12,4,BGP,NO PHOTO,nectaring,Pieridae,Pieris,rapae,flower,pink,Fabaceae,Lathyrus,latifolius,Non-native
 7,12,4,BGP,NO PHOTO,nectaring,Pieridae,Pieris,rapae,flower,pink,Brassicaceae,Cakile,maritima,Non-native
@@ -287,9 +287,9 @@ month,day,week,transect,photo_id,activity,butterfly_family,butterfly_genus,butte
 8,4,6,FLT,08_04_FLT_17,nectaring,Lycaenidae,Tharsalea,helloides,flower,white,Asteraceae,Anaphalis,margaritacea ,Native
 8,4,6,MMF,08_04_MMF_1,nectaring,Hesperiidae,Thymelicus,lineola,flower,white,Asteraceae,Achillea,millefolium,Non-native
 8,4,6,MMF,08_04_MMF_2,nectaring,Lycaenidae,Satyrium,sylvinus,flower,white,Asteraceae,Leucanthemum,vulgare,Non-native
-8,4,6,MMF,08_04_MMF_3,nectaring,Hesperiidae,Hesperia,colorado,flower,yellow,Asteraceae,Hieracium,https://www.inaturalist.org/observations/393053060,NA
-8,4,6,PSL,08_04_PSL_1,nectaring,Hesperiidae,Ochlodes,sylvanoides,flower,yellow,Asteraceae,Grindelia,squarossa,Native
-8,4,6,PSL,08_04_PSL_2,nectaring,Hesperiidae,Ochlodes,sylvanoides,flower,yellow,Asteraceae,Grindelia,squarossa,Native
+8,4,6,MMF,08_04_MMF_3,nectaring,Hesperiidae,Hesperia,colorado,flower,yellow,Asteraceae,Hieracium,scouleri,Native
+8,4,6,PSL,08_04_PSL_1,nectaring,Hesperiidae,Ochlodes,sylvanoides,flower,yellow,Asteraceae,Grindelia,squarrosa,Native
+8,4,6,PSL,08_04_PSL_2,nectaring,Hesperiidae,Ochlodes,sylvanoides,flower,yellow,Asteraceae,Grindelia,squarrosa,Native
 8,4,6,PSL,08_04_PSL_3,nectaring,Pieridae,Pieris,rapae,flower,purple,Fabaceae,Medicago,sativa,Non-native
 8,4,6,PSL,08_04_PSL_4,nectaring,Hesperiidae,Ochlodes,sylvanoides,flower,purple,Fabaceae,Medicago,sativa,Non-native
 8,4,6,PSL,NO PHOTO,nectaring,Pieridae,Colias,NA,flower,purple,Fabaceae,Medicago,sativa,Non-native
@@ -302,16 +302,16 @@ month,day,week,transect,photo_id,activity,butterfly_family,butterfly_genus,butte
 8,5,6,KMP,NO PHOTO,nectaring,Pieridae,Pieris,rapae,flower,blue,Boraginaceae,Anchusa,officinalis,Non-native
 8,5,6,KMP,NO PHOTO,nectaring,Pieridae,Pieris,rapae,flower,blue,Boraginaceae,Anchusa,officinalis,Non-native
 8,5,6,KMP,NO PHOTO,nectaring,Pieridae,Pieris,rapae,flower,blue,Boraginaceae,Anchusa,officinalis,Non-native
-8,5,6,KWL,08_05_KWL_1,nectaring,Hesperiidae,Pholisora,catullus,flower,yellow,Asteraceae,Grindelia,squarossa,Native
+8,5,6,KWL,08_05_KWL_1,nectaring,Hesperiidae,Pholisora,catullus,flower,yellow,Asteraceae,Grindelia,squarrosa,Native
 8,5,6,KWL,08_05_KWL_2,nectaring,Lycaenidae,Plebejus,NA,flower,white,Fabaceae,Melilotus,albus,Non-native
-8,5,6,KWL,08_05_KWL_3,nectaring,Hesperiidae,Hesperia,colorado,flower,yellow,Asteraceae,Grindelia,squarossa,Native
-8,5,6,KWL,08_05_KWL_4,nectaring,Hesperiidae,Hesperia,colorado,flower,yellow,Asteraceae,Grindelia,squarossa,Native
-8,5,6,KWL,08_05_KWL_5,nectaring,Hesperiidae,Hesperia,colorado,flower,yellow,Asteraceae,Grindelia,squarossa,Native
-8,5,6,KWL,08_05_KWL_6,nectaring,Hesperiidae,Hesperia,colorado,flower,yellow,Asteraceae,Grindelia,squarossa,Native
-8,5,6,KWL,08_05_KWL_7,nectaring,Hesperiidae,Pholisora,catullus,flower,yellow,Asteraceae,Grindelia,squarossa,Native
-8,5,6,KWL,08_05_KWL_8,nectaring,Lycaenidae,Plebejus,NA,flower,yellow,Asteraceae,Grindelia,squarossa,Native
-8,5,6,KWL,NO PHOTO,nectaring,Hesperiidae,Pholisora,catullus,flower,yellow,Asteraceae,Grindelia,squarossa,Native
-8,5,6,KWL,NO PHOTO,nectaring,Hesperiidae,Hesperia,colorado,flower,yellow,Asteraceae,Grindelia,squarossa,Native
+8,5,6,KWL,08_05_KWL_3,nectaring,Hesperiidae,Hesperia,colorado,flower,yellow,Asteraceae,Grindelia,squarrosa,Native
+8,5,6,KWL,08_05_KWL_4,nectaring,Hesperiidae,Hesperia,colorado,flower,yellow,Asteraceae,Grindelia,squarrosa,Native
+8,5,6,KWL,08_05_KWL_5,nectaring,Hesperiidae,Hesperia,colorado,flower,yellow,Asteraceae,Grindelia,squarrosa,Native
+8,5,6,KWL,08_05_KWL_6,nectaring,Hesperiidae,Hesperia,colorado,flower,yellow,Asteraceae,Grindelia,squarrosa,Native
+8,5,6,KWL,08_05_KWL_7,nectaring,Hesperiidae,Pholisora,catullus,flower,yellow,Asteraceae,Grindelia,squarrosa,Native
+8,5,6,KWL,08_05_KWL_8,nectaring,Lycaenidae,Plebejus,NA,flower,yellow,Asteraceae,Grindelia,squarrosa,Native
+8,5,6,KWL,NO PHOTO,nectaring,Hesperiidae,Pholisora,catullus,flower,yellow,Asteraceae,Grindelia,squarrosa,Native
+8,5,6,KWL,NO PHOTO,nectaring,Hesperiidae,Hesperia,colorado,flower,yellow,Asteraceae,Grindelia,squarrosa,Native
 8,6,6,JMS,NO PHOTO,nectaring,Pieridae,Pieris,rapae,flower,purple,Fabaceae,Medicago,sativa,Non-native
 8,6,6,JMS,NO PHOTO,nectaring,Pieridae,Pieris,rapae,flower,purple,Fabaceae,Medicago,sativa,Non-native
 8,6,6,PML,08_06_PML_1,nectaring,Hesperiidae,Hesperia,colorado,flower,purple,Fabaceae,Medicago,sativa,Non-native
@@ -371,7 +371,7 @@ month,day,week,transect,photo_id,activity,butterfly_family,butterfly_genus,butte
 8,17,7,CCM,08_17_CCM_1,nectaring,Hesperiidae,Ochlodes,sylvanoides,flower,purple,Fabaceae,Vicia,cracca,Non-native
 8,17,7,CCM,08_17_CCM_2,nectaring,Hesperiidae,Ochlodes,sylvanoides,flower,pink,Onagraceae,Chamaenerion,angustifolium,Native
 8,17,7,CCM,08_17_CCM_3,nectaring,Hesperiidae,Ochlodes,sylvanoides,flower,purple,Fabaceae,Vicia,cracca,Non-native
-8,17,7,CCM,08_17_CCM_4,nectaring,Hesperiidae,Ochlodes,sylvanoides,flower,yellow,Asteraceae,Sonchus,https://www.inaturalist.org/observations/392771035,Non-native
+8,17,7,CCM,08_17_CCM_4,nectaring,Hesperiidae,Ochlodes,sylvanoides,flower,yellow,Asteraceae,Sonchus,asper,Non-native
 8,17,7,CCM,08_17_CCM_5,nectaring,Hesperiidae,Ochlodes,sylvanoides,flower,yellow,Asteraceae,Sonchus,asper,Non-native
 8,17,7,CCM,08_17_CCM_6,nectaring,Hesperiidae,Ochlodes,sylvanoides,flower,purple,Asteraceae,Cirsium,vulgare,Non-native
 8,17,7,CCM,08_17_CCM_7,nectaring,Hesperiidae,Ochlodes,sylvanoides,flower,yellow,Asteraceae,Jacobaea,vulgaris,Non-native
@@ -415,8 +415,8 @@ month,day,week,transect,photo_id,activity,butterfly_family,butterfly_genus,butte
 8,25,7,PBM,08_25_PBM_13,nectaring,Nymphalidae,Argynnis,https://www.inaturalist.org/observations/394566339,flower,purple,Asteraceae,Arctium,minus,Non-native
 8,25,7,PBM,08_25_PBM_14,nectaring,Hesperiidae,Ochlodes,sylvanoides,flower,purple,Asteraceae,Arctium,minus,Non-native
 8,25,7,PBM,08_25_PBM_15,nectaring,Pieridae,Colias,NA,flower,purple,Asteraceae,Cirsium,arvense,Non-native
-8,25,7,OHR,NO PHOTO,nectaring,Pieridae,Colias,NA,flower,yellow,Asteraceae,Grindelia,squarossa,Native
-8,25,7,OHR,NO PHOTO,nectaring,Hesperiidae,Ochlodes,sylvanoides,flower,yellow,Asteraceae,Grindelia,squarossa,Native
+8,25,7,OHR,NO PHOTO,nectaring,Pieridae,Colias,NA,flower,yellow,Asteraceae,Grindelia,squarrosa,Native
+8,25,7,OHR,NO PHOTO,nectaring,Hesperiidae,Ochlodes,sylvanoides,flower,yellow,Asteraceae,Grindelia,squarrosa,Native
 8,25,7,OHR,NO PHOTO,nectaring,Pieridae,Colias,NA,flower,purple,Fabaceae,Medicago,sativa,Non-native
 8,25,7,OHR,08_25_OHR_1,nectaring,Hesperiidae,Ochlodes,sylvanoides,flower,yellow,Asteraceae,Heterotheca,hirsuta,Native
 8,25,7,ABR,NO PHOTO,nectaring,Hesperiidae,Ochlodes,sylvanoides,flower,white,Brassicaceae,Berteroa,incana,Non-native
@@ -466,32 +466,32 @@ month,day,week,transect,photo_id,activity,butterfly_family,butterfly_genus,butte
 8,26,7,PML,08_26_PML_3,nectaring,Hesperiidae,Ochlodes,sylvanoides,flower,purple,Fabaceae,Medicago,sativa,Non-native
 8,26,7,PML,08_26_PML_4,nectaring,Hesperiidae,Ochlodes,sylvanoides,flower,purple,Fabaceae,Medicago,sativa,Non-native
 8,26,7,PML,08_26_PML_5,nectaring,Hesperiidae,Ochlodes,sylvanoides,flower,white,Fabaceae,Medicago,sativa,Non-native
-8,26,7,KWL,08_26_KWL_1,nectaring,Hesperiidae,Hesperia,TBD,flower,yellow,Asteraceae,Grindelia,squarossa,Native
-8,26,7,KWL,08_26_KWL_2,nectaring,Hesperiidae,Hesperia,TBD,flower,yellow,Asteraceae,Grindelia,squarossa,Native
-8,26,7,KWL,08_26_KWL_3,nectaring,Hesperiidae,Hesperia,TBD,flower,yellow,Asteraceae,Grindelia,squarossa,Native
-8,26,7,KWL,08_26_KWL_4,nectaring,Hesperiidae,Hesperia,TBD,flower,yellow,Asteraceae,Grindelia,squarossa,Native
-8,26,7,KWL,08_26_KWL_5,nectaring,Hesperiidae,Hesperia,TBD,flower,yellow,Asteraceae,Grindelia,squarossa,Native
-8,26,7,KWL,08_26_KWL_6,nectaring,Hesperiidae,Hesperia,TBD,flower,yellow,Asteraceae,Grindelia,squarossa,Native
-8,26,7,KWL,08_26_KWL_7,nectaring,Hesperiidae,Hesperia,TBD,flower,yellow,Asteraceae,Grindelia,squarossa,Native
-8,26,7,KWL,08_26_KWL_8,nectaring,Hesperiidae,Ochlodes,sylvanoides,flower,yellow,Asteraceae,Grindelia,squarossa,Native
-8,26,7,KWL,08_26_KWL_9,nectaring,Hesperiidae,Hesperia,TBD,flower,yellow,Asteraceae,Grindelia,squarossa,Native
-8,26,7,KWL,08_26_KWL_10,nectaring,Hesperiidae,Hesperia,TBD,flower,yellow,Asteraceae,Grindelia,squarossa,Native
-8,26,7,KWL,08_26_KWL_11,nectaring,Pieridae,Colias,NA,flower,yellow,Asteraceae,Grindelia,squarossa,Native
-8,26,7,KWL,08_26_KWL_12,nectaring,Hesperiidae,Hesperia,TBD,flower,yellow,Asteraceae,Grindelia,squarossa,Native
-8,26,7,KWL,08_26_KWL_13,nectaring,Hesperiidae,Hesperia,TBD,flower,yellow,Asteraceae,Grindelia,squarossa,Native
-8,26,7,KWL,08_26_KWL_14,nectaring,Hesperiidae,Hesperia,TBD,flower,yellow,Asteraceae,Grindelia,squarossa,Native
-8,26,7,KWL,08_26_KWL_15,nectaring,Hesperiidae,Hesperia,TBD,flower,yellow,Asteraceae,Grindelia,squarossa,Native
-8,26,7,KWL,08_26_KWL_16,nectaring,Hesperiidae,Hesperia,TBD,flower,yellow,Asteraceae,Grindelia,squarossa,Native
-8,26,7,KWL,08_26_KWL_17,nectaring,Hesperiidae,Hesperia,TBD,flower,yellow,Asteraceae,Grindelia,squarossa,Native
-8,26,7,KWL,08_26_KWL_18,nectaring,Hesperiidae,Ochlodes,sylvanoides,flower,yellow,Asteraceae,Grindelia,squarossa,Native
-8,26,7,KWL,08_26_KWL_19,nectaring,Hesperiidae,Ochlodes,sylvanoides,flower,yellow,Asteraceae,Grindelia,squarossa,Native
-8,26,7,KWL,08_26_KWL_20,nectaring,Hesperiidae,Hesperia,TBD,flower,yellow,Asteraceae,Grindelia,squarossa,Native
-8,26,7,KWL,08_26_KWL_21,nectaring,Hesperiidae,Hesperia,TBD,flower,yellow,Asteraceae,Grindelia,squarossa,Native
-8,27,7,PSL,08_27_PSL_1,nectaring,Hesperiidae,Hesperia,juba,flower,yellow,Asteraceae,Grindelia,squarossa,Native
+8,26,7,KWL,08_26_KWL_1,nectaring,Hesperiidae,Hesperia,TBD,flower,yellow,Asteraceae,Grindelia,squarrosa,Native
+8,26,7,KWL,08_26_KWL_2,nectaring,Hesperiidae,Hesperia,TBD,flower,yellow,Asteraceae,Grindelia,squarrosa,Native
+8,26,7,KWL,08_26_KWL_3,nectaring,Hesperiidae,Hesperia,TBD,flower,yellow,Asteraceae,Grindelia,squarrosa,Native
+8,26,7,KWL,08_26_KWL_4,nectaring,Hesperiidae,Hesperia,TBD,flower,yellow,Asteraceae,Grindelia,squarrosa,Native
+8,26,7,KWL,08_26_KWL_5,nectaring,Hesperiidae,Hesperia,TBD,flower,yellow,Asteraceae,Grindelia,squarrosa,Native
+8,26,7,KWL,08_26_KWL_6,nectaring,Hesperiidae,Hesperia,TBD,flower,yellow,Asteraceae,Grindelia,squarrosa,Native
+8,26,7,KWL,08_26_KWL_7,nectaring,Hesperiidae,Hesperia,TBD,flower,yellow,Asteraceae,Grindelia,squarrosa,Native
+8,26,7,KWL,08_26_KWL_8,nectaring,Hesperiidae,Ochlodes,sylvanoides,flower,yellow,Asteraceae,Grindelia,squarrosa,Native
+8,26,7,KWL,08_26_KWL_9,nectaring,Hesperiidae,Hesperia,TBD,flower,yellow,Asteraceae,Grindelia,squarrosa,Native
+8,26,7,KWL,08_26_KWL_10,nectaring,Hesperiidae,Hesperia,TBD,flower,yellow,Asteraceae,Grindelia,squarrosa,Native
+8,26,7,KWL,08_26_KWL_11,nectaring,Pieridae,Colias,NA,flower,yellow,Asteraceae,Grindelia,squarrosa,Native
+8,26,7,KWL,08_26_KWL_12,nectaring,Hesperiidae,Hesperia,TBD,flower,yellow,Asteraceae,Grindelia,squarrosa,Native
+8,26,7,KWL,08_26_KWL_13,nectaring,Hesperiidae,Hesperia,TBD,flower,yellow,Asteraceae,Grindelia,squarrosa,Native
+8,26,7,KWL,08_26_KWL_14,nectaring,Hesperiidae,Hesperia,TBD,flower,yellow,Asteraceae,Grindelia,squarrosa,Native
+8,26,7,KWL,08_26_KWL_15,nectaring,Hesperiidae,Hesperia,TBD,flower,yellow,Asteraceae,Grindelia,squarrosa,Native
+8,26,7,KWL,08_26_KWL_16,nectaring,Hesperiidae,Hesperia,TBD,flower,yellow,Asteraceae,Grindelia,squarrosa,Native
+8,26,7,KWL,08_26_KWL_17,nectaring,Hesperiidae,Hesperia,TBD,flower,yellow,Asteraceae,Grindelia,squarrosa,Native
+8,26,7,KWL,08_26_KWL_18,nectaring,Hesperiidae,Ochlodes,sylvanoides,flower,yellow,Asteraceae,Grindelia,squarrosa,Native
+8,26,7,KWL,08_26_KWL_19,nectaring,Hesperiidae,Ochlodes,sylvanoides,flower,yellow,Asteraceae,Grindelia,squarrosa,Native
+8,26,7,KWL,08_26_KWL_20,nectaring,Hesperiidae,Hesperia,TBD,flower,yellow,Asteraceae,Grindelia,squarrosa,Native
+8,26,7,KWL,08_26_KWL_21,nectaring,Hesperiidae,Hesperia,TBD,flower,yellow,Asteraceae,Grindelia,squarrosa,Native
+8,27,7,PSL,08_27_PSL_1,nectaring,Hesperiidae,Hesperia,juba,flower,yellow,Asteraceae,Grindelia,squarrosa,Native
 8,27,7,PSL,08_27_PSL_2,nectaring,Hesperiidae,Ochlodes,sylvanoides,flower,purple,Fabaceae,Medicago,sativa,Non-native
 8,28,7,MMF,08_28_MMF_1,nectaring,Nymphalidae,Argynnis,https://www.inaturalist.org/observations/396218690,flower,yellow,Asteraceae,Taraxacum,NA,NA
-8,28,7,MMF,08_28_MMF_2,nectaring,Pieridae,Colias,NA,flower,yellow,Asteraceae,Hieracium,https://www.inaturalist.org/observations/397294695,NA
-8,28,7,MMF,08_28_MMF_3,nectaring,Lycaenidae,Tharsalea,helloides,flower,purple,Asteraceae,Symphyotrichum,https://www.inaturalist.org/observations/396239029,Native
+8,28,7,MMF,08_28_MMF_2,nectaring,Pieridae,Colias,NA,flower,yellow,Asteraceae,Hieracium,scouleri,NA
+8,28,7,MMF,08_28_MMF_3,nectaring,Lycaenidae,Tharsalea,helloides,flower,purple,Asteraceae,Symphyotrichum,NA,Native
 8,28,7,FLT,08_28_FLT_1,nectaring,Hesperiidae,Hesperia,https://www.inaturalist.org/observations/396218697,flower,purple,Asteraceae,Cirsium,vulgare,Non-native
 8,31,8,BGP,NO PHOTO,nectaring,Nymphalidae,Vanessa,cardui,flower,yellow,Asteraceae,Tanacetum,vulgare,Non-native
 8,31,8,CCM,NO PHOTO,nectaring,Hesperiidae,Ochlodes,sylvanoides,flower,yellow,Asteraceae,Jacobaea,vulgaris,Non-native
