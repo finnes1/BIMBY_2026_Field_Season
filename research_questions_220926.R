@@ -96,7 +96,7 @@ for (wk in sort(unique(figure_data$week))) {
 }
 
 # Figure with all weeks together (colour = week)
-combined_plot <- ggplot(figure_data, aes(x = x, y = y, colour = factor(week))) +
+all_weeks_plot <- ggplot(figure_data, aes(x = x, y = y, colour = factor(week))) +
   geom_point(alpha = 0.7, size = 2) +
   facet_grid(y_variable ~ x_variable, scales = "free", switch = "both") +
   scale_colour_viridis_d(name = "Week") +
@@ -110,8 +110,8 @@ combined_plot <- ggplot(figure_data, aes(x = x, y = y, colour = factor(week))) +
         strip.text.y.left = element_text(angle = 90),
         legend.position = "right")
 
-print(combined_plot)
 
+all_weeks_plot
 
 
 #### MODEL DATA ####
@@ -224,9 +224,11 @@ AIC(rich_set$cover, int_check$rich_cover_int)
 
 
 #### Which floral resources are disproportionately used by butterflies relative to their availability?####
-# FLOWER DATA #
 
-#Ensuring NAs are removed (can be removed once data is properyl cleaned)
+
+
+# FLOWER DATA #
+#Ensuring NAs are removed (can be removed once data is properly cleaned)
 flowers_clean <- flowers_clean %>%
   filter(!is.na(transect), !is.na(month), !is.na(day)) %>%
   mutate(date = make_date(year = 2026,
