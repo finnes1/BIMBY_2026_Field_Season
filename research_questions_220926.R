@@ -88,8 +88,8 @@ for (wk in sort(unique(figure_data$week))) {
     theme_bw() +
     theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank(),
-          strip.placement = "outside",          # labels sit outside the tick labels
-          strip.background = element_blank(),    # no grey boxes, so they look like axis titles
+          strip.placement = "outside", # labels sit outside the tick labels
+          strip.background = element_blank(),
           strip.text = element_text(size = 11),
           strip.text.y.left = element_text(angle = 90))
   
@@ -225,63 +225,93 @@ AIC(rich_set$cover, int_check$rich_cover_int)
 
 
 #### Which floral resources are disproportionately used by butterflies relative to their availability?####
+#### FIRST FIGURE OF FLORAL USE VS FLORAL AVAILABILITY ####
+# Recode Taraxacum for the legend
+n_quad = 5
 
-# FLOWER DATA - Using flower summary from question 1 
+flowers_clean <- flowers_clean %>%
+  mutate(species = if_else(genus %in% "Taraxacum" & is.na(species), "spp.", species))
 
-# Mean % cover per species per transect (by averaging 5 quadrats - week)
-n_quad <- 5
+nectar_clean <- nectar_clean %>%
+  mutate(flower_species = if_else(flower_genus %in% "Taraxacum" & is.na(flower_species),
+                                  "spp.", flower_species))
 
+# FLORAL DATA - making floral availability
 floral_availability_plant_week <- flowers_clean %>%
   filter(!is.na(genus), !is.na(species)) %>%
   mutate(plant = paste(genus, species)) %>%
   group_by(week, transect, plant) %>%
-  summarise(mean_cover = sum(cover_pct, na.rm = TRUE) / n_quad,
-            .groups = "drop")                         
+  summarise(mean_cover = sum(cover_pct, na.rm = TRUE) / n_quad, 
+            .groups = "drop")
 
-# Combining between transects and weeks (for the same plant)
-floral_availability <- floral_availability_plant_week%>%
+floral_availability <- floral_availability_plant_week %>%
   group_by(plant) %>%
   summarise(total_cover = sum(mean_cover), 
             .groups = "drop")
 
-# Number of nectaring observations per plant species 
+# NECTARING DATA - making nectaring use
 plant_use <- nectar_clean %>%
-  filter(activity == "nectaring", # There are ovipositing species in the dataset
+  filter(activity == "nectaring",
          !is.na(flower_genus), !is.na(flower_species)) %>%
   mutate(plant = paste(flower_genus, flower_species)) %>%
   count(plant, name = "n_visits")
 
-# Combining and converting to proportions 
+# Adding floral origin to the plot
+plant_origin <- flowers_clean %>%
+  filter(!is.na(genus), !is.na(species)) %>%
+  mutate(plant = paste(genus, species)) %>%
+  distinct(plant, origin)
+
+# Combine, then left join origin
 plot_data <- full_join(floral_availability, plant_use, by = "plant") %>%
   replace_na(list(total_cover = 0, n_visits = 0)) %>%
   mutate(avail_prop = total_cover/sum(total_cover),
          use_prop = n_visits/sum(n_visits),
-         direction = if_else(use_prop > avail_prop,
-                              "Used more than available",
-                              "Used less than available"),
-         dev = abs(use_prop - avail_prop))
+         dev = abs(use_prop - avail_prop)) %>%
+  left_join(plant_origin, by = "plant")
 
-# Checking for flowers that down line up between the datasets
-anti_join(plant_use, avail, by = "plant") # used but never recorded in floral surveys
-sum(is.na(nectar_clean$flower_species)) # nectaring obs dropped for missing ID
+# Checks (both should return 0 rows) CLEAN THIS AND DOUBLE CHECK IT LATER
+plant_origin %>% count(plant) %>% filter(n > 1)  # a plant with two origin labels
+filter(plot_data, is.na(origin))  # a plant with no origin
 
-# PLotting combined data
-ggplot(plot_data, aes(x = avail_prop, y = use_prop)) +
-  geom_abline(slope = 1, intercept = 0, linetype = "dashed") +
-  geom_point(aes(size = n_visits, colour = direction), alpha = 0.75) +
-  geom_text_repel(data = slice_max(plot_dat, dev, n = 12),
-                  aes(label = plant), fontface = "italic", size = 3,
-                  max.overlaps = Inf, min.segment.length = 0) +
-  scale_x_continuous(labels = scales::percent) +
-  scale_y_continuous(labels = scales::percent) +
-  scale_size_continuous(name = "Nectaring\nobservations", range = c(1.5, 6)) +
-  coord_equal() +
-  labs(x = "Availability (% of total mean floral cover)",
-       y = "Floral use (% of total nectaring observations)",
-       legend = NULL) +
-  theme_classic()
+# Combine
+plot_data <- full_join(floral_availability, plant_use, by = "plant") %>%
+  replace_na(list(total_cover = 0, n_visits = 0)) %>%
+  mutate(avail_prop = total_cover/sum(total_cover),
+         use_prop=n_visits/sum(n_visits),
+         dev = abs(use_prop - avail_prop)) %>%
+  left_join(origin_lookup, by = "plant")
 
+# Plot function allows for full view (lim = NULL) or zoomed in to see more
+plot_use_avail <- function(dat, lim = NULL, n_label = 12) {
+  
+  lab_dat <- dat
+  if (!is.null(lim)) lab_dat <- filter(dat, avail_prop <= lim, use_prop <= lim)
+  lab_dat <- lab_dat %>%
+    slice_max(dev, n = n_label) %>%
+    mutate(label = paste0("italic('", plant, "')")) # italics via plotmath
+  
+  ggplot(dat, aes(x = avail_prop, y = use_prop)) +
+    geom_abline(slope = 1, intercept = 0, linetype = "dashed") +
+    geom_point(aes(size = n_visits, colour = origin), alpha = 0.75) +
+    geom_text_repel(data = lab_dat, aes(label = label), parse = TRUE,
+                    size = 3, max.overlaps = Inf, min.segment.length = 0) +
+    scale_x_continuous(labels = scales::percent) +
+    scale_y_continuous(labels = scales::percent) +
+    scale_size_continuous(name = "Nectaring\nobservations", range = c(1.5, 6)) +
+    scale_colour_manual(values = c("Native" = "forestgreen", "Non-native" = "darkorange"),
+                        na.value = "grey60", name = "Origin") +
+    coord_equal(xlim = if (is.null(lim)) NULL else c(0, lim),
+                ylim = if (is.null(lim)) NULL else c(0, lim)) +
+    labs(x = "Availability (% of total mean floral cover along transects)",
+         y = "Floral use (% of total nectaring observations along transects)") +
+    theme_bw() +
+    theme(panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank())
+  }
 
+plot_use_avail(plot_data)              # full view
+plot_use_avail(plot_data, lim = 0.05)  # zoomed to 5% on both axes
 
 
 
@@ -402,6 +432,108 @@ ggplot(plant_summary, aes(x = mean_availability, y = mean_use, label = plant_spe
        y = "Mean proportional nectar use") +
   theme_bw()
 
+
+#### SECOND FIGURE HEAT MAP OF BUTTERFLY PLANT USE (not crazy about this one yet, it needs work) ####
+n_plants      <- 15   # plants shown (most visited)
+n_butterflies <- 15   # butterflies shown (most observed)
+
+heat_base <- nectar_clean %>%
+  filter(activity == "nectaring",
+         !is.na(flower_genus), !is.na(flower_species),
+         !is.na(butterfly_genus)) %>%
+  mutate(plant     = paste(flower_genus, flower_species),
+         butterfly = if_else(is.na(butterfly_species),
+                             paste(butterfly_genus, "sp."),
+                             paste(butterfly_genus, butterfly_species)))
+
+top_plants <- heat_base %>%
+  count(plant, sort = TRUE) %>% slice_head(n = n_plants) %>% pull(plant)
+
+top_butterflies <- heat_base %>%
+  count(butterfly, sort = TRUE) %>% slice_head(n = n_butterflies) %>% pull(butterfly)
+
+heat_data <- heat_base %>%
+  filter(plant %in% top_plants, butterfly %in% top_butterflies) %>%
+  count(butterfly, plant, name = "n_obs") %>%
+  complete(butterfly, plant, fill = list(n_obs = 0)) %>%
+  mutate(plant     = factor(plant, levels = top_plants),
+         butterfly = factor(butterfly, levels = rev(top_butterflies)))
+
+# Share of all nectaring observations shown in the heatmap
+sum(heat_data$n_obs) / nrow(heat_base)
+
+ggplot(heat_data, aes(x = plant, y = butterfly, fill = n_obs)) +
+  geom_tile(colour = "white") +
+  geom_text(data = filter(heat_data, n_obs > 0),
+            aes(label = n_obs, colour = n_obs > max(heat_data$n_obs) / 2),
+            size = 3) +
+  scale_fill_gradient(low = "grey95", high = "#0072B2",
+                      name = "Nectaring\nobservations") +
+  scale_colour_manual(values = c("FALSE" = "black", "TRUE" = "white"),
+                      guide = "none") +
+  coord_equal() +
+  labs(x = "Plant species", y = "Butterfly species") +
+  theme_classic() +
+  theme(axis.text = element_text(face = "italic"),
+        axis.text.x = element_text(angle = 45, hjust = 1),
+        axis.line = element_blank())
+
+
+
+#### THIRD PLOT LOOKS AT SEASONAL EFFECT OF NECTARING ####
+n_show <- 9   # number of plants (most visited overall)
+
+# Weekly availability: share of each week's total floral cover
+weekly_avail <- floral_availability_plant_week %>%
+  group_by(week, plant) %>%
+  summarise(cover = sum(mean_cover), .groups = "drop") %>%
+  group_by(week) %>%
+  mutate(avail_prop = cover / sum(cover)) %>%
+  ungroup()
+
+# Weekly use: share of each week's nectaring observations
+weekly_use <- nectar_clean %>%
+  filter(activity == "nectaring",
+         !is.na(flower_genus), !is.na(flower_species)) %>%
+  mutate(plant = paste(flower_genus, flower_species)) %>%
+  count(week, plant, name = "n_visits") %>%
+  group_by(week) %>%
+  mutate(use_prop = n_visits / sum(n_visits)) %>%
+  ungroup()
+
+top_plants_wk <- plant_use %>%
+  slice_max(n_visits, n = n_show) %>%
+  pull(plant)
+
+all_weeks <- sort(unique(c(weekly_avail$week, weekly_use$week)))
+
+weekly_long <- full_join(weekly_avail, weekly_use, by = c("week", "plant")) %>%
+  filter(plant %in% top_plants_wk) %>%
+  complete(week = all_weeks, plant,
+           fill = list(avail_prop = 0, use_prop = 0)) %>%
+  pivot_longer(c(avail_prop, use_prop),
+               names_to = "measure", values_to = "prop") %>%
+  mutate(measure = recode(measure,
+                          avail_prop = "Availability (% of floral cover)",
+                          use_prop   = "Use (% of nectaring observations)"),
+         plant = factor(plant, levels = top_plants_wk))
+
+# Check: nectaring observations per week (small weeks make use noisy)
+nectar_clean %>% filter(activity == "nectaring") %>% count(week)
+
+ggplot(weekly_long, aes(x = week, y = prop, colour = measure, linetype = measure)) +
+  geom_line(linewidth = 0.8) +
+  geom_point(size = 1.8) +
+  facet_wrap(~ plant, scales = "free_y") +
+  scale_x_continuous(breaks = all_weeks) +
+  scale_y_continuous(labels = scales::percent) +
+  scale_colour_manual(values = c("grey40", "#0072B2"), name = NULL) +
+  scale_linetype_manual(values = c("dashed", "solid"), name = NULL) +
+  labs(x = "Week", y = "Proportion of weekly total") +
+  theme_classic() +
+  theme(strip.text = element_text(face = "italic"),
+        strip.background = element_blank(),
+        legend.position = "right")
 
 #### Does butterfly use of native vs. non-native nectar plants change with seasonal variation in native floral availability?####
 
