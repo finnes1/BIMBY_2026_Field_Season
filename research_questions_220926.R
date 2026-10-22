@@ -434,49 +434,55 @@ ggplot(plant_summary, aes(x = mean_availability, y = mean_use, label = plant_spe
 
 
 #### SECOND FIGURE HEAT MAP OF BUTTERFLY PLANT USE (not crazy about this one yet, it needs work) ####
-n_plants      <- 15   # plants shown (most visited)
-n_butterflies <- 15   # butterflies shown (most observed)
+n_plants <- 15 # showing the 15 most visited plants
+n_butterflies <- 15 # ditto for butterflies
 
-heat_base <- nectar_clean %>%
+heatmap_base <- nectar_clean %>%
   filter(activity == "nectaring",
-         !is.na(flower_genus), !is.na(flower_species),
-         !is.na(butterfly_genus)) %>%
-  mutate(plant     = paste(flower_genus, flower_species),
+         !is.na(flower_genus), !is.na(flower_species), !is.na(butterfly_genus)) %>% # removes butterflies missing species (might not want to keep this in)
+  mutate(plant = paste(flower_genus, flower_species),
          butterfly = if_else(is.na(butterfly_species),
                              paste(butterfly_genus, "sp."),
                              paste(butterfly_genus, butterfly_species)))
 
-top_plants <- heat_base %>%
-  count(plant, sort = TRUE) %>% slice_head(n = n_plants) %>% pull(plant)
+top_flowers <- heatmap_base %>% 
+  count(plant, sort = TRUE) %>% 
+  slice_head(n = n_plants) %>% 
+  pull(plant)
 
 top_butterflies <- heat_base %>%
-  count(butterfly, sort = TRUE) %>% slice_head(n = n_butterflies) %>% pull(butterfly)
+  count(butterfly, sort = TRUE) %>% 
+  slice_head(n = n_butterflies) %>% 
+  pull(butterfly)
 
 heat_data <- heat_base %>%
   filter(plant %in% top_plants, butterfly %in% top_butterflies) %>%
   count(butterfly, plant, name = "n_obs") %>%
   complete(butterfly, plant, fill = list(n_obs = 0)) %>%
-  mutate(plant     = factor(plant, levels = top_plants),
+  mutate(plant = factor(plant, levels = top_plants),
          butterfly = factor(butterfly, levels = rev(top_butterflies)))
 
 # Share of all nectaring observations shown in the heatmap
-sum(heat_data$n_obs) / nrow(heat_base)
+sum(heat_data$n_obs)/nrow(heat_base)
 
 ggplot(heat_data, aes(x = plant, y = butterfly, fill = n_obs)) +
   geom_tile(colour = "white") +
   geom_text(data = filter(heat_data, n_obs > 0),
-            aes(label = n_obs, colour = n_obs > max(heat_data$n_obs) / 2),
+            aes(label = n_obs, colour = n_obs > max(heat_data$n_obs)/2),
             size = 3) +
-  scale_fill_gradient(low = "grey95", high = "#0072B2",
+  scale_fill_gradient(low = "grey95", high = "forestgreen",
                       name = "Nectaring\nobservations") +
   scale_colour_manual(values = c("FALSE" = "black", "TRUE" = "white"),
                       guide = "none") +
   coord_equal() +
-  labs(x = "Plant species", y = "Butterfly species") +
-  theme_classic() +
+  labs(x = "Plant species", 
+       y = "Butterfly species") +
+  theme_bw() +
   theme(axis.text = element_text(face = "italic"),
         axis.text.x = element_text(angle = 45, hjust = 1),
-        axis.line = element_blank())
+        axis.line = element_blank(),
+        panel.grid.major = element_blank(), # these are not working and I don't know why, but it is annoying
+        panel.grid.minor = element_blank()) 
 
 
 
