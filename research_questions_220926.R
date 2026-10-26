@@ -485,9 +485,8 @@ ggplot(heat_data, aes(x = plant, y = butterfly, fill = n_obs)) +
         panel.grid.minor = element_blank()) 
 
 
-
 #### THIRD PLOT LOOKS AT SEASONAL EFFECT OF NECTARING ####
-n_show <- 9   # number of plants (most visited overall)
+n_plots <- 12 # most visited plant species
 
 # Weekly availability: share of each week's total floral cover
 weekly_avail <- floral_availability_plant_week %>%
@@ -499,12 +498,11 @@ weekly_avail <- floral_availability_plant_week %>%
 
 # Weekly use: share of each week's nectaring observations
 weekly_use <- nectar_clean %>%
-  filter(activity == "nectaring",
-         !is.na(flower_genus), !is.na(flower_species)) %>%
+  filter(activity == "nectaring", !is.na(flower_genus), !is.na(flower_species)) %>%
   mutate(plant = paste(flower_genus, flower_species)) %>%
   count(week, plant, name = "n_visits") %>%
   group_by(week) %>%
-  mutate(use_prop = n_visits / sum(n_visits)) %>%
+  mutate(use_prop = n_visits/sum(n_visits)) %>%
   ungroup()
 
 top_plants_wk <- plant_use %>%
@@ -515,31 +513,34 @@ all_weeks <- sort(unique(c(weekly_avail$week, weekly_use$week)))
 
 weekly_long <- full_join(weekly_avail, weekly_use, by = c("week", "plant")) %>%
   filter(plant %in% top_plants_wk) %>%
-  complete(week = all_weeks, plant,
-           fill = list(avail_prop = 0, use_prop = 0)) %>%
-  pivot_longer(c(avail_prop, use_prop),
-               names_to = "measure", values_to = "prop") %>%
+  complete(week = all_weeks, plant, fill = list(avail_prop = 0, use_prop = 0)) %>%
+  pivot_longer(c(avail_prop, use_prop), names_to = "measure", values_to = "prop") %>%
   mutate(measure = recode(measure,
                           avail_prop = "Availability (% of floral cover)",
                           use_prop   = "Use (% of nectaring observations)"),
          plant = factor(plant, levels = top_plants_wk))
 
-# Check: nectaring observations per week (small weeks make use noisy)
-nectar_clean %>% filter(activity == "nectaring") %>% count(week)
+# Number of nectaring observations per week 
+nectar_clean %>% 
+  filter(activity == "nectaring") %>%
+  count(week) # heavy skew towards weeks 6 and 7
 
 ggplot(weekly_long, aes(x = week, y = prop, colour = measure, linetype = measure)) +
-  geom_line(linewidth = 0.8) +
-  geom_point(size = 1.8) +
-  facet_wrap(~ plant, scales = "free_y") +
+  geom_line() +
+  geom_point() +
+  facet_wrap(~ plant) +
   scale_x_continuous(breaks = all_weeks) +
   scale_y_continuous(labels = scales::percent) +
-  scale_colour_manual(values = c("grey40", "#0072B2"), name = NULL) +
+  scale_colour_manual(values = c("grey40", "forestgreen"), name = NULL) +
   scale_linetype_manual(values = c("dashed", "solid"), name = NULL) +
-  labs(x = "Week", y = "Proportion of weekly total") +
-  theme_classic() +
+  labs(x = "Week", 
+       y = "Proportion of weekly total") +
+  theme_bw() +
   theme(strip.text = element_text(face = "italic"),
         strip.background = element_blank(),
-        legend.position = "right")
+        legend.position = "right",
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank())
 
 #### Does butterfly use of native vs. non-native nectar plants change with seasonal variation in native floral availability?####
 
