@@ -226,7 +226,7 @@ AIC(rich_set$cover, int_check$rich_cover_int)
 
 #### Which floral resources are disproportionately used by butterflies relative to their availability?####
 #### FIRST FIGURE OF FLORAL USE VS FLORAL AVAILABILITY ####
-# Recode Taraxacum for the legend
+# Number of quadrats for floral aviailbility average
 n_quad = 5
 
 flowers_clean <- flowers_clean %>%
@@ -302,8 +302,9 @@ plot_use_avail <- function(dat, lim = NULL, n_label = 12) {
     scale_x_continuous(labels = scales::percent) +
     scale_y_continuous(labels = scales::percent) +
     scale_size_continuous(name = "Nectaring\nobservations", range = c(1.5, 6)) +
-    scale_colour_manual(values = c("Native" = "forestgreen", "Non-native" = "darkorange"),
-                        na.value = "grey60", name = "Origin") +
+    scale_colour_manual(values = c("Native" = "forestgreen", 
+                                   "Non-native" = "darkorange"),
+                                    na.value = "grey60", name = "Origin") +
     coord_equal(xlim = if (is.null(lim)) NULL else c(0, lim),
                 ylim = if (is.null(lim)) NULL else c(0, lim)) +
     labs(x = "Availability (% of total mean floral cover along transects)",
@@ -317,60 +318,8 @@ plot_use_avail(plot_data) # full view
 plot_use_avail(plot_data, lim = 0.05) # zoomed to 5% on both axes
 
 
-#### SECOND FIGURE HEAT MAP OF BUTTERFLY PLANT USE (not crazy about this one yet, it needs work) ####
-n_plants <- 15 # showing the 15 most visited plants
-n_butterflies <- 15 # ditto for butterflies
 
-heatmap_base <- nectar_clean %>%
-  filter(activity == "nectaring",
-         !is.na(flower_genus), !is.na(flower_species), 
-         !is.na(butterfly_genus)) %>% # removes butterflies missing species (might not want to keep this in)
-  mutate(plant = paste(flower_genus, flower_species),
-         butterfly = if_else(is.na(butterfly_species),
-                             paste(butterfly_genus, "sp."),
-                             paste(butterfly_genus, butterfly_species)))
-
-top_flowers <- heatmap_base %>% 
-  count(plant, sort = TRUE) %>% 
-  slice_head(n = n_plants) %>% 
-  pull(plant)
-
-top_butterflies <- heat_base %>%
-  count(butterfly, sort = TRUE) %>% 
-  slice_head(n = n_butterflies) %>% 
-  pull(butterfly)
-
-heat_data <- heat_base %>%
-  filter(plant %in% top_plants, butterfly %in% top_butterflies) %>%
-  count(butterfly, plant, name = "n_obs") %>%
-  complete(butterfly, plant, fill = list(n_obs = 0)) %>%
-  mutate(plant = factor(plant, levels = top_plants),
-         butterfly = factor(butterfly, levels = rev(top_butterflies)))
-
-# Share of all nectaring observations shown in the heatmap
-sum(heat_data$n_obs)/nrow(heat_base)
-
-ggplot(heat_data, aes(x = plant, y = butterfly, fill = n_obs)) +
-  geom_tile(colour = "white") +
-  geom_text(data = filter(heat_data, n_obs > 0),
-            aes(label = n_obs, colour = n_obs > max(heat_data$n_obs)/2),
-            size = 3) +
-  scale_fill_gradient(low = "grey95", high = "forestgreen",
-                      name = "Nectaring\nobservations") +
-  scale_colour_manual(values = c("FALSE" = "black", "TRUE" = "white"),
-                      guide = "none") +
-  coord_equal() +
-  labs(x = "Plant species", 
-       y = "Butterfly species") +
-  theme_bw() +
-  theme(axis.text = element_text(face = "italic"),
-        axis.text.x = element_text(angle = 45, hjust = 1),
-        axis.line = element_blank(),
-        panel.grid.major = element_blank(), # these are not working and I don't know why, but it is annoying
-        panel.grid.minor = element_blank()) 
-
-
-#### Flowers that contribute most to mean % floral availability as a function of % of nectaring observations fro butterflies ####
+#### Flowers that contribute most to mean % floral availability as a function of % of nectaring observations for butterflies ####
 n_plots <- 12  # fits as 3 rows of 4
 
 # Making weekly availability of floral cover
@@ -428,6 +377,66 @@ ggplot(weekly_long, aes(x = week, colour = origin)) +
         legend.position = "right",
         panel.grid.major = element_blank(),
         panel.grid.minor = element_blank())
+
+
+#### Bar plot of availability vs use as a function of plant origin (weekly) ####r
+plant_origin_all <- flowers_clean %>%
+  mutate(plant = ifelse(is.na(species) & genus == "Taraxacum",
+                        "Taraxacum spp.",
+                        paste(genus, species))) %>%
+  distinct(plant, origin)
+
+# Availability of weekly floral cover along transects by origin 
+avail_origin <- floral_availability_plant_week %>%
+  left_join(plant_origin_all, by = "plant") %>%
+  filter(!is.na(origin)) %>%
+  group_by(week, origin) %>%
+  summarise(value = sum(mean_cover), .groups = "drop") %>%
+  group_by(week) %>%
+  mutate(prop = value / sum(value),
+         measure = "Availability (% of floral cover)") %>%
+  ungroup()
+
+# Use of weekly nectaring observations by origin
+use_origin <- nectar_clean %>%
+  filter(activity == "nectaring", !is.na(flower_origin)) %>%
+  count(week, origin = flower_origin, name = "value") %>%
+  group_by(week) %>%
+  mutate(prop = value / sum(value),
+         measure = "Use (% of nectaring observations)") %>%
+  ungroup()
+
+# Weekly sample sizes for labelling the use panel
+n_obs_week <- nectar_clean %>%
+  filter(activity == "nectaring", !is.na(flower_origin)) %>%
+  count(week, name = "n") %>%
+  mutate(measure = "Use (% of nectaring observations)")
+
+origin_week <- bind_rows(avail_origin, use_origin) %>%
+  mutate(measure = factor(measure, levels = c("Availability (% of floral cover)",
+                                              "Use (% of nectaring observations)")))
+
+# Check that origin names match the colour values below
+unique(origin_week$origin)
+
+ggplot(origin_week, aes(x = week, y = prop, fill = origin)) +
+  geom_col(width = 0.8, colour = "white") +
+  geom_text(data = n_obs_week, aes(x = week, y = 1.04, label = paste0("n=", n)),
+            inherit.aes = FALSE, size = 3) +
+  facet_wrap(~ measure, ncol = 1) +
+  scale_x_continuous(breaks = all_weeks) +
+  scale_y_continuous(labels = scales::percent, breaks = seq(0, 1, 0.25),
+                     expand = expansion(mult = c(0, 0.08))) +
+  scale_fill_manual(values = c("Native" = "forestgreen",
+                               "Non-native" = "darkorange"),
+                    name = "Plant origin") +
+  labs(x = "Week", y = "Proportion of weekly total") +
+  theme_bw() +
+  theme(strip.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank())
+
+
 
 #### Does butterfly use of native vs. non-native nectar plants change with seasonal variation in native floral availability?####
 
