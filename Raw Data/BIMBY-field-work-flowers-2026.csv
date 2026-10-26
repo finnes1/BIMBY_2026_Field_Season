@@ -11,7 +11,7 @@ month,day,week,observer,transect,quadrat,location_m,side,num_units,floral_unit,u
 5,24,1,Phoebe,RBG,3,237,L,18,head,medium,2,white,Fabaceae,Trifolium,repens,NA,Non-native,Y,,,Trifolium repens NA
 5,24,1,Phoebe,RBG,4,378,R,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,0,,NA NA NA
 5,24,1,Phoebe,RBG,5,460,R,2,flr,medium,1,yellow,Ranunculaceae,Ranunculus,repens,NA,Non-native,Y,,,Ranunculus repens NA
-5,24,1,Phoebe,RBG,5,460,R,1,flr,small,1,purple,Fabaceae,Vicia,sativa,NA,Non-native,,,,Vicia sativa NA
+5,24,1,Phoebe,RBG,5,460,R,1,flr,small,1,purple,Fabaceae,Vicia,sativa,NA,Non-native,Y,,,Vicia sativa NA
 5,24,1,Phoebe,BHT,1,40,L,6,infl,small,1,yellow,Apiaceae,Sanicula,crassicaulis,NA,Native,,,,Sanicula crassicaulis NA
 5,24,1,Phoebe,BHT,2,184,R,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,0,,NA NA NA
 5,24,1,Phoebe,BHT,3,268,R,3,infl,medium,1,yellow,Apiaceae,Lomatium,utriculatum,NA,Native,,,,Lomatium utriculatum NA
@@ -42,8 +42,8 @@ month,day,week,observer,transect,quadrat,location_m,side,num_units,floral_unit,u
 5,27,1,Phoebe,ABR,5,481,R,1,infl,large,1,purple,Fabaceae,Lupinus,sericeus,NA,Native,,,,Lupinus sericeus NA
 5,27,1,Phoebe,ABR,5,481,R,3,infl,small,1,yellow,Fabaceae,Medicago,lupulina,NA,Non-native,,,,Medicago lupulina NA
 5,27,1,Phoebe,OHRb,1,3,L,15,flr,small,1,yellow,Rosaceae,Potentilla,argentea,NA,Non-native,,,,Potentilla argentea NA
-5,27,1,Phoebe,OHRb,2,200,L,7,flr,medium,1,purple,Fabaceae,Vicia,americana,NA,Native,,,,Vicia americana NA
-5,27,1,Phoebe,OHRb,3,244,L,4,flr,medium,1,purple,Fabaceae,Vicia,americana,NA,Native,,,,Vicia americana NA
+5,27,1,Phoebe,OHRb,2,200,L,7,flr,medium,1,purple,Fabaceae,Vicia,americana,NA,Native,Y,,,Vicia americana NA
+5,27,1,Phoebe,OHRb,3,244,L,4,flr,medium,1,purple,Fabaceae,Vicia,americana,NA,Native,Y,,,Vicia americana NA
 5,27,1,Phoebe,OHRb,3,244,L,4,flr,medium,1,white,Rosaceae,Drymocallis,convallaria,NA,Native,,,,Drymocallis convallaria NA
 5,27,1,Phoebe,OHRb,3,244,L,2,infl,medium,1,red,Orobanchaceae,Castilleja,hispida,NA,Native,,,,Castilleja hispida NA
 5,27,1,Phoebe,OHRb,4,303,L,71,stm,medium,2,purple,Fabaceae,Astragalus,miser,NA,Native,,,,Astragalus miser NA
@@ -51,7 +51,7 @@ month,day,week,observer,transect,quadrat,location_m,side,num_units,floral_unit,u
 5,28,1,Phoebe,KSP,1,6,R,2,infl,medium,1,yellow,Brassicaceae,Sisymbrium,loeselii,NA,Non-native,,,,Sisymbrium loeselii NA
 5,28,1,Phoebe,KSP,2,138,L,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,0,,NA NA NA
 5,28,1,Phoebe,KSP,3,287,L,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,0,,NA NA NA
-5,28,1,Phoebe,KSP,4,341,L,2,infl,medium,1,purple,Fabaceae,Vicia,villosa,NA,Non-native,,,,Vicia villosa NA
+5,28,1,Phoebe,KSP,4,341,L,2,infl,medium,1,purple,Fabaceae,Vicia,villosa,NA,Non-native,Y,,,Vicia villosa NA
 5,28,1,Phoebe,KSP,5,406,R,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,0,,NA NA NA
 5,28,1,Phoebe,OKF,1,65,L,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,0,,NA NA NA
 5,28,1,Phoebe,OKF,2,198,L,16,infl,medium,1,yellow,Brassicaceae,Sisymbrium,loeselii,NA,Non-native,,,,Sisymbrium loeselii NA
@@ -77,14 +77,14 @@ month,day,week,observer,transect,quadrat,location_m,side,num_units,floral_unit,u
 5,29,1,Phoebe,RRP,2,173,L,2,flr,small,1,pink,Apocynaceae ,Apocynum,androsaemifolium,NA,Native,,,,Apocynum androsaemifolium NA
 5,29,1,Phoebe,RRP,3,266,R,2,head,medium,1,yellow,Asteraceae,Crepis,atribarba,NA,Native,,,,Crepis atribarba NA
 5,29,1,Phoebe,RRP,4,382,L,21,infl,medium,1,purple,Fabaceae,Astragalus,miser,NA,Native,,,,Astragalus miser NA
-5,29,1,Phoebe,RRP,4,382,L,1,infl,medium,1,yellow,Melanthiaceae,Toxicoscordion,venenosum,NA,Native,,,,Toxicoscordion venenosum NA
+5,29,1,Phoebe,RRP,4,382,L,1,infl,medium,1,yellow,Melanthiaceae,Toxicoscordion,venenosum,NA,Native,Y,,,Toxicoscordion venenosum NA
 5,29,1,Phoebe,RRP,5,406,L,24,stm,large,10,white,Asteraceae,Achillea,millefolium,NA,Non-native,Y,,Achillea,Achillea millefolium NA
 5,29,1,Phoebe,KMP,1,91,R,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,0,,NA NA NA
 5,29,1,Phoebe,KMP,2,134,R,61,infl,small,1,yellow,Fabaceae,Medicago,lupulina,NA,Non-native,,,,Medicago lupulina NA
 5,29,1,Phoebe,KMP,3,229,R,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,0,,NA NA NA
 5,29,1,Phoebe,KMP,4,335,R,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,0,,NA NA NA
 5,29,1,Phoebe,KMP,5,464,L,6,infl,small,1,purple,Fabaceae,Trifolium,pratense,NA,Non-native,Y,,,Trifolium pratense NA
-5,29,1,Phoebe,UBC,1,36,R,6,infl,medium,1,purple,Fabaceae,Vicia,villosa,NA,Non-native,,,,Vicia villosa NA
+5,29,1,Phoebe,UBC,1,36,R,6,infl,medium,1,purple,Fabaceae,Vicia,villosa,NA,Non-native,Y,,,Vicia villosa NA
 5,29,1,Phoebe,UBC,2,111,L,65,infl,medium,1,pink,Apocynaceae ,Apocynum,androsaemifolium,NA,Native,,,,Apocynum androsaemifolium NA
 5,29,1,Phoebe,UBC,2,111,L,2,stm,large,1,white,Asteraceae,Achillea,millefolium,NA,Non-native,Y,,,Achillea millefolium NA
 5,29,1,Phoebe,UBC,3,285,R,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,0,,NA NA NA
@@ -123,7 +123,7 @@ month,day,week,observer,transect,quadrat,location_m,side,num_units,floral_unit,u
 5,31,1,Shayden,BGP,4,386,R,8,stm,medium,1,yellow,Hypericaceae,Hypericum,perforatum,NA,Non-native,,,,Hypericum perforatum NA
 5,31,1,Shayden,BGP,5,404,L,42,infl,small,3,purple,Fabaceae,Trifolium,pratense,NA,Non-native,Y,,,Trifolium pratense NA
 6,7,2,Phoebe,FLT,1,50,L,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,0,,NA NA NA
-6,7,2,Phoebe,FLT,2,199,R,10,flr,medium,1,yellow,Violaceae,Viola,glabella,NA,Native,,,,Viola glabella NA
+6,7,2,Phoebe,FLT,2,199,R,10,flr,medium,1,yellow,Violaceae,Viola,glabella,NA,Native,Y,,,Viola glabella NA
 6,7,2,Phoebe,FLT,3,297,L,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,0,,NA NA NA
 6,7,2,Phoebe,FLT,4,303,R,4,stm,medium,1,white,Caprifoliaceae ,Valeriana,sitchensis,NA,Native,,,,Valeriana sitchensis NA
 6,7,2,Phoebe,FLT,5,473,L,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,0,,NA NA NA
@@ -152,7 +152,7 @@ month,day,week,observer,transect,quadrat,location_m,side,num_units,floral_unit,u
 6,8,2,Phoebe,RTT,4,371,L,1,infl,medium,1,yellow,Brassicaceae,Sisymbrium,loeselii,NA,Non-native,,,,Sisymbrium loeselii NA
 6,8,2,Phoebe,RTT,5,436,L,178,infl,medium,3,white,Brassicaceae,Berteroa,incana,NA,Non-native,,,,Berteroa incana NA
 6,8,2,Phoebe,RTT,5,436,L,51,infl,medium,1,purple,Fabaceae,Medicago,sativa,NA,Non-native,,,,Medicago sativa NA
-6,8,2,Phoebe,JMS,1,38,R,32,infl,small,1,purple,Verbenaceae ,Verbena,bracteata,NA,Native,,,,Verbena bracteata NA
+6,8,2,Phoebe,JMS,1,38,R,32,infl,small,1,purple,Verbenaceae ,Verbena,bracteata,NA,Native,Y,,,Verbena bracteata NA
 6,8,2,Phoebe,JMS,1,38,R,28,infl,medium,2,yellow,Brassicaceae,Sisymbrium,loeselii,NA,Non-native,,,,Sisymbrium loeselii NA
 6,8,2,Phoebe,JMS,1,38,R,9,flr,small,1,yellow,Brassicaceae,Sisymbrium,altissimum,NA,Non-native,,,,Sisymbrium altissimum NA
 6,8,2,Phoebe,JMS,2,103,L,21,infl,medium,1,medium,Brassicaceae,Sisymbrium,loeselii,NA,Non-native,,,,Sisymbrium loeselii NA
@@ -189,7 +189,7 @@ month,day,week,observer,transect,quadrat,location_m,side,num_units,floral_unit,u
 6,9,2,Phoebe,KMP,4,384,L,2,infl,small,1,yellow,Fabaceae,Medicago,lupulina,NA,Non-native,,,,Medicago lupulina NA
 6,9,2,Phoebe,KMP,5,413,R,13,infl,medium,1,white,Brassicaceae,Berteroa,incana,NA,Non-native,,,,Berteroa incana NA
 6,9,2,Phoebe,KMP,5,413,R,4,infl,small,1,yellow,Brassicaceae,Sisymbrium,altissimum,NA,Non-native,,,,Sisymbrium altissimum NA
-6,9,2,Phoebe,KMP,5,413,R,17,stm,medium,2,purple,Boraginaceae,Anchusa,officinalis,NA,Non-native,,,,Anchusa officinalis NA
+6,9,2,Phoebe,KMP,5,413,R,17,stm,medium,2,purple,Boraginaceae,Anchusa,officinalis,NA,Non-native,Y,,,Anchusa officinalis NA
 6,9,2,Phoebe,OKF,1,70,R,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,0,,NA NA NA
 6,9,2,Phoebe,OKF,2,136,L,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,0,,NA NA NA
 6,9,2,Phoebe,OKF,3,263,R,8,flr,small,1,yellow,Rosaceae,Potentilla,recta,NA,Non-native,,,,Potentilla recta NA
@@ -207,7 +207,7 @@ month,day,week,observer,transect,quadrat,location_m,side,num_units,floral_unit,u
 6,10,2,Phoebe,MMF,3,209,L,5,infl,medium,1,white,Asteraceae,Antennaria,rosea,NA,Native,,,,Antennaria rosea NA
 6,10,2,Phoebe,MMF,4,325,L,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,0,,NA NA NA
 6,10,2,Phoebe,MMF,5,474,R,10,flr,small,1,white,Caryophyllaceae,Stellaria,longipes,NA,Native,,,,Stellaria longipes NA
-6,10,2,Phoebe,MMF,5,474,R,1,infl,small,1,purple,Fabaceae,Vicia,americana,NA,Native,,,,Vicia americana NA
+6,10,2,Phoebe,MMF,5,474,R,1,infl,small,1,purple,Fabaceae,Vicia,americana,NA,Native,Y,,,Vicia americana NA
 6,10,2,Phoebe,PSL,1,8,R,3,infl,small,1,purple,Fabaceae,Medicago,sativa,NA,Non-native,,,,Medicago sativa NA
 6,10,2,Phoebe,PSL,2,200,R,81,infl,medium,1,purple,Fabaceae,Medicago,sativa,NA,Non-native,,,,Medicago sativa NA
 6,10,2,Phoebe,PSL,3,279,R,42,infl,medium,1,purple,Fabaceae,Medicago,sativa,NA,Non-native,,,,Medicago sativa NA
@@ -244,7 +244,7 @@ month,day,week,observer,transect,quadrat,location_m,side,num_units,floral_unit,u
 6,11,2,Phoebe,MGT,3,201,R,29,flr,medium,1,purple,Polemoniaceae ,Phlox,diffusa,NA,Native,,,,Phlox diffusa NA
 6,11,2,Phoebe,MGT,4,316,R,3,inflr,medium,1,purple,Fabaceae,Lupinus,arcticus,NA,Native,,,,Lupinus arcticus NA
 6,11,2,Phoebe,MGT,4,316,R,4,flr,small,1,white,Caryophyllaceae,Moehringia,macrophylla,NA,Native,,,,Moehringia macrophylla NA
-6,11,2,Phoebe,MGT,5,401,R,1,flr,medium,1,purple,Violaceae,Viola,adunca,NA,Native,,,,Viola adunca NA
+6,11,2,Phoebe,MGT,5,401,R,1,flr,medium,1,purple,Violaceae,Viola,adunca,NA,Native,Y,,,Viola adunca NA
 6,11,2,Phoebe,OHR,1,7,L,37,infl,medium,1,purple,Fabaceae,Medicago,sativa,NA,Non-native,,,,Medicago sativa NA
 6,11,2,Phoebe,OHR,1,7,L,1,flr,large,1,yellow,Asteraceae,Tragopogon,dubius,NA,Non-native,,,,Tragopogon dubius NA
 6,11,2,Phoebe,OHR,1,7,L,28,flr,small,1,yellow,Rosaceae,Potentilla,argentea,NA,Non-native,,,,Potentilla argentea NA
@@ -282,11 +282,11 @@ month,day,week,observer,transect,quadrat,location_m,side,num_units,floral_unit,u
 6,12,2,Phoebe,GBH,5,419,L,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,0,,NA NA NA
 6,12,2,Phoebe,BGP,1,75,L,2,flr,medium,1,pink,Caryophyllaceae,Silene,coronaria,NA,Non-native,,,,Silene coronaria NA
 6,12,2,Phoebe,BGP,2,142,R,1,infl,large,1,pink,Fabaceae,Lathyrus,latifolius,NA,Non-native,,,,Lathyrus latifolius NA
-6,12,2,Phoebe,BGP,3,267,L,1,infl,small,1,yellow,Asteraceae,Ambrosia,chamissonis,NA,Native,,,,Ambrosia chamissonis NA
+6,12,2,Phoebe,BGP,3,267,L,1,infl,small,1,yellow,Asteraceae,Ambrosia,chamissonis,NA,Native,N,,,Ambrosia chamissonis NA
 6,12,2,Phoebe,BGP,3,267,L,4,flr,medium,1,yellow,Hypericaceae,Hypericum,perforatum,NA,Non-native,,,,Hypericum perforatum NA
 6,12,2,Phoebe,BGP,4,396,L,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,0,,NA NA NA
 6,12,2,Phoebe,BGP,5,451,L,1,stm,large,1,white,Asteraceae,Achillea,millefolium,NA,Non-native,Y,,,Achillea millefolium NA
-6,12,2,Phoebe,BGP,5,451,L,1,flr,small,1,pink,Fabaceae,Vicia,sativa,NA,Non-native,,,,Vicia sativa NA
+6,12,2,Phoebe,BGP,5,451,L,1,flr,small,1,pink,Fabaceae,Vicia,sativa,NA,Non-native,Y,,,Vicia sativa NA
 6,12,2,Phoebe,PSP,1,40,R,4,flr,medium,1,yellow,Ranunculaceae,Ranunculus,repens,NA,Non-native,Y,,Mowed recently.,Ranunculus repens NA
 6,12,2,Phoebe,PSP,2,181,L,12,flr,medium,1,yellow,Ranunculaceae,Ranunculus,repens,NA,Non-native,Y,,Mowed recently. ,Ranunculus repens NA
 6,12,2,Phoebe,PSP,3,270,R,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,0,Mowed recently. ,NA NA NA
@@ -305,7 +305,7 @@ month,day,week,observer,transect,quadrat,location_m,side,num_units,floral_unit,u
 6,14,2,Erez,CHP,4,310,R,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,0,,NA NA NA
 6,14,2,Erez,CHP,5,438,L,2,flr,small,1,yellow,Asteraceae,Mycelis,muralis,NA,Non-native,,,,Mycelis muralis NA
 6,14,2,Erez,BHT,1,60,R,11,flr,medium,1,yellow,Asteraceae,Hypochaeris,radicata,NA,Non-native,Y,,,Hypochaeris radicata NA
-6,14,2,Erez,BHT,1,60,R,2,flr,small,1,purple,Caryophyllaceae,Spergularia,macrotheca,NA,NA,NA,,Or S. rubra (non native),Spergularia macrotheca NA
+6,14,2,Erez,BHT,1,60,R,2,flr,small,1,purple,Caryophyllaceae,Spergularia,macrotheca,NA,Native,NA,,Or S. rubra (non native),Spergularia macrotheca NA
 6,14,2,Erez,BHT,2,195,L,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,0,,NA NA NA
 6,14,2,Erez,BHT,3,244,L,3,flr,medium,1,yellow,Asteraceae,Hypochaeris,radicata,NA,Non-native,Y,,,Hypochaeris radicata NA
 6,14,2,Erez,BHT,4,387,R,2,flr,medium,1,yellow,Asteraceae,Hypochaeris,radicata,NA,Non-native,Y,,,Hypochaeris radicata NA
@@ -411,7 +411,7 @@ month,day,week,observer,transect,quadrat,location_m,side,num_units,floral_unit,u
 6,24,3,Phoebe,KMP,4,340,L,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,0,,NA NA NA
 6,24,3,Phoebe,KMP,5,420,R,61,infl,medium,2,white,Brassicaceae,Berteroa,incana,NA,Non-native,,,,Berteroa incana NA
 6,24,3,Phoebe,KMP,5,420,R,24,infl,medium,1,white,Fabaceae,Melilotus,albus,NA,Non-native,,,,Melilotus albus NA
-6,24,3,Phoebe,KMP,5,420,R,6,infl,small,2,purple,Boraginaceae,Anchusa,officinalis,NA,Non-native,,,Update freyas nectaring sheet if not Anchusa officinalis,Anchusa officinalis NA
+6,24,3,Phoebe,KMP,5,420,R,6,infl,small,2,purple,Boraginaceae,Anchusa,officinalis,NA,Non-native,Y,,Update freyas nectaring sheet if not Anchusa officinalis,Anchusa officinalis NA
 6,24,3,Phoebe,RRP,1,7,R,1,stm,large,1,white,Asteraceae,Achillea,millefolium,NA,Non-native,Y,,,Achillea millefolium NA
 6,24,3,Phoebe,RRP,2,173,L,1,stm,medium,1,white,Asteraceae,Achillea,millefolium,NA,Non-native,Y,,,Achillea millefolium NA
 6,24,3,Phoebe,RRP,3,232,R,5,infl,small,1,pink,Apocynaceae,Apocynum,androsaemifolium,NA,Native,,,,Apocynum androsaemifolium NA
@@ -532,16 +532,16 @@ month,day,week,observer,transect,quadrat,location_m,side,num_units,floral_unit,u
 7,6,4,Phoebe,GBH,1,68,L,17,infl,small,1,yellow,Fabaceae,Medicago,lupulina,NA,Non-native,,,,Medicago lupulina NA
 7,6,4,Phoebe,GBH,2,170,R,3,infl,small,1,pink,Fabaceae,Trifolium,hybridum,NA,Non-native,,,,Trifolium hybridum NA
 7,6,4,Phoebe,GBH,2,170,R,5,infl,small,1,yellow,Fabaceae,Medicago,lupulina,NA,Non-native,,,,Medicago lupulina NA
-7,6,4,Phoebe,GBH,2,170,R,15,stm,large,6,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,,,,Tanacetum vulgare NA
+7,6,4,Phoebe,GBH,2,170,R,15,stm,large,6,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,Y,,,Tanacetum vulgare NA
 7,6,4,Phoebe,GBH,2,170,R,54,flr,medium,2,purple,Asteraceae,Cichorium,intybus,NA,Non-native,,,,Cichorium intybus NA
 7,6,4,Phoebe,GBH,2,170,R,7,infl,large,1,white,Apiaceae,Daucus,carota,NA,Non-native,Y,,,Daucus carota NA
 7,6,4,Phoebe,GBH,2,170,R,6,infl,small,1,white,Fabaceae,Melilotus,albus,NA,Non-native,,,,Melilotus albus NA
 7,6,4,Phoebe,GBH,3,245,R,32,infl,medium,1,pink,Fabaceae,Trifolium,hybridum,NA,Non-native,,,,Trifolium hybridum NA
-7,6,4,Phoebe,GBH,3,245,R,1,stm,medium,1,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,,,,Tanacetum vulgare NA
+7,6,4,Phoebe,GBH,3,245,R,1,stm,medium,1,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,Y,,,Tanacetum vulgare NA
 7,6,4,Phoebe,GBH,3,245,R,1,infl,medium,1,white,Apiaceae,Daucus,carota,NA,Non-native,Y,,,Daucus carota NA
 7,6,4,Phoebe,GBH,3,245,R,25,infl,medium,1,pink,Fabaceae,Trifolium,pratense,NA,Non-native,Y,,,Trifolium pratense NA
 7,6,4,Phoebe,GBH,4,396,L,2,infl,medium,1,pink,Fabaceae,Trifolium,hybridum,NA,Non-native,,,,Trifolium hybridum NA
-7,6,4,Phoebe,GBH,4,396,L,9,stm,large,2,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,,,,Tanacetum vulgare NA
+7,6,4,Phoebe,GBH,4,396,L,9,stm,large,2,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,Y,,,Tanacetum vulgare NA
 7,6,4,Phoebe,GBH,5,456,L,14,infl,medium,1,white,Fabaceae,Trifolium,repens,NA,Non-native,Y,,,Trifolium repens NA
 7,6,4,Phoebe,GBH,5,456,L,3,infl,medium,1,pink,Fabaceae,Trifolium,pratense,NA,Non-native,Y,,,Trifolium pratense NA
 7,6,4,Phoebe,CCM,1,20,L,43,stm,medium,1,yellow,Asteraceae,Matricaria,discoidea,NA,Non-native,N,,Mowed since previous visit,Matricaria discoidea NA
@@ -580,13 +580,13 @@ month,day,week,observer,transect,quadrat,location_m,side,num_units,floral_unit,u
 7,7,4,Phoebe,FLT,2,137,L,12,infl,medium,1,white,Fabaceae,Trifolium,repens,NA,Non-native,Y,,,Trifolium repens NA
 7,7,4,Phoebe,FLT,2,137,L,1,infl,small,1,pink,Polemoniaceae,Microsteris,gracilis,NA,Native,,,,Microsteris gracilis NA
 7,7,4,Phoebe,FLT,3,209,R,4,infl,medium,1,purple,Fabaceae,Lupinus,arcticus,NA,Native,,,,Lupinus arcticus NA
-7,7,4,Phoebe,FLT,3,209,R,3,infl,small,1,white,Asteraceae,Anaphalis,margaritacea,NA,Native,,,,Anaphalis margaritacea NA
+7,7,4,Phoebe,FLT,3,209,R,3,infl,small,1,white,Asteraceae,Anaphalis,margaritacea,NA,Native,Y,,,Anaphalis margaritacea NA
 7,7,4,Phoebe,FLT,4,386,R,17,flr,small,1,pink,Caryophyllaceae,Spergularia,rubra,NA,Non-native,,,,Spergularia rubra NA
 7,7,4,Phoebe,FLT,4,386,R,3,infl,small,1,purple,Plantaginaceae,Veronica,americana,NA,Native,,,,Veronica americana NA
 7,7,4,Phoebe,FLT,4,386,R,1,infl,large,1,purple,Plantaginaceae,Penstemon,serrulatus,NA,Native,,,,Penstemon serrulatus NA
-7,7,4,Phoebe,FLT,4,386,R,7,infl,small,1,yellow,Brassicaceae,Rorippa,https://www.inaturalist.org/observations/386733496,NA,NA,NA,,,Rorippa https://www.inaturalist.org/observations/386733496 NA
+7,7,4,Phoebe,FLT,4,386,R,7,infl,small,1,yellow,Brassicaceae,Rorippa,curvisiliqua,NA,Native,NA,,,Rorippa curvisiliqua NA
 7,7,4,Phoebe,FLT,5,437,L,1,infl,small,1,pink,Onagraceae,Epilobium,ciliatum,NA,Native,Y,,,Epilobium ciliatum NA
-7,7,4,Phoebe,FLT,5,437,L,15,infl,medium,1,"white, pink",Fabaceae,Trifolium,hybridum,NA,Non-native,,,,Trifolium hybridum NA
+7,7,4,Phoebe,FLT,5,437,L,15,infl,medium,1,pink,Fabaceae,Trifolium,hybridum,NA,Non-native,,,,Trifolium hybridum NA
 7,7,4,Phoebe,FLT,5,437,L,2,head,medium,1,purple,Asteraceae,Cirsium,edule,NA,Native,,,,Cirsium edule NA
 7,8,4,Phoebe,KSP,1,64,L,3,head,medium,1,yellow,Asteraceae,Grindelia,squarrosa,NA,Native,,,,Grindelia squarrosa NA
 7,8,4,Phoebe,KSP,1,64,L,4,infl,small,1,yellow,Brassicaceae,Sisymbrium,loeselii,NA,Non-native,,,,Sisymbrium loeselii NA
@@ -650,7 +650,7 @@ month,day,week,observer,transect,quadrat,location_m,side,num_units,floral_unit,u
 7,9,4,Phoebe,KMP,5,417,L,49,infl,medium,1,yellow,Brassicaceae,Sisymbrium,loeselii,NA,Non-native,,,,Sisymbrium loeselii NA
 7,9,4,Phoebe,KMP,5,417,L,2,flr,small,1,pink,Malvaceae,Malva,neglecta,NA,Non-native,,,,Malva neglecta NA
 7,9,4,Phoebe,KMP,5,417,L,130,infl,medium,2,white,Brassicaceae,Berteroa,incana,NA,Non-native,,,,Berteroa incana NA
-7,9,4,Phoebe,KMP,5,417,L,48,infl,medium,1,purple,Boraginaceae,Anchusa,officinalis,NA,Non-native,,,,Anchusa officinalis NA
+7,9,4,Phoebe,KMP,5,417,L,48,infl,medium,1,purple,Boraginaceae,Anchusa,officinalis,NA,Non-native,Y,,,Anchusa officinalis NA
 7,9,4,Phoebe,PML,1,67,L,77,infl,small,1,purple,Fabaceae,Medicago,sativa,NA,Non-native,,,,Medicago sativa NA
 7,9,4,Phoebe,PML,1,67,L,2,head,small,1,yellow,Asteraceae,Heterotheca,NA,NA,Native,NA,,All Heterotheca species in BC are native,Heterotheca NA NA
 7,9,4,Phoebe,PML,2,117,L,86,infl,small,1,purple,Fabaceae,Medicago,sativa,NA,Non-native,,,,Medicago sativa NA
@@ -671,7 +671,7 @@ month,day,week,observer,transect,quadrat,location_m,side,num_units,floral_unit,u
 7,10,4,Phoebe,OHR,3,294,R,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,0,,NA NA NA
 7,10,4,Phoebe,OHR,4,370,R,2,stm,medium,1,white,Asteraceae,Achillea,millefolium,NA,Non-native,Y,,,Achillea millefolium NA
 7,10,4,Phoebe,OHR,4,370,R,5,infl,small,1,pink,Apocynaceae,Apocynum,androsaemifolium,NA,Native,,,,Apocynum androsaemifolium NA
-7,10,4,Phoebe,OHR,5,474,L,7,infl,medium,1,yellow,Scrophulariaceae,Verbascum,thapsus,NA,Non-native,,,,Verbascum thapsus NA
+7,10,4,Phoebe,OHR,5,474,L,7,infl,medium,1,yellow,Scrophulariaceae,Verbascum,thapsus,NA,Non-native,N,,,Verbascum thapsus NA
 7,10,4,Phoebe,PBM,1,15,L,9,head,medium,1,"yellow, white",Asteraceae,Tripleurospermum,inodorum,NA,Non-native,Y,,,Tripleurospermum inodorum NA
 7,10,4,Phoebe,PBM,1,15,L,27,flr,small,1,white,Caryophyllaceae,Silene,latifolia,NA,Non-native,Y,,,Silene latifolia NA
 7,10,4,Phoebe,PBM,1,15,L,9,infl,small,1,pink,Fabaceae,Trifolium,hybridum,NA,Non-native,,,,Trifolium hybridum NA
@@ -690,10 +690,10 @@ month,day,week,observer,transect,quadrat,location_m,side,num_units,floral_unit,u
 7,10,4,Phoebe,PBM,5,419,R,1,infl,medium,1,pink,Fabaceae,Trifolium,hybridum,NA,Non-native,,,,Trifolium hybridum NA
 7,10,4,Phoebe,PBM,5,419,R,1,flr,small,1,white,Polemoniaceae,Microsteris,gracilis,NA,Native,,,,Microsteris gracilis NA
 7,10,4,Phoebe,PBM,5,419,R,2,infl,large,1,yellow,Rosaceae,Spiraea,lucida,NA,Native,,,,Spiraea lucida NA
-7,12,4,Freya,BGP,1,66,L,25,stm,large,8,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,,,,Tanacetum vulgare NA
+7,12,4,Freya,BGP,1,66,L,25,stm,large,8,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,Y,,,Tanacetum vulgare NA
 7,12,4,Freya,BGP,1,66,L,9,stm,,2,white,Asteraceae,Achillea,millefolium,NA,Non-native,Y,,,Achillea millefolium NA
 7,12,4,Freya,BGP,1,66,L,9,flr,small,1,purple,Asteraceae,Cirsium,arvense,NA,Non-native,Y,,,Cirsium arvense NA
-7,12,4,Freya,BGP,2,118,R,15,stm,large,2,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,,,,Tanacetum vulgare NA
+7,12,4,Freya,BGP,2,118,R,15,stm,large,2,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,Y,,,Tanacetum vulgare NA
 7,12,4,Freya,BGP,2,118,R,1,infl,large,1,yellow,Apiaceae,Foeniculum,vulgare,NA,Non-native,,,,Foeniculum vulgare NA
 7,12,4,Freya,BGP,3,211,L,22,stm,,2,white,Asteraceae,Achillea,millefolium,NA,Non-native,Y,,,Achillea millefolium NA
 7,12,4,Freya,BGP,3,211,L,6,flr,small,1,purple,Geraniaceae,Erodium,cicutarium,NA,Non-native,,,,Erodium cicutarium NA
@@ -762,7 +762,7 @@ month,day,week,observer,transect,quadrat,location_m,side,num_units,floral_unit,u
 7,20,5,Phoebe,MGT,4,365,R,2,stm,medium,1,white,Rosaceae,Spiraea,lucida,NA,Native,,,,Spiraea lucida NA
 7,20,5,Phoebe,MGT,5,404,L,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,0,,NA NA NA
 7,20,5,Phoebe,FLT,1,12,R,62,infl,medium,1,white,Fabaceae,Trifolium,repens,NA,Non-native,Y,,,Trifolium repens NA
-7,20,5,Phoebe,FLT,2,159,R,2,infl,medium,1,white,Asteraceae,Anaphalis,margaritacea,NA,Native,,,,Anaphalis margaritacea NA
+7,20,5,Phoebe,FLT,2,159,R,2,infl,medium,1,white,Asteraceae,Anaphalis,margaritacea,NA,Native,Y,,,Anaphalis margaritacea NA
 7,20,5,Phoebe,FLT,2,159,R,22,infl,small,1,white,Polemoniaceae,Microsteris,gracilis,NA,Native,,,,Microsteris gracilis NA
 7,20,5,Phoebe,FLT,2,159,R,10,infl,small,1,purple,Orobanchaceae,Pedicularis,racemosa,NA,Native,N,,,Pedicularis racemosa NA
 7,20,5,Phoebe,FLT,2,159,R,9,flr,small,1,white,Onagraceae,Epilobium,ciliatum,NA,Native,Y,,,Epilobium ciliatum NA
@@ -780,7 +780,7 @@ month,day,week,observer,transect,quadrat,location_m,side,num_units,floral_unit,u
 7,21,5,Phoebe,OHR,4,326,R,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,0,,NA NA NA
 7,21,5,Phoebe,OHR,5,418,L,35,infl,small,1,pink,Apocynaceae,Apocynum,androsaemifolium,NA,Native,,,,Apocynum androsaemifolium NA
 7,21,5,Phoebe,RRP,1,16,R,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,0,,NA NA NA
-7,21,5,Phoebe,RRP,2,110,R,9,head,small,1,yellow,Asteraceae,Hieracium,scouleri ,NA,NA,NA,,,Hieracium scouleri  NA
+7,21,5,Phoebe,RRP,2,110,R,9,head,small,1,yellow,Asteraceae,Hieracium,scouleri ,NA,Native,NA,,,Hieracium scouleri  NA
 7,21,5,Phoebe,RRP,3,284,L,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,,,NA NA NA
 7,21,5,Phoebe,RRP,4,398,L,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,,,NA NA NA
 7,21,5,Phoebe,RRP,5,464,R,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,,,NA NA NA
@@ -860,21 +860,21 @@ month,day,week,observer,transect,quadrat,location_m,side,num_units,floral_unit,u
 7,25,5,Phoebe,CCM,5,476,L,15,head,small,1,yellow,Asteraceae,Crepis,capillaris,NA,Non-native,N,,,Crepis capillaris NA
 7,25,5,Phoebe,CCM,5,476,L,5,infl,medium,1,yellow,Asteraceae,Jacobaea,vulgaris,NA,Non-native,Y,,,Jacobaea vulgaris NA
 7,25,5,Phoebe,GBH,1,17,R,8,head,medium,1,blue,Asteraceae,Cichorium,intybus,NA,Non-native,,,,Cichorium intybus NA
-7,25,5,Phoebe,GBH,1,17,R,2,stm,medium,1,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,,,,Tanacetum vulgare NA
+7,25,5,Phoebe,GBH,1,17,R,2,stm,medium,1,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,Y,,,Tanacetum vulgare NA
 7,25,5,Phoebe,GBH,1,17,R,3,head,small,1,white,Asteraceae,Tripleurospermum,inodorum,NA,Non-native,Y,,"All likely species are non-native, Freya confirmed ID",Tripleurospermum inodorum NA
 7,25,5,Phoebe,GBH,2,192,R,6,infl,large,1,white,Apiaceae,Daucus,carota,NA,Non-native,Y,,Moved to quadrat 2 based on photos,Daucus carota NA
-7,25,5,Phoebe,GBH,2,192,R,18,stm,medium,4,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,,,,Tanacetum vulgare NA
+7,25,5,Phoebe,GBH,2,192,R,18,stm,medium,4,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,Y,,,Tanacetum vulgare NA
 7,25,5,Phoebe,GBH,2,192,R,44,infl,medium,1,white,Fabaceae,Melilotus,albus,NA,Non-native,,,,Melilotus albus NA
 7,25,5,Phoebe,GBH,2,192,R,1,head,medium,1,blue,Asteraceae,Cichorium,intybus,NA,Non-native,,,Added based on photo,Cichorium intybus NA
-7,25,5,Phoebe,GBH,3,256,L,34,stm,large,10,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,,,,Tanacetum vulgare NA
+7,25,5,Phoebe,GBH,3,256,L,34,stm,large,10,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,Y,,,Tanacetum vulgare NA
 7,25,5,Phoebe,GBH,3,256,L,4,infl,large,2,white,Apiaceae,Daucus,carota,NA,Non-native,Y,,,Daucus carota NA
-7,25,5,Phoebe,GBH,4,316,L,27,stm,large,9,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,,,,Tanacetum vulgare NA
+7,25,5,Phoebe,GBH,4,316,L,27,stm,large,9,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,Y,,,Tanacetum vulgare NA
 7,25,5,Phoebe,GBH,4,316,L,13,infl,medium,1,purple,Fabaceae,Trifolium,pratense,NA,Non-native,Y,,,Trifolium pratense NA
-7,25,5,Phoebe,GBH,5,475,L,7,stm,large,8,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,,,,Tanacetum vulgare NA
+7,25,5,Phoebe,GBH,5,475,L,7,stm,large,8,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,Y,,,Tanacetum vulgare NA
 7,25,5,Phoebe,GBH,5,475,L,10,head,small,1,purple,Asteraceae,Cirsium,arvense,NA,Non-native,Y,,,Cirsium arvense NA
-7,25,5,Phoebe,BGP,1,96,L,9,stm,medium,2,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,,,,Tanacetum vulgare NA
+7,25,5,Phoebe,BGP,1,96,L,9,stm,medium,2,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,Y,,,Tanacetum vulgare NA
 7,25,5,Phoebe,BGP,1,96,L,3,stm,large,1,white,Asteraceae,Achillea,millefolium,NA,Non-native,Y,,,Achillea millefolium NA
-7,25,5,Phoebe,BGP,2,169,L,21,stm,large,4,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,,,,Tanacetum vulgare NA
+7,25,5,Phoebe,BGP,2,169,L,21,stm,large,4,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,Y,,,Tanacetum vulgare NA
 7,25,5,Phoebe,BGP,3,290,R,26,stm,medium,2,yellow,Hypericaceae,Hypericum,perforatum,NA,Non-native,,,,Hypericum perforatum NA
 7,25,5,Phoebe,BGP,4,384,L,16,infl,small,1,purple,Brassicaceae,Cakile,edentula,NA,Non-native,,,,Cakile edentula NA
 7,25,5,Phoebe,BGP,4,384,L,3,head,small,1,yellow,Asteraceae,Sonchus,arvensis,NA,Non-native,,,,Sonchus arvensis NA
@@ -919,21 +919,21 @@ month,day,week,observer,transect,quadrat,location_m,side,num_units,floral_unit,u
 8,3,6,Phoebe,PSP,3,298,R,1,flr,small,1,yellow,Ranunculaceae,Ranunculus,repens,NA,Non-native,Y,,,Ranunculus repens NA
 8,3,6,Phoebe,PSP,4,369,L,3,infl,large,1,purple,Onagraceae,Chamaenerion,angustifolium,NA,Native,Y,,,Chamaenerion angustifolium NA
 8,3,6,Phoebe,PSP,5,411,L,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,0,,NA NA NA
-8,3,6,Phoebe,BGP,1,84,R,33,stm,large,5,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,,,,Tanacetum vulgare NA
-8,3,6,Phoebe,BGP,2,175,L,3,stm,large,1,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,,,,Tanacetum vulgare NA
+8,3,6,Phoebe,BGP,1,84,R,33,stm,large,5,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,Y,,,Tanacetum vulgare NA
+8,3,6,Phoebe,BGP,2,175,L,3,stm,large,1,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,Y,,,Tanacetum vulgare NA
 8,3,6,Phoebe,BGP,2,175,L,18,infl,small,1,purple,Brassicaceae,Cakile,maritima,NA,Non-native,,,,Cakile maritima NA
 8,3,6,Phoebe,BGP,2,175,L,3,stm,large,1,white,Asteraceae,Achillea,millefolium,NA,Non-native,Y,,,Achillea millefolium NA
 8,3,6,Phoebe,BGP,3,224,R,1,head,medium,1,"yellow, white",Asteraceae,Tripleurospermum,inodorum,NA,Non-native,Y,,,Tripleurospermum inodorum NA
 8,3,6,Phoebe,BGP,4,300,R,107,flr,small,1,yellow,Hypericaceae,Hypericum,perforatum,NA,Non-native,,,,Hypericum perforatum NA
 8,3,6,Phoebe,BGP,5,407,L,2,stm,medium,1,white,Asteraceae,Achillea,millefolium,NA,Non-native,Y,,,Achillea millefolium NA
-8,3,6,Phoebe,GBH,1,89,L,13,stm,large,2,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,,,,Tanacetum vulgare NA
+8,3,6,Phoebe,GBH,1,89,L,13,stm,large,2,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,Y,,,Tanacetum vulgare NA
 8,3,6,Phoebe,GBH,1,89,L,6,infl,large,1,white,Apiaceae,Daucus,carota,NA,Non-native,Y,,,Daucus carota NA
-8,3,6,Phoebe,GBH,2,117,L,21,stm,large,4,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,,,,Tanacetum vulgare NA
-8,3,6,Phoebe,GBH,3,228,R,10,stm,medium,1,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,,,,Tanacetum vulgare NA
+8,3,6,Phoebe,GBH,2,117,L,21,stm,large,4,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,Y,,,Tanacetum vulgare NA
+8,3,6,Phoebe,GBH,3,228,R,10,stm,medium,1,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,Y,,,Tanacetum vulgare NA
 8,3,6,Phoebe,GBH,3,228,R,6,infl,large,1,white,Asteraceae,Daucus,carota,NA,Non-native,Y,,,Daucus carota NA
 8,3,6,Phoebe,GBH,3,228,R,2,infl,small,1,purple,Fabaceae,Trifolium,pratense,NA,Non-native,Y,,,Trifolium pratense NA
-8,3,6,Phoebe,GBH,4,378,R,1,stm,large,1,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,,,,Tanacetum vulgare NA
-8,3,6,Phoebe,GBH,5,424,L,24,stm,large,3,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,,,,Tanacetum vulgare NA
+8,3,6,Phoebe,GBH,4,378,R,1,stm,large,1,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,Y,,,Tanacetum vulgare NA
+8,3,6,Phoebe,GBH,5,424,L,24,stm,large,3,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,Y,,,Tanacetum vulgare NA
 8,3,6,Phoebe,CCM,1,0,R,12,infl,large,1,white,Asteraceae,Daucus,carota,NA,Non-native,Y,,,Daucus carota NA
 8,3,6,Phoebe,CCM,1,0,R,3,head,small,1,yellow,Asteraceae,Crepis,capillaris,NA,Non-native,N,,,Crepis capillaris NA
 8,3,6,Phoebe,CCM,1,0,R,8,head,small,1,yellow,Asteraceae,Senecio,viscosus,NA,Non-native,,,,Senecio viscosus NA
@@ -971,7 +971,7 @@ month,day,week,observer,transect,quadrat,location_m,side,num_units,floral_unit,u
 8,4,6,Phoebe,FLT,5,487,R,3,flr,medium,1,purple,Plantaginaceae,Penstemon,serrulatus,NA,Native,,,,Penstemon serrulatus NA
 8,4,6,Phoebe,FLT,5,487,R,4,head,large,1,"yellow, white",Asteraceae,Leucanthemum,vulgare,NA,Non-native,Y,,,Leucanthemum vulgare NA
 8,4,6,Phoebe,FLT,5,487,R,20,infl,large,2,red,Orobanchaceae,Castilleja,miniata,NA,Native,,,,Castilleja miniata NA
-8,4,6,Phoebe,FLT,5,487,R,1,infl,medium,1,white,Asteraceae,Anaphalis,margaritacea,NA,Native,,,,Anaphalis margaritacea NA
+8,4,6,Phoebe,FLT,5,487,R,1,infl,medium,1,white,Asteraceae,Anaphalis,margaritacea,NA,Native,Y,,,Anaphalis margaritacea NA
 8,5,6,Phoebe,KWL,1,90,L,17,head,small,1,yellow,Asteraceae,Grindelia,squarrosa,NA,Native,,,,Grindelia squarrosa NA
 8,5,6,Phoebe,KWL,1,90,L,36,head,small,1,white,Asteraceae,Centaurea,diffusa,NA,Non-native,,,,Centaurea diffusa NA
 8,5,6,Phoebe,KWL,2,145,R,43,head,small,1,yellow,Asteraceae,Grindelia,squarrosa,NA,Native,,,,Grindelia squarrosa NA
@@ -984,7 +984,7 @@ month,day,week,observer,transect,quadrat,location_m,side,num_units,floral_unit,u
 8,5,6,Phoebe,KWL,5,496,R,44,head,small,1,yellow,Asteraceae,Grindelia,squarrosa,NA,Native,,,,Grindelia squarrosa NA
 8,5,6,Phoebe,KWL,5,496,R,19,infl,small,1,white,Fabaceae,Melilotus,albus,NA,Non-native,,,,Melilotus albus NA
 8,5,6,Phoebe,KWL,5,496,R,1,infl,small,1,purple,Fabaceae,Medicago,sativa,NA,Non-native,,,,Medicago sativa NA
-8,5,6,Phoebe,KWL,5,496,R,32,infl,medium,1,"yellow, white",Asteraceae,Symphyotrichum,ericoides,NA,Native,,,,Symphyotrichum ericoides NA
+8,5,6,Phoebe,KWL,5,496,R,32,infl,medium,1,"yellow, white",Asteraceae,Symphyotrichum,ericoides,NA,Native,Y,,,Symphyotrichum ericoides NA
 8,5,6,Phoebe,RRP,1,47,L,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,0,,NA NA NA
 8,5,6,Phoebe,RRP,2,105,R,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,0,,NA NA NA
 8,5,6,Phoebe,RRP,3,204,R,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,0,,NA NA NA
@@ -1006,12 +1006,12 @@ month,day,week,observer,transect,quadrat,location_m,side,num_units,floral_unit,u
 8,5,6,Phoebe,KMP,4,386,R,17,infl,small,1,white,Brassicaceae,Berteroa,incana,NA,Non-native,,,Mowed as we did transect,Berteroa incana NA
 8,5,6,Phoebe,KMP,5,427,L,22,infl,small,1,white,Brassicaceae,Berteroa,incana,NA,Non-native,,,Mowed as we did transect,Berteroa incana NA
 8,5,6,Phoebe,KMP,5,427,L,4,flr,small,1,purple,Onagraceae,Epilobium,brachycarpum,NA,Native,,,Mowed as we did transect,Epilobium brachycarpum NA
-8,5,6,Phoebe,KMP,5,427,L,73,infl,small,1,purple,Boraginaceae,Anchusa,officinalis,NA,Non-native,,,Mowed as we did transect,Anchusa officinalis NA
+8,5,6,Phoebe,KMP,5,427,L,73,infl,small,1,purple,Boraginaceae,Anchusa,officinalis,NA,Non-native,Y,,Mowed as we did transect,Anchusa officinalis NA
 8,5,6,Phoebe,KMP,5,427,L,1,flr,small,1,white,Caryophyllaceae,Silene,latifolia,NA,Non-native,Y,,Mowed as we did transect,Silene latifolia NA
 8,6,6,Phoebe,PML,1,74,R,29,infl,small,1,purple,Fabaceae,Medicago,sativa,NA,Non-native,,,,Medicago sativa NA
 8,6,6,Phoebe,PML,1,74,R,2,head,small,1,yellow,Asteraceae,Heterotheca,hirsuta,NA,Native,,,H. hirsuta suggested by dougbrown,Heterotheca hirsuta NA
 8,6,6,Phoebe,PML,2,195,L,3,head,small,1,yellow,Asteraceae,Heterotheca,hirsuta,NA,Native,,,,Heterotheca hirsuta NA
-8,6,6,Phoebe,PML,3,236,L,7,infl,small,1,purple,Verbenaceae,Verbena,bracteata,NA,Native,,,,Verbena bracteata NA
+8,6,6,Phoebe,PML,3,236,L,7,infl,small,1,purple,Verbenaceae,Verbena,bracteata,NA,Native,Y,,,Verbena bracteata NA
 8,6,6,Phoebe,PML,4,345,L,52,infl,small,1,purple,Fabaceae,Medicago,sativa,NA,Non-native,,,,Medicago sativa NA
 8,6,6,Phoebe,PML,5,402,L,103,infl,medium,2,white,Fabaceae,Melilotus,albus,NA,Non-native,,,,Melilotus albus NA
 8,6,6,Phoebe,OKF,1,98,L,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,0,,NA NA NA
@@ -1066,7 +1066,7 @@ month,day,week,observer,transect,quadrat,location_m,side,num_units,floral_unit,u
 8,7,6,Phoebe,OHR,5,424,L,1,head,medium,1,yellow,Asteraceae,Grindelia,squarrosa,NA,Native,,,,Grindelia squarrosa NA
 8,7,6,Phoebe,PBM,1,60,R,8,head,small,1,yellow,Asteraceae,Hieracium,umbellatum,NA,Native,,,,Hieracium umbellatum NA
 8,7,6,Phoebe,PBM,1,60,R,71,head,medium,1,purple,Asteraceae,Erigeron,https://www.inaturalist.org/observations/390420404,NA,NA,NA,,Not all E. speciosus see inat https://www.inaturalist.org/observations/390420404,Erigeron https://www.inaturalist.org/observations/390420404 NA
-8,7,6,Phoebe,PBM,2,116,L,1,infl,small,1,yellow,Scrophulariaceae,Verbascum,thapsus,NA,Non-native,,,,Verbascum thapsus NA
+8,7,6,Phoebe,PBM,2,116,L,1,infl,small,1,yellow,Scrophulariaceae,Verbascum,thapsus,NA,Non-native,N,,,Verbascum thapsus NA
 8,7,6,Phoebe,PBM,2,116,L,124,head,medium,2,purple,Asteraceae,Centaurea,stoebe,NA,Non-native,,,,Centaurea stoebe NA
 8,7,6,Phoebe,PBM,2,116,L,49,head,small,1,"yellow, white",Asteraceae,Tripleurospermum,inodorum,NA,Non-native,Y,,,Tripleurospermum inodorum NA
 8,7,6,Phoebe,PBM,3,223,L,1,head,medium,1,purple,Asteraceae,Centaurea,stoebe,NA,Non-native,,,,Centaurea stoebe NA
@@ -1099,10 +1099,10 @@ month,day,week,observer,transect,quadrat,location_m,side,num_units,floral_unit,u
 8,8,6,Phoebe,HRP,4,375,L,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,0,,NA NA NA
 8,8,6,Phoebe,HRP,5,433,L,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,0,,NA NA NA
 8,17,7,Phoebe,BGP,1,28,R,6,flr,small,1,yellow,Hypericaceae,Hypericum,perforatum,NA,Non-native,,,,Hypericum perforatum NA
-8,17,7,Phoebe,BGP,2,140,L,9,stm,large,3,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,,,,Tanacetum vulgare NA
+8,17,7,Phoebe,BGP,2,140,L,9,stm,large,3,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,Y,,,Tanacetum vulgare NA
 8,17,7,Phoebe,BGP,2,140,L,5,stm,large,1,white,Asteraceae,Achillea,millefolium,NA,Non-native,Y,,,Achillea millefolium NA
 8,17,7,Phoebe,BGP,2,140,L,6,infl,large,1,pink,Fabaceae,Lathyrus,latifolius,NA,Non-native,,,,Lathyrus latifolius NA
-8,17,7,Phoebe,BGP,3,240,L,2,stm,medium,1,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,,,No quadrat photo,Tanacetum vulgare NA
+8,17,7,Phoebe,BGP,3,240,L,2,stm,medium,1,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,Y,,No quadrat photo,Tanacetum vulgare NA
 8,17,7,Phoebe,BGP,3,240,L,1,head,small,1,yellow,Asteraceae,Sonchus,arvensis,NA,Non-native,,,,Sonchus arvensis NA
 8,17,7,Phoebe,BGP,4,390,R,4,stm,medium,1,white,Asteraceae,Achillea,millefolium,NA,Non-native,Y,,,Achillea millefolium NA
 8,17,7,Phoebe,BGP,4,390,R,18,infl,large,1,pink,Fabaceae,Lathyrus,latifolius,NA,Non-native,,,,Lathyrus latifolius NA
@@ -1115,19 +1115,19 @@ month,day,week,observer,transect,quadrat,location_m,side,num_units,floral_unit,u
 8,17,7,Phoebe,CCM,3,220,R,1,head,small,1,yellow,Asteraceae,Hypochaeris,radicata,NA,Non-native,Y,,,Hypochaeris radicata NA
 8,17,7,Phoebe,CCM,4,388,R,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,0,,NA NA NA
 8,17,7,Phoebe,CCM,5,489,L,6,head,small,1,yellow,Asteraceae,Senecio,viscosus,NA,Non-native,,,,Senecio viscosus NA
-8,17,7,Phoebe,CCM,5,489,L,1,infl,small,1,yellow,Scrophulariaceae,Verbascum,thapsus,NA,Non-native,,,,Verbascum thapsus NA
+8,17,7,Phoebe,CCM,5,489,L,1,infl,small,1,yellow,Scrophulariaceae,Verbascum,thapsus,NA,Non-native,N,,,Verbascum thapsus NA
 8,17,7,Phoebe,GBH,1,28,L,26,infl,small,1,white,Fabaceae,Melilotus,albus,NA,Non-native,,,,Melilotus albus NA
-8,17,7,Phoebe,GBH,1,28,L,1,stm,medium,1,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,,,,Tanacetum vulgare NA
+8,17,7,Phoebe,GBH,1,28,L,1,stm,medium,1,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,Y,,,Tanacetum vulgare NA
 8,17,7,Phoebe,GBH,1,28,L,3,infl,medium,1,white,Apiaceae,Daucus,carota,NA,Non-native,Y,,,Daucus carota NA
-8,17,7,Phoebe,GBH,2,179,R,6,stm,medium,1,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,,,,Tanacetum vulgare NA
+8,17,7,Phoebe,GBH,2,179,R,6,stm,medium,1,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,Y,,,Tanacetum vulgare NA
 8,17,7,Phoebe,GBH,2,179,R,2,infl,medium,1,white,Apiaceae,Daucus,carota,NA,Non-native,Y,,,Daucus carota NA
 8,17,7,Phoebe,GBH,2,179,R,1,head,small,1,blue,Asteraceae,Cichorium,intybus,NA,Non-native,,,,Cichorium intybus NA
 8,17,7,Phoebe,GBH,3,203,R,212,infl,small,2,white,Fabaceae,Melilotus,albus,NA,Non-native,,,,Melilotus albus NA
-8,17,7,Phoebe,GBH,3,203,R,2,stm,large,1,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,,,,Tanacetum vulgare NA
+8,17,7,Phoebe,GBH,3,203,R,2,stm,large,1,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,Y,,,Tanacetum vulgare NA
 8,17,7,Phoebe,GBH,3,203,R,4,infl,small,1,white,Apiaceae,Daucus,carota,NA,Non-native,Y,,,Daucus carota NA
 8,17,7,Phoebe,GBH,3,203,R,2,infl,small,1,pink,Fabaceae,Trifolium,hybridum,NA,Non-native,,,,Trifolium hybridum NA
-8,17,7,Phoebe,GBH,4,397,R,1,stm,large,1,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,,,,Tanacetum vulgare NA
-8,17,7,Phoebe,GBH,5,459,R,1,stm,large,1,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,,,,Tanacetum vulgare NA
+8,17,7,Phoebe,GBH,4,397,R,1,stm,large,1,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,Y,,,Tanacetum vulgare NA
+8,17,7,Phoebe,GBH,5,459,R,1,stm,large,1,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,Y,,,Tanacetum vulgare NA
 8,17,7,Phoebe,GBH,5,459,R,2,infl,small,1,pink,Fabaceae,Trifolium,hybridum,NA,Non-native,,,,Trifolium hybridum NA
 8,17,7,Phoebe,PSP,1,94,L,15,infl,medium,1,white,Fabaceae,Trifolium,repens,NA,Non-native,Y,,,Trifolium repens NA
 8,17,7,Phoebe,PSP,1,94,L,1,flr,small,1,yellow,Ranunculaceae,Ranunculus,repens,NA,Non-native,Y,,,Ranunculus repens NA
@@ -1167,11 +1167,11 @@ month,day,week,observer,transect,quadrat,location_m,side,num_units,floral_unit,u
 8,25,7,Phoebe,JMS,4,349,R,45,flr,small,1,white,Caryophyllaceae,Silene,vulgaris,NA,Non-native,,,,Silene vulgaris NA
 8,25,7,Phoebe,JMS,4,349,R,1,infl,medium,1,yellow,Brassicaceae,Sisymbrium,loeselii,NA,Non-native,,,,Sisymbrium loeselii NA
 8,25,7,Phoebe,JMS,5,438,L,NA,NA,NA,25,white,Polygonaceae,Eriogonum,niveum,NA,Native,,,,Eriogonum niveum NA
-8,25,7,Phoebe,OHR,1,81,L,1,infl,small,1,yellow,Scrophulariaceae,Verbascum,thapsus,NA,Non-native,,,,Verbascum thapsus NA
+8,25,7,Phoebe,OHR,1,81,L,1,infl,small,1,yellow,Scrophulariaceae,Verbascum,thapsus,NA,Non-native,N,,,Verbascum thapsus NA
 8,25,7,Phoebe,OHR,2,194,L,6,head,medium,1,yellow,Asteraceae,Grindelia,squarrosa,NA,Native,,,,Grindelia squarrosa NA
 8,25,7,Phoebe,OHR,3,249,R,4,infl,medium,1,yellow,Plantaginaceae,Linaria,dalmatica,NA,Non-native,,,,Linaria dalmatica NA
 8,25,7,Phoebe,OHR,4,312,L,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,,,NA NA NA
-8,25,7,Phoebe,OHR,5,493,R,2,infl,small,1,yellow,Scrophulariaceae,Verbascum,thapsus,NA,Non-native,,,,Verbascum thapsus NA
+8,25,7,Phoebe,OHR,5,493,R,2,infl,small,1,yellow,Scrophulariaceae,Verbascum,thapsus,NA,Non-native,N,,,Verbascum thapsus NA
 8,25,7,Phoebe,ABR,1,84,R,5,flr,small,1,pink,Onagraceae ,Epilobium,brachycarpum,NA,Native,,,,Epilobium brachycarpum NA
 8,25,7,Phoebe,ABR,2,169,R,9,flr,small,1,pink,Onagraceae ,Epilobium,brachycarpum,NA,Native,,,,Epilobium brachycarpum NA
 8,25,7,Phoebe,ABR,2,169,R,1,infl,small,1,yellow,Plantaginaceae,Linaria,dalmatica,NA,Non-native,,,,Linaria dalmatica NA
@@ -1186,7 +1186,7 @@ month,day,week,observer,transect,quadrat,location_m,side,num_units,floral_unit,u
 8,25,7,Phoebe,PBM,2,147,L,66,infl,large,12,pink,Onagraceae,Chamaenerion,angustifolium,NA,Native,Y,,,Chamaenerion angustifolium NA
 8,25,7,Phoebe,PBM,3,265,L,7,flr,small,1,purple,Onagraceae,Epilobium,brachycarpum,NA,Native,,,,Epilobium brachycarpum NA
 8,25,7,Phoebe,PBM,3,265,L,1,head,small,1,yellow,Asteraceae,Lactuca,serriola,NA,Non-native,,,,Lactuca serriola NA
-8,25,7,Phoebe,PBM,3,265,L,2,infl,medium,1,yellow,Scrophulariaceae,Verbascum,thapsus,NA,Non-native,,,,Verbascum thapsus NA
+8,25,7,Phoebe,PBM,3,265,L,2,infl,medium,1,yellow,Scrophulariaceae,Verbascum,thapsus,NA,Non-native,N,,,Verbascum thapsus NA
 8,25,7,Phoebe,PBM,4,396,L,4,head,medium,1,pruple,Asteraceae,Centaurea,stoebe,NA,Non-native,,,,Centaurea stoebe NA
 8,25,7,Phoebe,PBM,5,426,R,13,head,small,1,purple,Asteraceae,Cirsium,arvense,NA,Non-native,Y,,,Cirsium arvense NA
 8,25,7,Phoebe,PBM,5,426,R,45,head,small,1,white,Asteraceae,Tripleurospermum,inodorum,NA,Non-native,Y,,,Tripleurospermum inodorum NA
@@ -1282,17 +1282,17 @@ month,day,week,observer,transect,quadrat,location_m,side,num_units,floral_unit,u
 8,31,8,Erez,CCM,3,264,L,3,flr,small,1,yellow,Asteraceae,Hypochaeris,radicata,NA,Non-native,Y,,,Hypochaeris radicata NA
 8,31,8,Erez,CCM,4,315,L,30,infl,small,1,white,Apiaceae,Daucus,carota,NA,Non-native,Y,,,Daucus carota NA
 8,31,8,Erez,CCM,5,400,R,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,,,NA NA NA
-8,31,8,Erez,BGP,1,33,R,3,stm,small,1,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,,,,Tanacetum vulgare NA
-8,31,8,Erez,BGP,2,131,L,24,stm,medium,3,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,,,,Tanacetum vulgare NA
-8,31,8,Erez,BGP,3,253,R,37,stm,medium,2,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,,,,Tanacetum vulgare NA
+8,31,8,Erez,BGP,1,33,R,3,stm,small,1,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,Y,,,Tanacetum vulgare NA
+8,31,8,Erez,BGP,2,131,L,24,stm,medium,3,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,Y,,,Tanacetum vulgare NA
+8,31,8,Erez,BGP,3,253,R,37,stm,medium,2,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,Y,,,Tanacetum vulgare NA
 8,31,8,Erez,BGP,4,333,R,1,flr,small,1,yellow,Asteraceae,Hypochaeris,radicata,NA,Non-native,Y,,,Hypochaeris radicata NA
 8,31,8,Erez,BGP,4,333,R,1,flr,small,1,yellow,Hypericaceae,Hypericum,perforatum,NA,Non-native,,,,Hypericum perforatum NA
 8,31,8,Erez,BGP,5,499,L,1,stm,small,1,white,Asteraceae,Achillea,millefolium,NA,Non-native,Y,,,Achillea millefolium NA
 8,31,8,Erez,GBH,1,95,L,15,infl,small,1,white,Apiaceae,Daucus,carota,NA,Non-native,Y,,,Daucus carota NA
 8,31,8,Erez,GBH,2,185,R,3,infl,small,1,white,Apiaceae,Daucus,carota,NA,Non-native,Y,,,Daucus carota NA
-8,31,8,Erez,GBH,2,185,R,1,stm,small,1,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,,,,Tanacetum vulgare NA
+8,31,8,Erez,GBH,2,185,R,1,stm,small,1,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,Y,,,Tanacetum vulgare NA
 8,31,8,Erez,GBH,3,231,L,2,infl,small,1,white,Apiaceae,Daucus,carota,NA,Non-native,Y,,,Daucus carota NA
-8,31,8,Erez,GBH,4,396,R,1,stm,small,1,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,,,,Tanacetum vulgare NA
+8,31,8,Erez,GBH,4,396,R,1,stm,small,1,yellow,Asteraceae,Tanacetum,vulgare,NA,Non-native,Y,,,Tanacetum vulgare NA
 8,31,8,Erez,GBH,5,407,L,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,,,NA NA NA
 9,1,8,Erez,CHP,1,84,L,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,,,NA NA NA
 9,1,8,Erez,CHP,2,151,L,0,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,,,NA NA NA
